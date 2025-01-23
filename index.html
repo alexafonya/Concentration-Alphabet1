@@ -4,246 +4,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Home Work</title>
+    <meta name="google" content="notranslate">
+    <title>Concentration Alphabet</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- <script src="js/scriptEng.js" defer></script> -->
+    <script src="js/script.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
 </head>
 
 <body>
-    <header>
-        <section id="cont">
-            <div><a href=""><img src="images/icons8-telephone-25.png"> Call : +01 123455678990</a></div>
-            <div><a href=""><img src="images/icons8-email-24.png"> Email : demo@gmail.com</a></div>
-        </section>
-        <section id="headerMain">
-            <div id="logo">
-                <div>
-                    INANCE
-                </div>
-                <nav>
-                    <span><a href="">Home</a></span>
-                    <span><a href="">About</a></span>
-                    <span><a href="">Services</a></span>
-                    <span><a href="">Contact Us</a></span>
-                </nav>
-            </div>
-            <div id="titulList">
-                <div>
-                    <div>
-                        <h1>
-                            <span>Repair and</span>
-                            <span>Maintenance</span>
-                            <span>Services</span>
-                        </h1>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui harum voluptatem adipisci. Quos
-                            molestiae saepe dicta nobis pariatur, tempora iusto, ad possimus soluta hic praesentium
-                            mollitia
-                            consequatur beatae, aspernatur culpa.
-                        </p>
-                        <a href=""><input type="submit" value="CONTACT US"></a>
-                    </div>
-                    <div id="headImg"></div>
-                </div>
-            </div>
-        </section>
-        <div id="menu">
-            <div>
-                <img src="images/tools.svg" alt="">
-                <span>REPAIR</span>
-            </div>
-            <div id="menuCenter">
-                <img src="images/construction.svg  " alt="">
-                <span>IMPROVE</span>
-            </div>
-            <div>
-                <img src="images/maintenance.svg" alt="">
-                <span>MAINTAIN</span>
-            </div>
-        </div>
-    </header>
-    <main>
-        <!-- about us -->
-        <section id="about">
-            <div>
-                <div id="AboutItem">
-                    <h2>
-                        ABOUT US
-                    </h2>
-                    <p>
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                        alteration in some form, by injected humour, or randomisedThere are many variations of passages
-                        of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected
-                        humour, or randomised
-                    </p>
-                    <input type="submit" value="READ MORE">
-                </div>
-                <div id="aboutImg"></div>
-            </div>
+    <div id="top">
 
-        </section>
-        <!-- We Provide Professional -->
-        <section id="WeProvide">
-            <div>
-                <div id="MujikImg"></div>
+        <!-- Timer  -->
 
-                <div id="WeProvideItem">
-                    <h2>
-                        <span>WE PROVIDE PROFESSIONAL</span>
-                        <span>HOME SERVICES.</span>
-                    </h2>
-                    <p>
-                        randomised words which don't look even slightly believable. If you are going to use a passage of
-                        Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
-                        All randomised words which don't look even slightly
-                    </p>
-                    <input type="submit" value="READ MORE">
+        <div id="top2">
+            <div id="f1"> <!--f1-->
+                <div id="TimeOnOff">
+                    <button id="playTime" class="play"></button>
+                    <button id="stopTime" class="play"></button>
                 </div>
-            </div>
-        </section>
-        <!-- Our Services -->
-        <section>
-            <div id="services">
-                <h2>OUR SERVICES</h2>
-                <div>
+                <!-- <span class="slider round"></span> -->
+                <div id="f2_2"> <!--timer2-->
                     <div>
-                        <img src="images/s1.png" alt="">
-                        <h3>Maintenance</h3>
-                        <p>when looking at its layout. The point of using Lorem
-                            Ipsum is that it has a more-or-less
-                            normal</p>
+                        <input type="range" id="start" min="60" max="1200" step="60" value="60">
                     </div>
-                    <div>
-                        <img src="images/s2.png" alt="">
-                        <h3>Electrical</h3>
-                        <p>when looking at its layout. The point of using Lorem
-                            Ipsum is that it has a more-or-less
-                            normal</p>
-                    </div>
-                    <div>
-                        <img src="images/s3.png" alt="">
-                        <h3>Plumbing</h3>
-                        <p>when looking at its layout. The point of using Lorem
-                            Ipsum is that it has a more-or-less
-                            normal</p>
-                    </div>
-                </div>
-                <input type="submit" value="VIEW MORE">
-            </div>
-        </section>
-        <!-- What Our Clients Say -->
-        <section>
-            <div id="clientsSay">
-                <h2>WHAT OUR CLIENTS SAY</h2>
-                <div>
-                    <div class="client">
-                        <div>
-                            <img src="images/client-1.jpg" alt="">
-                            <span>
-                                <div>Jorch Morik</div>
-                                <div>
-                                    <img src="images/star-24.png" alt="">
-                                    <img src="images/star-24.png" alt="">
-                                    <img src="images/star-24.png" alt="">
-                                    <img src="images/star-24.png" alt="">
-                                    <img src="images/star-24.png" alt="">
-                                </div>
-                            </span>
-                            <span>&#8220</span>
+                    <span id="line">
+                        <div id="shpic">
+                            <div> | </div>
+                            <div> | </div>
+                            <div> | </div>
+                            <div> | </div>
+                            <div> | </div>
                         </div>
-                        <p>
-                            chunks as necessary, making this the first true generator on
-                            the Internet. It uses a dictionary of over 200 Latin words,
-                            combined with a handful of model sentence structures, to
-                            generate Lorem Ipsum
-                        </p>
-                    </div>
-
-                    <div class="client">
-                        <div>
-                            <img src="images/client-2.jpg" alt="">
-                            <span>
-                                <div>Jorch Morik</div>
-                                <div>
-                                    <img src="images/star-24.png" alt="">
-                                    <img src="images/star-24.png" alt="">
-                                    <img src="images/star-24.png" alt="">
-                                    <img src="images/star-24.png" alt="">
-                                    <img src="images/star-24.png" alt="">
-                                </div>
-                            </span>
-                            <span>&#8220</span>
+                        <div id="numb">
+                            <div id="1">1min.</div>
+                            <div id="2">5min.</div>
+                            <div id="3">10min.</div>
+                            <div id="4">15min.</div>
+                            <div id="5">20min.</div>
                         </div>
-                        <p>
-                            chunks as necessary, making this the first true generator on
-                            the Internet. It uses a dictionary of over 200 Latin words,
-                            combined with a handful of model sentence structures, to
-                            generate Lorem Ipsum
-                        </p>
+                    </span>
+                </div>
+                <div id="timeCount">
+                    <p id="countdown"></p>
+                    <input class="form" type="text" id="dublicate" value="01 : 00" readonly>
+                </div>
+            </div>
+            <!-- Start -->
+            <div id="f2"> <!--screen-->
+                <label for="fullScr"></label>
+                <input id="fullScr" type="submit" class="scr" value="Full Screen">
+                <!-- <input type="submit" onclick="getWidth()"> -->
+            </div>
+            <div id="f3">
+                <div id="f3_1">
+
+                    <div id="f3_1_2"> <!--f2-->
+                        <button id="plus" onclick="setTime();setSise(); newLetters (); setTimer()">Speed +</button>
+                        <label for="speed"></label>
+                        <input type="number" name="number" class="form" id="speed" 
+                        oninput="this.value = this.value.slice(0, 4)" min="500" max="5000" value="1200"
+                            step="100">
+                        <button id="minus" onclick="setTime();setSise(); newLetters (); setTimer()">Speed -</button>
                     </div>
-                    <span>&#8592</span><span>&#8594</span>
-                </div>
-            </div>
-        </section>
-        <!-- Contact Us -->
-        <section id="contactUs">
-            <div>
-                <h2>CONTACT US</h2>
-            </div>
-            <div>
-                <div id="form">
-                    <form action="">
-                        <input class="form" type="name" placeholder="Name">
-                        <input class="form" type="phone" placeholder="Phone Number">
-                        <input class="form" type="email" placeholder="Email">
-                        <textarea class="form" name="Message" id="mes" placeholder="Message"></textarea>
-                    </form>
-                </div>
-                <div id="map">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.802375238888!2d34.7999698754918!3d31.966257674013026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502b4468058e20f%3A0xf69804637ef93ee7!2sThe%20old%20central%20station!5e0!3m2!1sru!2sil!4v1733363625607!5m2!1sru!2sil"
-                        width="100%" height="370" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-            <div id="button"><input type="submit" value="SEND"></div>
-        </section>
-    </main>
 
-    <footer>
-        <div>
-            <h2>GET IN TOUCH</h2>
-        </div>
-        <div>
-            <span><a href=""><img src="images/gpsWight.png" alt=""></a></span>
-            <span id="line">
-                <span>
-                    <hr>
-                </span>
-                <span><a href=""><img src="images/phoneWight.png" alt=""></a></span>
-                <span>
-                    <hr>
-                </span>
-            </span>
-            <span><a href=""><img src="images/mailWight.png" alt=""></a></span>
-        </div>
-        <div>
-            <span>Lorem Ipsum is simply dummy text</span>
-            <span>+02 1234567890</span>
-            <span>demo@gmail.com</span>
-            <div>
-                <h2>FOLLOW US</h2>
-                <div>
-                    <a href="https://www.messenger.com/t/Username" target="_blank"><img src="images/facebook-f-21.png" alt=""></a>
-                    <a href="https://x.com/?lang=ru" target="_blank"><img src="images/twitter-21.png" alt=""></a>
-                    <a href="https://www.youtube.com/" target="_blank"><img src="images/youtube-logo-21.png" alt=""></a>
-                    <a href="https://www.instagram.com/" target="_blank"><img src="images/instagram-21.png" alt=""></a>
+                </div>
+                <div id="startReset">
+                    <!-- <div id="f3_1_1">
+                        <label for="time"></label>
+                        <input onclick="setTime();setSise(); newLetters (); setTimer()"
+                            type="submit" id="time" value=" Speed / Sise " >
+                    </div> -->
+                    <div id="f3_2_2">
+                        <label for="sise"></label>
+                        <input onclick="reset()" type="submit" id="sise" value="    Reset    ">
+                    </div>
+                </div>
+                <!-- font sise control  -->
+                <div id="f3_2"> <!--shrift-->
+                    <div id="f3_2_1">
+                        <div id="Mix">M I X</div>
+                        <button class="plus">Sise +</button>        
+                            <input type="number" name="letters" class="form" onclick="setSise()"
+                            oninput="this.value = this.value.slice(0, 3)" id="fill" min="20" max="150" placeholder="" value="100"
+                                step="10" readonly>
+                        <button class="minus">Sise -</button>
+                    </div>
+
+                </div>
+                <!-- Extro -->
+            </div>
+            <div id="f4"> <!--f3-->
+                <div id="f4_1">
+                    <div id="su">
+                        <input type="submit" id="super" onclick="superExtra()" value="ExMix">
+                       
+                    </div>
+                    <div id="O">
+                        <input onclick="startApp()" type="submit" id="On" value="Extra">
+                       
+                    </div>
+                    <div id="co">
+                        <input type="checkbox" onclick=" " id="color" name="ChangeColor" value="just">
+                        <label class="input" for="color">Color</label>
+                    </div>
+                    <div id="CoEx">
+                        <input type="checkbox" onclick="" id="ColorExt" name="ChangeColor" value="Ext">
+                        <label class="input" for="ColorExt">CoMix</label>
+                    </div>
+
+                </div>
+
+                <div id="language">
+                    <div id="R"><button id="ru">Ru</button></div>              
+                    <div id="E"><button id="en">En</button></div>
+                    <div id="H"><button id="he">He</button></div>
+                </div>
+                <div id="the">
+                    <input type="checkbox" id="theme" name="ChangeColor" value="just">
+                    <label id="theme" for="theme">Dark screen</label>
+                </div>
+                <div id="open">
+                    <button id="openModal">Help!</button>
+                </div>
+               
+                <div id="help">            
+                    <div id="btnHelp">
+                        <div id="modal" class="modal">
+                            <div class="modal-content">
+                                <button class="close">close</button>
+                                <h2>Приложение "Алфавит концентрации"</h2>
+                                <p> Цель этого приложения развивать скорость и гибкость мышления!</p>
+                                <p>
+                                    Всего 5 - 10 минут в день, в разы увеличат мозговую активность,
+                                    а КПД вашего мозга повысится на 15% - 30%.
+                                </p>
+                                <p>Как это работает:</p>
+                                <p>
+                                    Перед вами на пустом экране, в хаотичном порядке
+                                    появляются две буквы.Верхняя буква, это любая буква алфавита от "А" до "Я".
+                                    Нижняя буква одна из трех букв:
+                                </p>
+                                <p>
+                                    "Л" - левая рука. <br>
+                                    "П" - правая рука. <br>
+                                    "О" - обе руки.
+                                </p>
+                                <p>
+                                    Ваша задача назвать верхнюю букву (любая буква алфавита) вслух!
+                                    И одновременно поднять вверх руку. (Левую, правую или обе руки.)
+                                    Ту, которую показывает нижняя буква.
+                                </p>
+
+                                <p>
+                                    В верней части экрана, вы найдете меню настроек.
+                                    Где можно увеличить или уменьшить скорость появления букв,
+                                    а так же их величину.
+                                    В левой части меню находится таймер. В правой части есть разные способы
+                                    изменения сложности, где вы можете менять цвета букв, хаотичный размер
+                                    шрифта, а так же поменять фон с белого на черный. И возможность выбора
+                                    языка: Рус/Анг/Ивр.
+                                </p>
+
+                            </div>
+                        </div>
+                        <div id="modalEn" class="modal">
+                            <div class="modal-content">
+                                <button class="close">close</button>
+                                <h2>Application "Concentration Alphabet"</h2>
+                                <p>
+                                    The purpose of this application is to develop speed and flexibility of thinking!
+                                </p>
+
+                                <p>
+                                    Just 5 - 10 minutes a day will significantly increase brain activity,
+                                    and the efficiency of your brain will increase by 15% - 30%.
+                                </p>
+
+                                <p>How does this work:</p>
+                                <p>
+                                    In front of you on a blank screen, in a chaotic order
+                                    two letters appear.
+                                    The top letter is any letter of the alphabet from “A” to “Z”.
+                                    The lower letter is one of three letters:
+                                </p>
+                                <p>
+                                    "L" - left hand. <br>
+                                    "R" - right hand. <br>
+                                    "B" - both hands.
+                                </p>
+                                <p>
+                                    Your task is to name the top letter (any letter of the alphabet) out loud!
+                                    And at the same time raise your hand up. (Left, right or both hands.)
+                                    The one shown by the lower letter.
+                                </p>
+
+                                <p>
+                                    At the top of the screen, you will find the settings menu.
+                                    Where you can increase or decrease the speed at which letters appear,
+                                    as well as their size.
+                                </p>
+
+                                <p>
+                                    There is a timer on the left side of the menu. On the right side there are different 
+                                    ways to change the difficulty, 
+                                    where you can change letter colors, chaotic size font, and also 
+                                    change the background from white to black. And the opportunity to
+                                    choose Languages: Russian/English/Hebrew.
+                                </p>
+
+
+                            </div>
+                        </div>
+                        <div id="modalHe" class="modal">
+                            <div class="modal-content">
+                                <button class="close">close</button>
+                                <h2>"יישום "אלפבית של ריכוז</h2>
+
+
+                                <p>!מטרת אפליקציה זו היא לפתח מהירות וגמישות חשיבה</p>
+
+                                <p>
+                                    רק 5 - 10 דקות ביום יגדילו משמעותית את פעילות המוח,
+                                    והיעילות של המוח שלך תגדל ב-15% - 30%.
+                                </p>
+
+                                <p>איך זה עובד:</p>
+                                <p>
+                                    מולך על מסך ריק, בסדר כאוטי
+                                    מופיעות שתי אותיות.
+                                    האות העליונה היא כל אות באלפבית מ-"א" עד
+                                    "ב"
+                                    האות התחתונה היא אחת משלוש אותיות:
+                                </p>
+                                <p>
+                                    שמ" - יד שמאל" <br>
+                                    ימ" - יד ימין" <br>
+                                    יח" - שתי הידיים"
+                                </p>
+                                <p>
+                                    המשימה שלך היא לתת שם לאות העליונה (כל אות באלפבית) בקול רם!
+                                    ובאותו הזמן להרים את היד למעלה. (שמאל, ימין או שתי הידיים.)
+                                    זה שמוצג באות התחתונה.
+                                </p>
+
+                                <p>
+                                    בחלק העליון של המסך, תמצאו את תפריט ההגדרות.
+                                    איפה אתה יכול להגדיל או להקטין את המהירות שבה מופיעות אותיות,
+                                    כמו גם הגודל שלהם.
+                                </p>
+
+                                <p>
+                                    יש טיימר בצד ימין של התפריט. יש דרכים שונות
+                                    קושי משתנה בצד שמאל, שבו אתה יכול לשנות צבעי אותיות, גודל כאוטי
+                                    גופן, וגם לשנות את הרקע מלבן לשחור. וההזדמנות לבחור
+                                    שפות: רוסית/אנגלית/עברית.
+
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <hr>
-        <span id="bottom">© 2024 All Rights Reserved By Free Html Templates</span>
-    </footer>
+    </div>
+
+
+    <audio id="final" style="display: none;" controls src="audio/obratnyiy-otschet-jenschina.mp3"></audio>
+
+
+
+    <!-- буквы -->
+
+    <div id="Win">
+        <div id="window">
+            <div id="Error"></div>
+            <div id="Error2"></div>
+            <input id="clean" type="submit" class="butt" value="скрыть панель">
+            <div id="block">
+                <p id="alfavit"></p>
+                <p id="hand"></p>
+            </div>
+        </div>
+    </div>
 
 </body>
 
