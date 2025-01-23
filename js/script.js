@@ -77,8 +77,11 @@ var ALFeng = [
  let modal2 = document.querySelector('#modal');
  
 const changeLengRus = () =>{
+    document.getElementById("min").textContent = " Размер -"
+    document.getElementById("plu").textContent = " Размер +"
     document.getElementById("fullScr").value = " Весь экран "
-    document.getElementById("time").value = " Скор./Масш. "
+    document.getElementById("minus").textContent = " Скорость -"
+    document.getElementById("plus").textContent = " Скорость +"
     document.getElementById("sise").value = "    Сброс    "
     document.getElementById("On").value =  "Супер"
     document.getElementById("super").value = "С.Микс"
@@ -95,8 +98,11 @@ const changeLengRus = () =>{
     document.getElementById("5").innerText = "20мин"
 }
 const changeLengEng = () =>{
+     document.getElementById("min").textContent = " Sise -"
+    document.getElementById("plu").textContent = " Sise +"
     document.getElementById("fullScr").value = " Full screen "
-    document.getElementById("time").value = " Speed / Sise "
+     document.getElementById("minus").textContent = " Speed -"
+    document.getElementById("plus").textContent = " Speed +"
     document.getElementById("sise").value = "   Reset   "
     document.getElementById("On").value =  "Extra"
     document.getElementById("super").value = "ExMix"
@@ -113,8 +119,11 @@ const changeLengEng = () =>{
     document.getElementById("5").innerText = "20min"
 }
 const changeLengHeb = () =>{
+    document.getElementById("min").textContent = "- גוֹדֶל "
+    document.getElementById("plu").textContent = "+ גוֹדֶל "
     document.getElementById("fullScr").value = " מסך מלא "
-    document.getElementById("time").value = " מְהִירוּת / גוֹדֶל "
+    document.getElementById("minus").textContent = "-  מְהִירוּת "
+    document.getElementById("plus").textContent = "+  מְהִירוּת "
     document.getElementById("sise").value = "   אִתחוּל   "
     document.getElementById("On").value =  "תוֹסֶפֶת"
     document.getElementById("super").value = "מיקס"
@@ -156,26 +165,7 @@ const changeLengHeb = () =>{
         document.getElementById("ru").style.transition = "0.7s";
      })
     en.addEventListener("click", function () {  
-        // setTime();      
-        error = document.getElementById('time');
-        error.addEventListener("click", function(){
-            if (document.getElementById("speed").value < 500){
-                document.querySelector("#Error").innerHTML =  `Too fast!  The interval should not be less than "500"!`;
-                document.querySelector("#Error").style.left = "20%";
-                document.querySelector("#Error").style.top = "15%";
-            } if (document.getElementById("speed").value > 5000){
-                document.querySelector("#Error").innerHTML =  `Too slow!  The interval should not be greater than "5000"!`;
-                document.querySelector("#Error").style.left = "16%";
-                document.querySelector("#Error").style.top = "45%";
-            }
-            if ( document.getElementById("fill").value > 150){
-                document.querySelector("#Error2").innerHTML =  `The  size  of  letters  should  not  exceed   '150' !`;
-            } if(document.getElementById("fill").value < 20){
-                document.querySelector("#Error2").innerHTML =  `The size of the letters should not be less than "20"!`;
-                document.querySelector("#Error2").style.left = "20%";
-        document.querySelector("#Error2").style.top = "45%";
-            } 
-        })
+        setTime();      
         changeLengEng();
         close.onclick() 
         modal = modal1;   
@@ -193,28 +183,9 @@ const changeLengHeb = () =>{
         document.getElementById("ru").style.fontSize = "14px"
         document.getElementById("ru").style.transition = "0.7s";
         document.getElementById("he").style.fontSize = "14px"
-        document.getElementById("he").style.transition = "0.7s";
-    
+        document.getElementById("he").style.transition = "0.7s"; 
      })
     ru.addEventListener("click", function () {
-        error = document.getElementById('time');
-        error.addEventListener("click", function(){
-            if (document.getElementById("speed").value < 500){
-                document.querySelector("#Error").innerHTML =  `Слишком быстро!  Интервал не должен быть меньше "500" !`;
-                document.querySelector("#Error").style.left ="13%"
-            } if (document.getElementById("speed").value > 5000){
-                document.querySelector("#Error").innerHTML =  `Слишком медленно!  Интервал не должен быть больше "5000" !`;
-                 document.querySelector("#Error").style.left ="10%"
-            }
-            if ( document.getElementById("fill").value > 150){
-                document.querySelector("#Error2").innerHTML =  `Размер букв не должен превышать "150" !`;
-               
-            } if(document.getElementById("fill").value < 20){
-                document.querySelector("#Error2").innerHTML =  `Размер букв не должен быть меньше "20" !`;
-                 document.querySelector("#Error2").style.left = "25% "
-            } 
-        
-        })
         changeLengRus();
         close.onclick() 
         modal = modal2;            
@@ -230,10 +201,7 @@ const changeLengHeb = () =>{
         document.getElementById("en").style.transition = "0.7s";
         document.getElementById("he").style.fontSize = "14px"
         document.getElementById("he").style.transition = "0.7s";
-
      })
-
-
  })
 
  var Play = document.getElementById("playTime");
@@ -300,6 +268,7 @@ Play.addEventListener("click", function() {
     Play.style.backgroundColor = "rgb(100, 121, 255)"  
      Play.style.transition = "0.5s"
 })
+
 Play.addEventListener("mouseleave",function(){
     Play.style.backgroundColor = "rgb(230, 230, 230)"
      Play.style.transition = "0.5s"
@@ -385,7 +354,7 @@ var Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters(
 
 ExMix = document.getElementById("super");
 Ex = document.getElementById("On");
-Speed = document.getElementById("time");
+Speed = document.getElementById("speed");
 
 colorSimle.addEventListener("click", function () {
     resetExtColor();
@@ -443,7 +412,6 @@ function newHands() {
         let j = Math.floor(Math.random() * (i + 1));
         [HAND[i], HAND[j]] = [HAND[j], HAND[i]];
         console.log(`NEWHAND = ${HAND}`)
-
     }
 }
 
@@ -451,7 +419,6 @@ function randomLetters() {
     document.getElementById("alfavit").innerText = ALF[alfIndex];
     alfIndex = (alfIndex + 1) % ALF.length;
     console.log(alfIndex)
-
 }
 
 const randomHands = () => {
@@ -469,8 +436,6 @@ colorExtra.addEventListener("click", function () {
 
     }
 })
-
-
 
 // Расположение Букв
 
@@ -556,7 +521,7 @@ let setFont =() =>{
     } else if(SHRIFT <= 150){
         console.log("130-150")
         LEFT = Math.floor(Math.random() * 90);      
-        TOP = Math.floor(Math.random() * 46);
+        TOP = Math.floor(Math.random() * 45);
         document.getElementById("block").style.left = LEFT + '%';
         document.getElementById("block").style.top = TOP + '%';
     }
@@ -565,11 +530,11 @@ let setFont =() =>{
 
 //  Размер Шрифта
 
-$('.minus').click(function(){
+$('#min').click(function(){
       $(this).siblings('input')[0].stepDown();
       setSise()
   })
-  $('.plus').click(function(){  
+  $('#plu').click(function(){  
       $(this).siblings('input')[0].stepUp(); 
       setSise()
     })
@@ -586,28 +551,29 @@ function setSise() {
     SHRIFT = document.getElementById("fill").value;
     console.log(SHRIFT)
     ERROR = document.querySelector("#Error2").style.display =  "none";
-    if ( SHRIFT > 150){
-        ERROR = document.querySelector("#Error2").style.display =  "block";
-        document.querySelector("#Error2").innerHTML =  `The  size  of  letters  should  not  exceed   '150' !`;
-        document.querySelector("#Error2").style.position = "reletive";
-        document.querySelector("#Error2").style.left = "25%";
-        document.querySelector("#Error2").style.top = "45%";
-        document.querySelector("#Error2").style.fontSize = "45px";   
-        document.querySelector("#Error2").style.color = "red";
-        document.querySelector("#block").style.display = "none";
-    } if(SHRIFT < 20){
-        ERROR = document.querySelector("#Error2").style.display =  "block";
-        document.querySelector("#Error2").innerHTML =  `The size of the letters should not be less than "20"!`;
-        document.querySelector("#Error2").style.position = "reletive";
-        document.querySelector("#Error2").style.left = "20%";
-        document.querySelector("#Error2").style.top = "45%";
-        document.querySelector("#Error2").style.fontSize = "45px";   
-        document.querySelector("#Error2").style.color = "red";
-        document.querySelector("#block").style.display = "none";
-    } else{   
+            // if ( SHRIFT > 150){
+            // //     ERROR = document.querySelector("#Error2").style.display =  "block";
+            // //     document.querySelector("#Error2").innerHTML =  `The  size  of  letters  should  not  exceed   '150' !`;
+            // //     document.querySelector("#Error2").style.position = "reletive";
+            // //     document.querySelector("#Error2").style.left = "25%";
+            // //     document.querySelector("#Error2").style.top = "45%";
+            // //     document.querySelector("#Error2").style.fontSize = "45px";   
+            // //     document.querySelector("#Error2").style.color = "red";
+            // //     document.querySelector("#block").style.display = "none";
+            // // } if(SHRIFT < 20){
+            // //     ERROR = document.querySelector("#Error2").style.display =  "block";
+            // //     document.querySelector("#Error2").innerHTML =  `The size of the letters should not be less than "20"!`;
+            // //     document.querySelector("#Error2").style.position = "reletive";
+            // //     document.querySelector("#Error2").style.left = "20%";
+            // //     document.querySelector("#Error2").style.top = "45%";
+            // //     document.querySelector("#Error2").style.fontSize = "45px";   
+            // //     document.querySelector("#Error2").style.color = "red";
+            // //     document.querySelector("#block").style.display = "none";
+            // // } else{   
+            
+            // }
     document.getElementById('alfavit').style.fontSize = SHRIFT + 'px';
     document.getElementById('hand').style.fontSize = SHRIFT + 'px';
-    }
 }
 
 function reset() {
@@ -784,7 +750,7 @@ function setTime() {
     document.getElementById("Mix").style.display = "none";
     document.getElementById("fill").style.display = "block";
     const HOLD = document.getElementById("speed").value;
-    document.querySelector("#speed").innerText = HOLD;
+    document.getElementsByClassName(".time").innerText = HOLD;
     colorExtra.addEventListener("click", function () {
         if (this.checked) {
             if (HOLD == Times_3) {
@@ -808,6 +774,7 @@ function setTime() {
     TimesColor = colorSimle.addEventListener("click", function () {
         if (this.checked) {
             if (HOLD == Times_3) {
+                
                 clear();
                 setInterval(function () { randomHands(), setFont(), setColor(), randomLetters() }, set);
             } else {
@@ -847,8 +814,10 @@ function superExtra() {
     clear();
     resetColor();
     resetExtColor();
+    document.getElementById("Mix").style.display = "block"; 
+    document.getElementById("fill").style.display = "none";
     const HOLD = document.getElementById("speed").value;
-    document.querySelector("#speed").innerText = HOLD;
+    document.getElementsByClassName(".time").innerText = HOLD;
     colorExtra.addEventListener("click", function () {
         if (this.checked) {
             if (HOLD == Times_3) {
@@ -938,11 +907,11 @@ function superExtra() {
 function startApp() {
     clear();
     resetColor();
-    resetExtColor();
+    resetExtColor();                
     document.getElementById("Mix").style.display = "none";
     document.getElementById("fill").style.display = "block";
     const HOLD = document.getElementById("speed").value;
-    document.querySelector("#speed").innerText = HOLD;
+    document.getElementsByClassName(".time").innerText = HOLD;
     colorExtra.addEventListener("click", function () {
         if (this.checked) {
             if (HOLD == Times_3) {
@@ -1158,12 +1127,10 @@ function superExtraLet() {
     TOP = Math.floor(Math.random() * 60);
     document.getElementById("block").style.left = LEFT + '%';
     document.getElementById("block").style.top = TOP + '%';
-    document.getElementById("Mix").style.display = "block";
-    document.getElementById("fill").style.display = "none";
-    
+    // document.getElementById("plu").innerText = SISE
+  
   
 }
-
 
 function superExtraHan() {
     let SISE = Math.floor((Math.random() * 100) + 30);
@@ -1173,6 +1140,7 @@ function superExtraHan() {
     TOP = Math.floor(Math.random() * 60);
     document.getElementById("block").style.left = LEFT + '%';
     document.getElementById("block").style.top = TOP + '%';
+    // document.getElementById("min").innerText = SISE
 }
 
 function extra() {
@@ -1181,6 +1149,8 @@ function extra() {
     document.getElementById("fill").value = SISE;
     document.getElementById("alfavit").style.fontSize = SISE + 'px';
     document.getElementById("hand").style.fontSize = SISE + 'px';
+    // document.getElementsByClassName("sise").innerText = "Extra"
+
     console.log(SISE);
     setFont()
 
@@ -1243,8 +1213,6 @@ function resetColor() {
         document.getElementById("hand").style.color = "black";
     }   
 }
-
-
 
 function setColor() {
     const COLORS = ['RED', 'ORANGE', 'YELLOW', 'GREEN', 'BLUE', 'INDIGO', 'VIOLET', 'GRAY'];
