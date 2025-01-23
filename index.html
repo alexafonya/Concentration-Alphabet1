@@ -62,12 +62,12 @@
                 <div id="f3_1">
 
                     <div id="f3_1_2"> <!--f2-->
-                        <button id="plus" onclick="setTime();setSise(); newLetters (); setTimer()">Speed +</button>
+                        <button id="plus" class="time" onclick="setTime()"> Speed + </button>
                         <label for="speed"></label>
                         <input type="number" name="number" class="form" id="speed" 
-                        oninput="this.value = this.value.slice(0, 4)" min="500" max="5000" value="1200"
-                            step="100">
-                        <button id="minus" onclick="setTime();setSise(); newLetters (); setTimer()">Speed -</button>
+                        oninput="this.value = this.value.slice(0, 4)" min="500" max="3000" value="1200"
+                            step="100" readonly>
+                        <button id="minus" class="time" onclick="setTime()">Speed -</button>
                     </div>
 
                 </div>
@@ -85,12 +85,13 @@
                 <!-- font sise control  -->
                 <div id="f3_2"> <!--shrift-->
                     <div id="f3_2_1">
-                        <div id="Mix">M I X</div>
-                        <button class="plus">Sise +</button>        
+                        
+                        <button id="plu" class="sise">Sise +</button>   
+                        <div id="Mix">M I X</div>     
                             <input type="number" name="letters" class="form" onclick="setSise()"
                             oninput="this.value = this.value.slice(0, 3)" id="fill" min="20" max="150" placeholder="" value="100"
                                 step="10" readonly>
-                        <button class="minus">Sise -</button>
+                        <button id="min" class="sise">Sise -</button>
                     </div>
 
                 </div>
