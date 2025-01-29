@@ -62,12 +62,12 @@
                 <div id="f3_1">
 
                     <div id="f3_1_2"> <!--f2-->
-                        <button id="plus" class="time" onclick="setTime2()"> Speed + </button>
+                        <button id="plus" class="time" onclick="setTime1()"> Speed - </button>
                         <label for="speed"></label>
                         <input type="number" name="number" class="form" id="speed" 
                         oninput="this.value = this.value.slice(0, 4)" min="500" max="3000" value="1200"
                             step="100" readonly>
-                        <button id="minus" class="time" onclick="setTime2()">Speed -</button>
+                        <button id="minus" class="time" onclick="setTime1()">Speed +</button>
                     </div>
 
                 </div>
@@ -100,12 +100,12 @@
             <div id="f4"> <!--f3-->
                 <div id="f4_1">
                     <div id="su">
-                        <input type="submit" id="super" onclick="Extra()" value="ExMix">
-                       
+                        <input type="checkbox" id="super" onclick="startSuperExtra()" value="ExMix">
+                        <label class="input" for="super">ExMix</label>
                     </div>
                     <div id="O">
-                        <input onclick="startApp()" type="submit" id="On" value="Extra">
-                       
+                        <input onclick="startExtra()" type="checkbox" id="On" value="Extra">  
+                        <label class="input" for="On">Extra</label>
                     </div>
                     <div id="co">
                         <input type="checkbox" onclick=" " id="color" name="ChangeColor" value="just">
@@ -283,8 +283,8 @@
 
     <div id="Win">
         <div id="window">
-            <div id="Error"></div>
-            <div id="Error2"></div>
+            <div id="Finish">Amazing!
+                You finished the exercise</div>
             <input id="clean" type="submit" class="butt" value="скрыть панель">
             <div id="block">
                 <p id="alfavit"></p>
