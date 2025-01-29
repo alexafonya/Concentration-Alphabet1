@@ -79,6 +79,7 @@ var ALFeng = [
  let modal2 = document.querySelector('#modal');
  
 const changeLengRus = () =>{
+    document.getElementById("Finish").innerText = "Превосходно! Упражнение выполнено!"
     document.getElementById("min").textContent = " Размер -"
     document.getElementById("plu").textContent = " Размер +"
     document.getElementById("fullScr").value = " Весь экран "
@@ -100,6 +101,7 @@ const changeLengRus = () =>{
     document.getElementById("5").innerText = "20мин"
 }
 const changeLengEng = () =>{
+     document.getElementById("Finish").innerText = "Perfect! The exercise is done!"
      document.getElementById("min").textContent = " Sise -"
     document.getElementById("plu").textContent = " Sise +"
     document.getElementById("fullScr").value = " Full screen "
@@ -121,6 +123,7 @@ const changeLengEng = () =>{
     document.getElementById("5").innerText = "20min"
 }
 const changeLengHeb = () =>{
+     document.getElementById("Finish").innerText = "!מוּשׁלָם! התרגיל נעשה!"
     document.getElementById("min").textContent = "- גוֹדֶל "
     document.getElementById("plu").textContent = "+ גוֹדֶל "
     document.getElementById("fullScr").value = " מסך מלא "
@@ -322,10 +325,11 @@ setTimes.addEventListener("click", function() {
     document.getElementById("dublicate").value = DUBLE;
     TIME--;
     if (TIME == 10) {
-        var Audio = document.getElementById("final")
-        Audio.play()
-    } if (TIME == 0) {
+        // var Audio = document.getElementById("final")
+        // Audio.play()
+    } if (TIME < 0) {
         clear();
+        document.getElementById("block").style.display = "none"
         document.getElementById("Finish").style.display = "block"
     }
     break
