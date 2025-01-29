@@ -20,6 +20,8 @@ var TimesColor;
 var TimesExtColor;
 var colorSimle = document.getElementById("color");
 var colorExtra = document.getElementById("ColorExt");
+var Extra = document.getElementById("On");
+var SuperExtra = document.getElementById("super");
 var Theme = document.getElementById("theme");
 var SUPER = document.getElementById("super").value;
 
@@ -83,8 +85,8 @@ const changeLengRus = () =>{
     document.getElementById("minus").textContent = " Скорость -"
     document.getElementById("plus").textContent = " Скорость +"
     document.getElementById("sise").value = "    Сброс    "
-    document.getElementById("On").value =  "Супер"
-    document.getElementById("super").value = "С.Микс"
+    document.querySelector("#O>label").textContent =  "Супер"
+    document.querySelector("#su>label").textContent = "С.Микс"
     document.querySelector("#co>label").textContent = "Цвет"
     document.querySelector("#CoEx>label").textContent = "Ц.Микс"
     document.getElementById("ru").textContent = "Рус"
@@ -104,8 +106,8 @@ const changeLengEng = () =>{
      document.getElementById("minus").textContent = " Speed -"
     document.getElementById("plus").textContent = " Speed +"
     document.getElementById("sise").value = "   Reset   "
-    document.getElementById("On").value =  "Extra"
-    document.getElementById("super").value = "ExMix"
+    document.querySelector("#O>label").textContent =  "Extra"
+    document.querySelector("#su>label").textContent = "ExMix"
     document.querySelector("#co>label").textContent = "Color"
     document.querySelector("#CoEx>label").textContent = "CoMix"
     document.getElementById("ru").textContent = "Ru"
@@ -125,8 +127,8 @@ const changeLengHeb = () =>{
     document.getElementById("minus").textContent = "-  מְהִירוּת "
     document.getElementById("plus").textContent = "+  מְהִירוּת "
     document.getElementById("sise").value = "   אִתחוּל   "
-    document.getElementById("On").value =  "תוֹסֶפֶת"
-    document.getElementById("super").value = "מיקס"
+    document.querySelector("#O>label").textContent =  "תוֹסֶפֶת"
+    document.querySelector("#su>label").textContent = "מיקס"
     document.querySelector("#co>label").textContent = "צֶבַע"
     document.querySelector("#CoEx>label").textContent = "צֶבַע מיקס"
     document.getElementById("ru").textContent = "רוס"
@@ -323,8 +325,8 @@ setTimes.addEventListener("click", function() {
         var Audio = document.getElementById("final")
         Audio.play()
     } if (TIME == 0) {
-        stopAudio()  
-        clearInterval(INTERVAL1)
+        clear();
+        document.getElementById("Finish").style.display = "block"
     }
     break
 }  
@@ -342,7 +344,8 @@ var Times_Alf = setInterval(function () { newLetters() }, set4)
 
 var Times_1 = setInterval(function () { newHands() }, set2)
 
-var Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters() }, set);
+var Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters()},HOLD);
+
 
 ExMix = document.getElementById("super");
 Ex = document.getElementById("On");
@@ -357,13 +360,41 @@ colorSimle.addEventListener("click", function () {
         interTime = HOLD;
     }
     if (colorSimle.checked) {
-        TimesColor = setInterval(function () {
-            randomHands(), setFont(), setColor(),
-                randomLetters()
-        }, interTime);
-   
+        if (Extra.checked) {      
+            clear()
+            Times_3 = setInterval(function () {
+                randomHands(), setFont(), randomLetters(), extra(), setColor()
+            },interTime);
+        } else if (SuperExtra.checked) {
+                clear();
+                TimesColor = setInterval(function () {
+                    randomHands(), setFont(), superExtraLet(), superExtraHan(), 
+                    setColor(), randomLetters()
+                }, interTime);     
+            } else{
+            TimesColor = setInterval(function () {
+                randomHands(), setFont(), setColor(),
+                    randomLetters()
+            }, interTime);
+        } 
     } else {
-        Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters() }, interTime); 
+        if (Extra.checked) {      
+            clear()
+            Times_3 = setInterval(function () {
+                randomHands(), setFont(), randomLetters(), extra()
+            },interTime);       
+        } else if (SuperExtra.checked) {
+            clear();
+            TimesColor = setInterval(function () {
+                randomHands(), setFont(), superExtraLet(),  
+                superExtraHan(), randomLetters()
+            }, interTime);
+        }  else{
+            clear()
+        // document.getElementById("fill").value = 100;
+        // setSise();
+        Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters()},interTime);
+        }
     }
 })
 
@@ -375,14 +406,41 @@ colorExtra.addEventListener("click", function () {
     } else{
         interTime = HOLD;
     }
-    if (this.checked) {
-        TimesExtColor = setInterval(function () {
-            randomHands(), setFont(),
+    if (colorExtra.checked) {
+        if (Extra.checked) {      
+            clear()
+            Times_3 = setInterval(function () {
+                randomHands(), setFont(), randomLetters(), extra(), 
+                setColorAlf(), setColorHand()
+            },interTime);
+            }else if (SuperExtra.checked) {
+                clear();
+                TimesColor = setInterval(function () {
+                    randomHands(), setFont(), superExtraLet(), superExtraHan(), 
+                    setColorAlf(), setColorHand(), randomLetters()
+                }, interTime);      
+             } else{
+                 TimesExtColor = setInterval(function () {
+                randomHands(), setFont(),
                 randomLetters(), setColorAlf(), setColorHand()
-        }, interTime);
-    
+                }, interTime);
+            }      
     } else {
-        Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters()},interTime);
+        if (Extra.checked) {      
+            clear()
+            Times_3 = setInterval(function () {
+                randomHands(), setFont(), randomLetters(), extra() 
+            },interTime);
+        } else if (SuperExtra.checked) {
+            clear();
+            TimesColor = setInterval(function () {
+                randomHands(), setFont(), superExtraLet(),  
+                superExtraHan(), randomLetters()
+            }, interTime);      
+         } else{
+            Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters()},interTime);
+        }    
+        
     }
 })
 
@@ -558,13 +616,7 @@ function clear() {
     clearInterval(Times_3);
 }
 
-let setTimeReal = ()=>{
-    if (HOLD == Times_3) {
-        clear();
-        setInterval(function () { randomHands(), setFont(), randomLetters()}, set);
-        } else {
-        clear();
-        Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters()}, HOLD);
+let setTimeReal = ()=>{  
         clearInterval(Times_1)
         NewHOLD = HOLD * 3;
         Times_1 = setInterval(function () { newHands() }, NewHOLD);
@@ -581,576 +633,190 @@ let setTimeReal = ()=>{
             NewAlfHOLD = HOLD * 27;
             Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
         }return Times_Alf     
-    }
 }
 
-let startAppReal = ()=>{
-    if(HOLD == set){
-        interTime = set;
-    } else{
-        interTime = HOLD;
-    }
-    if (HOLD == Times_3) {
-        clear();
-        setInterval(function () { randomHands(), setFont(), randomLetters(), extra()}, set);
-        } else {
-        clear();
-        Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters(), extra()}, HOLD);
-        clearInterval(Times_1)
-        NewHOLD = HOLD * 3;
-        Times_1 = setInterval(function () { newHands() }, NewHOLD);
-        if(ALF == ALFheb) {
-            clearInterval(Times_Alf);
-            NewAlfHOLD = HOLD * 22;
-            Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-        } if (ALF == ALFeng) {
-            clearInterval(Times_Alf);
-            NewAlfHOLD = HOLD * 26;
-            Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-        } else {
-            clearInterval(Times_Alf)
-            NewAlfHOLD = HOLD * 27;
-            Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-        }return Times_Alf     
-    }
-}
-
-let superExtraReal = ()=>{
-    if (HOLD == Times_3) {
-        clear();
-        setInterval(function () { randomHands(), setFont(), randomLetters(), superExtraLet(), superExtraHan()}, set);
-        } else {
-        clear();
-        Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters(), superExtraLet(), superExtraHan()}, HOLD);
-        clearInterval(Times_1)
-        NewHOLD = HOLD * 3;
-        Times_1 = setInterval(function () { newHands() }, NewHOLD);
-        if(ALF == ALFheb) {
-            clearInterval(Times_Alf);
-            NewAlfHOLD = HOLD * 22;
-            Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-        } if (ALF == ALFeng) {
-            clearInterval(Times_Alf);
-            NewAlfHOLD = HOLD * 26;
-            Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-        } else {
-            clearInterval(Times_Alf)
-            NewAlfHOLD = HOLD * 27;
-            Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-        }return Times_Alf     
-    }
-}
-
-// function setTime() {
-//     clear();
-//     resetColor();
-//     resetExtColor();
-//     setSise();
-//     document.getElementById("On").removeAttribute('disabled')
-//     document.getElementById("super").removeAttribute('disabled')
-//     if (document.getElementById("fill").value = "Mix"){
-//         document.getElementById("fill").value = 60;
-//     } else {
-        
-//     }
-//     document.getElementById("fill").setAttribute('type', 'number');
-//     setSise();
-//     HOLD = document.getElementById("speed").value;
-//     document.querySelector("#Error").style.display =  "none";
-//     document.querySelector("#block").style.display = "block";
-//     if (HOLD < 500){
-//         document.querySelector("#Error").style.display =  "block";
-//         document.querySelector("#Error").innerHTML =  `Too fast!  The interval should not be less than "500"!`;
-//         document.querySelector("#Error").style.position = "reletive";
-//         console.log("lskdjfhv")
-//         document.querySelector("#Error").style.left = "20%";
-//         document.querySelector("#Error").style.top = "15%";
-//         document.querySelector("#Error").style.fontSize = "45px";
-//         document.querySelector("#Error").style.color = "red";
-//         document.querySelector("#block").style.display = "none";
-//     } if (HOLD > 5000){
-//         document.querySelector("#Error").style.display =  "block";
-//         document.querySelector("#Error").innerHTML =  `Too slow!  The interval should not be greater than "5000"!`;
-//         document.querySelector("#Error").style.position = "reletive";
-//         console.log("lskdjfhv")
-//         document.querySelector("#Error").style.left = "16%";
-//         document.querySelector("#Error").style.top = "15%";
-//         document.querySelector("#Error").style.fontSize = "45px";
-//         document.querySelector("#Error").style.color = "red";
-//         document.querySelector("#block").style.display = "none";
-//     }else{
-//         document.querySelector("#time").innerText = HOLD;
-//          if(HOLD == set){
-//         interTime = set;
-//     } else{
-//         interTime = HOLD;
-//     } 
-//     setTimeReal();
-//     colorSimle.addEventListener("click", function (){
-//         if (colorSimle.checked) {
-//             clear();
-//             TimesColor = setInterval(function () {
-//                 console.log("Speed - Проверка внутри")
-//                 randomHands(), setFont(), setColor(),
-//                     randomLetters()
-//             }, interTime);
-//         }  else {
-//             setTimeReal();
-//         }
-//     })
-//     colorExtra.addEventListener("click", function (){
-//         if (colorExtra.checked) {
-//             clear();
-//             TimesExtColor = setInterval(function () {
-//                 console.log("Speed - Проверка внутри")
-//                 randomHands(), setFont(),
-//                     randomLetters(), setColorAlf(), setColorHand()
-//             }, interTime);
-//         } else {
-//             setTimeReal();
-//         }
-//     }) 
-// }
-    
-// }
-
-
-
-function setTime2(){
+let setTime1 =()=>{
+    // clear()
     HOLD = document.getElementById("speed").value
     if(HOLD == set){
         interTime = set;
     } else{
         interTime = HOLD;
-    }
-    console.log(`HOLD  = ${HOLD}`)
-    console.log(`set  = ${set}`)  
-    if (colorSimle.checked) {
-        clear();
-        TimesColor = setInterval(function () {
-            randomHands(), setFont(), setColor(),
-                randomLetters()
-        }, interTime);
-   
-    } else if (colorExtra.checked) {
-        clear();
-        TimesExtColor = setInterval(function () {
-            randomHands(), setFont(),
-                randomLetters(), setColorAlf(), setColorHand()
-        }, interTime);
-    
-    } else {
-        clear()
-        Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters()},interTime);
-    }
-}
-
-function Extra(){
-    HOLD = document.getElementById("speed").value
-    if(HOLD == set){
-        interTime = set;
-    } else{
-        interTime = HOLD;
-    }
-    if (colorSimle.checked) {
-        clear();
-        TimesColor = setInterval(function () {
-            randomHands(), setFont(), setColor(),
-                randomLetters()
-        }, interTime);
-   
-    } else if (colorExtra.checked) {
-        clear();
-        TimesExtColor = setInterval(function () {
-            randomHands(), setFont(),
-                randomLetters(), setColorAlf(), setColorHand()
-        }, interTime);
-    
-    } else {
-        clear()
-        setInterval(function () {
-            randomHands(), setFont(), randomLetters(),
-                extra(), setColorAlf(), setColorHand()
+    } 
+    if (Extra.checked) {
+        if (colorSimle.checked) {
+            clear();
+            TimesColor = setInterval(function () {
+                randomHands(), setFont(), extra(), setColor(),
+                    randomLetters()
+            }, interTime);  
+            setTimeReal();
+        } else if (colorExtra.checked) {
+            clear();
+            TimesExtColor = setInterval(function () {
+                randomHands(), setFont(), extra(),
+                    randomLetters(), setColorAlf(), setColorHand()
+            }, interTime);
+            setTimeReal();
+        } else {
+            clear()
+        Times_3 = setInterval(function () {
+            randomHands(), setFont(), randomLetters(), extra()
         },interTime);
+        setTimeReal();
+        }   
+    } else if (SuperExtra.checked) {
+            if (colorSimle.checked) {
+                clear();
+                TimesColor = setInterval(function () {
+                    randomHands(), setFont(), superExtraLet(), superExtraHan(), 
+                    setColor(), randomLetters()
+                }, interTime);
+                setTimeReal();  
+            } else if (colorExtra.checked) {
+                clear();
+                TimesExtColor = setInterval(function () {
+                    randomHands(), setFont(), superExtraLet(), superExtraHan(),
+                        randomLetters(), setColorAlf(), setColorHand()
+                }, interTime);
+                setTimeReal();
+            } else {
+                clear()
+                Times_3 = setInterval(function () {
+                randomHands(), setFont(), randomLetters(), superExtraLet(), superExtraHan()
+            },interTime);
+            setTimeReal();
+            }   
+        } else{
+        if (colorSimle.checked) {
+            clear();
+            console.log("Simple in setTime1()")
+            TimesColor = setInterval(function () {
+                randomHands(), setFont(), setColor(),
+                    randomLetters()
+            }, interTime); 
+            setTimeReal();
+            console.log("Simple in setTime1()2")  
+        } else if (colorExtra.checked) {
+            clear();
+            TimesExtColor = setInterval(function () {
+                randomHands(), setFont(),
+                    randomLetters(), setColorAlf(), setColorHand()
+            }, interTime);
+            setTimeReal();     
+        } else {
+            clear()
+            document.getElementById("fill").value = 100;
+            setSise();
+            console.log("else in setTime1()")
+            Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters()},interTime);
+            setTimeReal();
+        }      
+    } 
+}
+     
+startExtra = ()=>{
+    document.getElementById("super").checked = false;
+    HOLD = document.getElementById("speed").value
+    setTimeReal();
+    if(HOLD == set){
+        interTime = set;
+    } else{
+        interTime = HOLD;
+    }
+    if (Extra.checked) {
+        if (colorSimle.checked) {
+            clear();
+            TimesColor = setInterval(function () {
+                randomHands(), setFont(), extra(), setColor(),
+                    randomLetters()
+            }, interTime);  
+        } else if (colorExtra.checked) {
+            clear();
+            TimesExtColor = setInterval(function () {
+                randomHands(), setFont(), extra(),
+                    randomLetters(), setColorAlf(), setColorHand()
+            }, interTime);
+
+        } else {
+            clear()
+            Times_3 = setInterval(function () {
+            randomHands(), setFont(), randomLetters(), extra()
+        },interTime);
+        }   
+    }else{   
+        document.getElementById("fill").value = 100;
+        setSise();
+        if (colorSimle.checked) {
+            clear();
+            TimesColor = setInterval(function () {
+                randomHands(), setFont(), setColor(),
+                    randomLetters()
+            }, interTime);  
+        } else if (colorExtra.checked) {
+            clear();
+            TimesExtColor = setInterval(function () {
+                randomHands(), setFont(),
+                    randomLetters(), setColorAlf(), setColorHand()
+            }, interTime);
+        } else{
+            clear()
+            Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters()},interTime);
+        }
     }
 }
 
-// function setTime() {
-//     clear();
-//     resetColor();
-//     resetExtColor();
-//     document.getElementById("Mix").style.display = "none";
-//     document.getElementById("fill").style.display = "block";
-//     HOLD = document.getElementById("speed").value;
-//     document.getElementsByClassName(".time").innerText = HOLD;
-//     colorExtra.addEventListener("click", function () {
-//         if (this.checked) {
-//             if (HOLD == Times_3) {
-//                 clear();
-//                 setInterval(function () { randomHands(), setFont(), randomLetters(), setColorAlf(), setColorHand() }, set);
-//             } else {
-//                 clear();
-//                 Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters(), setColorAlf(), setColorHand() }, HOLD);
-//                 clearInterval(Times_1)
-//                 NewHOLD = HOLD * 3;
-//                 Times_1 = setInterval(function () { newHands() }, NewHOLD);
-//                 clearInterval(Times_Alf)
-//                 NewAlfHOLD = HOLD * 27;
-//                 Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-//             }
-
-//         } else {
-//             resetExtColor();
-//         }
-//     })
-//     TimesColor = colorSimle.addEventListener("click", function () {
-//         if (this.checked) {
-//             if (HOLD == Times_3) {
-                
-//                 clear();
-//                 setInterval(function () { randomHands(), setFont(), setColor(), randomLetters() }, set);
-//             } else {
-//                 clear();
-//                 Times_3 = setInterval(function () { randomHands(), setFont(), setColor(), randomLetters() }, HOLD);
-//                 clearInterval(Times_1)
-//                 NewHOLD = HOLD * 3;
-//                 Times_1 = setInterval(function () { newHands() }, NewHOLD);
-//                 clearInterval(Times_Alf)
-//                 NewAlfHOLD = HOLD * 27;
-//                 Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-//             }
-
-//         } else {
-//             resetColor();
-//         }
-//     })
-   
-//     if (HOLD == Times_3) {
-//         clear();
-//         setInterval(function () { randomHands(), setFont(), randomLetters() }, set);
-//     } else {
-//         clear();
-//         Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters() }, HOLD);
-//         clearInterval(Times_1)
-//         NewHOLD = HOLD * 3;
-//         Times_1 = setInterval(function () { newHands() }, NewHOLD);
-//         clearInterval(Times_Alf)
-//         NewAlfHOLD = HOLD * 27;
-//         Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-//     }
-
-
-// }
-
-function superExtra() { 
-    clear();
-    resetColor();
-    resetExtColor();
-    document.getElementById("Mix").style.display = "block"; 
-    document.getElementById("fill").style.display = "none";
-    const HOLD = document.getElementById("speed").value;
-    document.getElementsByClassName(".time").innerText = HOLD;
-    colorExtra.addEventListener("click", function () {
-        if (this.checked) {
-            if (HOLD == Times_3) {
-                clear();
-                Times_3 = setInterval(function () {
-                    randomHands(), setFont(), randomLetters(), superExtraLet(),
-                    superExtraHan(), setColorAlf(), setColorHand()
-                }, set);
-            } else {
-                clear();
-                Times_3 = setInterval(function () {
-                    randomHands(), setFont(), randomLetters(), superExtraLet(),
-                    superExtraHan(), setColorAlf(), setColorHand()
-                }, HOLD);
-                clearInterval(Times_1)
-                NewHOLD = HOLD * 3;
-                Times_1 = setInterval(function () { newHands() }, NewHOLD);
-                clearInterval(Times_Alf)
-                NewAlfHOLD = HOLD * 27;
-                Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-
-            }
-        } else {
-            if (HOLD == Times_3) {
-                clear();
-                Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters(), superExtraLet(), superExtraHan() }, set);
-            } else {
-                clear();
-                Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters(), superExtraLet(), superExtraHan() }, HOLD);
-                clearInterval(Times_1)
-                NewHOLD = HOLD * 3;
-                Times_1 = setInterval(function () { newHands() }, NewHOLD);
-                clearInterval(Times_Alf)
-                NewAlfHOLD = HOLD * 27;
-                Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-            }
-        }
-    })
-    TimesColor = colorSimle.addEventListener("click", function () {
-        if (this.checked) {
-            if (HOLD == Times_3) {
-                clear();
-                Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters(), setColor(), superExtraLet(), superExtraHan() }, set);
-            } else {
-                clear();
-                Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters(), setColor(), superExtraLet(), superExtraHan() }, HOLD);
-                clearInterval(Times_1)
-                NewHOLD = HOLD * 3;
-                Times_1 = setInterval(function () { newHands() }, NewHOLD);
-                clearInterval(Times_Alf)
-                NewAlfHOLD = HOLD * 27;
-                Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-
-            }
-        } else {
-
-            if (HOLD == Times_3) {
-                clear();
-                Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters(), superExtraLet(), superExtraHan() }, set);
-            } else {
-                clear();
-                Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters(), superExtraLet(), superExtraHan() }, HOLD);
-                clearInterval(Times_1)
-                NewHOLD = HOLD * 3;
-                Times_1 = setInterval(function () { newHands() }, NewHOLD);
-                clearInterval(Times_Alf)
-                NewAlfHOLD = HOLD * 27;
-                Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-            }
-        }
-    })
-    if (HOLD == Times_3) {
-        clear();
-        Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters(), superExtraLet(), superExtraHan() }, set);
-    } else {
-        clear();
-        Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters(), superExtraLet(), superExtraHan() }, HOLD);
-        clearInterval(Times_1)
-        NewHOLD = HOLD * 3;
-        Times_1 = setInterval(function () { newHands() }, NewHOLD);
-        clearInterval(Times_Alf)
-        NewAlfHOLD = HOLD * 27;
-        Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
+startSuperExtra = ()=>{
+    document.getElementById("On").checked = false;
+    HOLD = document.getElementById("speed").value
+    setTimeReal();
+    if(HOLD == set){
+        interTime = set;
+    } else{
+        interTime = HOLD;
     }
+    if (SuperExtra.checked) {
+        if (colorSimle.checked) {
+            clear();
+            TimesColor = setInterval(function () {
+                randomHands(), setFont(), superExtraLet(), superExtraHan(), 
+                setColor(), randomLetters()
+            }, interTime);  
+        } else if (colorExtra.checked) {
+            clear();
+            TimesExtColor = setInterval(function () {
+                randomHands(), setFont(), superExtraLet(), superExtraHan(),
+                    randomLetters(), setColorAlf(), setColorHand()
+            }, interTime);
+        } else {
+            clear()
+            Times_3 = setInterval(function () {
+            randomHands(), setFont(), randomLetters(), superExtraLet(), superExtraHan()
+        },interTime);
+        }   
+    }else{   
+        document.getElementById("fill").value = 100;
+        setSise();
+        if (colorSimle.checked) {
+            clear();
+            TimesColor = setInterval(function () {
+                randomHands(), setFont(), setColor(),
+                    randomLetters()
+            }, interTime);  
+        } else if (colorExtra.checked) {
+            clear();
+            TimesExtColor = setInterval(function () {
+                randomHands(), setFont(),
+                    randomLetters(), setColorAlf(), setColorHand()
+            }, interTime);
+        } else{
+            clear()
+            Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters()},interTime);
+        }
+    }
+
 }
 
-function startApp() {
-    clear();
-    resetColor();
-    resetExtColor();                
-    document.getElementById("Mix").style.display = "none";
-    document.getElementById("fill").style.display = "block";
-    const HOLD = document.getElementById("speed").value;
-    document.getElementsByClassName(".time").innerText = HOLD;
-    colorExtra.addEventListener("click", function () {
-        if (this.checked) {
-            if (HOLD == Times_3) {
-                clear();
-                setInterval(function () {
-                    randomHands(), setFont(), randomLetters(),
-                        extra(), setColorAlf(), setColorHand()
-                }, set);
-            } else {
-                clear();
-                Times_3 = setInterval(function () {
-                    randomHands(), setFont(), randomLetters(),
-                        extra(), setColorAlf(), setColorHand()
-                }, HOLD);
-                clearInterval(Times_1)
-                NewHOLD = HOLD * 3;
-                Times_1 = setInterval(function () { newHands() }, NewHOLD);
-                clearInterval(Times_Alf)
-                NewAlfHOLD = HOLD * 27;
-                Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-            };
-        } else {
-            if (HOLD == Times_3) {
-                clear();
-                setInterval(function () { randomHands(), setFont(), randomLetters(), extra() }, set);
-            } else {
-                clear();
-                Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters(), extra() }, HOLD);
-                clearInterval(Times_1)
-                NewHOLD = HOLD * 3;
-                Times_1 = setInterval(function () { newHands() }, NewHOLD);
-                clearInterval(Times_Alf)
-                NewAlfHOLD = HOLD * 27;
-                Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-            };
-        }
-    })
-    TimesColor = colorSimle.addEventListener("click", function () {
-        if (this.checked) {
-            if (HOLD == Times_3) {
-                clear();
-                setInterval(function () { randomHands(), setFont(), randomLetters(), setColor(), extra() }, set);
-            } else {
-                clear();
-                Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters(), setColor(), extra() }, HOLD);
-                clearInterval(Times_1)
-                NewHOLD = HOLD * 3;
-                Times_1 = setInterval(function () { newHands() }, NewHOLD);
-                clearInterval(Times_Alf)
-                NewAlfHOLD = HOLD * 27;
-                Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-            };
-
-        } else {
-            if (HOLD == Times_3) {
-                clear();
-                setInterval(function () { randomHands(), setFont(), randomLetters(), extra() }, set);
-            } else {
-                clear();
-                Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters(), extra() }, HOLD);
-                clearInterval(Times_1)
-                NewHOLD = HOLD * 3;
-                Times_1 = setInterval(function () { newHands() }, NewHOLD);
-                clearInterval(Times_Alf)
-                NewAlfHOLD = HOLD * 27;
-                Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-            };
-        }
-
-    })
-    if (HOLD == Times_3) {
-        clear();
-        setInterval(function () { randomHands(), setFont(), randomLetters(), extra() }, set);
-    } else {
-        clear();
-        Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters(), extra() }, HOLD);
-        clearInterval(Times_1)
-        NewHOLD = HOLD * 3;
-        Times_1 = setInterval(function () { newHands() }, NewHOLD);
-        clearInterval(Times_Alf)
-        NewAlfHOLD = HOLD * 27;
-        Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-    };
-}
-
-// function startApp() {
-//     // clear();
-//     // document.getElementById("On").setAttribute('disabled', '')
-//     // document.getElementById("super").removeAttribute('disabled')
-//     resetColor();
-//     resetExtColor();
-//     HOLD = document.getElementById("speed").value;
-//     document.querySelector("#time").innerText = HOLD;       
-//     if(HOLD == set){
-//         interTime = set;
-//     } else{
-//         interTime = HOLD;
-//     }
-//     colorSimle.addEventListener("click", function (){
-//         if (colorSimle.checked) {
-//             clear();
-//             TimesColor = setInterval(function () {
-//                 console.log("Экстро - Проверка внутри")
-//                 randomHands(), setFont(), setColor(), extra(),
-//                     randomLetters()
-//             }, interTime);
-//         }  else {
-//             startAppReal();
-//         }
-//     })
-//     colorExtra.addEventListener("click", function (){
-//         if (colorExtra.checked) {
-//             clear();
-//             TimesExtColor = setInterval(function () {
-//                 console.log("Экстро - Проверка внутри")
-//                 randomHands(), setFont(),
-//                     randomLetters(), extra(), setColorAlf(), setColorHand()
-//             }, interTime);
-//         } else {
-//             startAppReal();
-//         }
-//     })
-//     startAppReal();
-//     // if (colorSimle.checked) {
-//     //     // clear();
-//     //     TimesColor = setInterval(function () {
-//     //         console.log("Экстро(cS) - Проверка вне")
-//     //         randomHands(), setFont(), setColor(), extra(),
-//     //             randomLetters()
-//     //     }, interTime);
-//     // } else if (colorExtra.checked) {
-//     //     // clear();
-//     //     TimesExtColor = setInterval(function () {
-//     //         console.log("Экстро(TEC) - Проверка вне")
-//     //         randomHands(), setFont(),
-//     //             randomLetters(), extra(), setColorAlf(), setColorHand()
-//     //     }, interTime);
-//     // } else {
-//     //     // resetColor();
-//     //     // resetExtColor();
-//     //     startAppReal();
-//     // }
-// }
-
-// function superExtra() {
-//     clear();
-//     resetColor();
-//     resetExtColor();
-//     // document.getElementById("super").setAttribute('disabled', '')
-//     // document.getElementById("On").removeAttribute('disabled')
-//     HOLD = document.getElementById("speed").value;
-//     document.querySelector("#time").innerText = HOLD; 
-//     console.log("here1")
-//     if(HOLD == set){
-//         interTime = set;
-//     } else{
-//         interTime = HOLD;
-//     }
-//     //   if (colorSimle.checked) {
-//     //     TimesColor = setInterval(function () {
-//     //         console.log("СуперЭкстро(cS) - Проверка вне")
-//     //         randomHands(), setFont(), setColor(), superExtraLet(), superExtraHan(),
-//     //             randomLetters()
-//     //     }, interTime);
-//     // }  else {
-//     //     console.log("here2")
-//     //     superExtraReal();
-//     // }
-//     // console.log("here3")
-//     // if (colorExtra.checked) {
-//     //     TimesExtColor = setInterval(function () {
-//     //         console.log("СуперЭкстро(TEC) - Проверка вне")
-//     //         randomHands(), setFont(),superExtraLet(), superExtraHan(),
-//     //             randomLetters(), setColorAlf(), setColorHand()
-//     //     }, interTime);
-//     // } else {
-//     //     superExtraReal();
-//     // }
-//     colorSimle.addEventListener("click", function (){
-//         clear();
-//         if (colorSimle.checked) {
-//             TimesColor = setInterval(function () {
-//                 console.log("СуперЭкстро -Проверка внутри")
-//                 randomHands(), setFont(), setColor(), superExtraLet(), superExtraHan(),
-//                     randomLetters()
-//             }, interTime);
-//         } else {
-//             console.log("here4")
-//             superExtraReal();
-//         }
-//     })
-//     console.log("here5")
-//     colorExtra.addEventListener("click", function (){
-//         clear();
-//         if (colorExtra.checked) {
-//             console.log("СуперЭкстро - Проверка внутри")
-//             TimesExtColor = setInterval(function () {
-//                 randomHands(), setFont(),superExtraLet(), superExtraHan(),
-//                     randomLetters(), setColorAlf(), setColorHand()
-//             }, interTime);
-//         } else {
-//             superExtraReal();
-//         }
-//     })
-//     superExtraReal();
-//     console.log("here6")
-// }
 
 function superExtraLet() {
     let SISE = Math.floor((Math.random() * 100) + 30);
@@ -1184,7 +850,7 @@ function extra() {
     // document.getElementsByClassName("sise").innerText = "Extra"
 
     console.log(SISE);
-    setFont()
+    // setFont()
 
 }
 
