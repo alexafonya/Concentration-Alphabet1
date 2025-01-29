@@ -580,6 +580,10 @@ body #window {
 }
 body #window #Finish {
   display: none;
+  position: relative;
+  font-size: 56px;
+  top: 200px;
+  color: aqua;
 }
 body #window #clean {
   height: 100%;
