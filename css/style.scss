@@ -124,12 +124,6 @@ body {
                         border: none;
                         align-self: center;
                     }
-
-
-
-
-
-
                 }
 
                 #f2_2 {
@@ -514,35 +508,8 @@ body {
                     #su {
                         grid-column: 1;
                         grid-row: 2;
-                        
+                        accent-color: rgb(116, 255, 116);
                         justify-self: start;
-
-                        input {
-                            width: 60px;
-                            height: 25px;
-                            background-color: rgba(255, 255, 255, 0.764);
-                            border: none;
-                            color: rgba(0, 0, 0, 0.671);
-                            letter-spacing: 0.3em;
-                            font-size: 14px;
-                            letter-spacing: 1px;
-                            padding: 0;
-                            cursor: pointer;
-                            transition: 0.5s;
-                            border-radius: 5px;
-                        }
-
-                        input:hover {
-                            background-color: hsl(0, 0%, 40%);
-                            color: rgba(255, 255, 255, 0.764);
-                            transition: 0.5s;
-
-                        }
-
-                        input:active {
-                            background-color: black;
-
-                        }
 
                     }
 
@@ -554,32 +521,32 @@ body {
                         padding-right: 10%;
                         align-self: end;
 
-                        input {
-                            width: 60px;
-                            height: 25px;
-                            background-color: rgba(255, 255, 255, 0.764);
-                            border: none;
-                            color: rgba(0, 0, 0, 0.671);
-                            letter-spacing: 0.3em;
-                            font-size: 14px;
-                            letter-spacing: 1px;
-                            padding: 0;
-                            cursor: pointer;
-                            transition: 0.5s;
-                            border-radius: 5px;
-                        }
+                        // input {
+                        //     width: 60px;
+                        //     height: 25px;
+                        //     background-color: rgba(255, 255, 255, 0.764);
+                        //     border: none;
+                        //     color: rgba(0, 0, 0, 0.671);
+                        //     letter-spacing: 0.3em;
+                        //     font-size: 14px;
+                        //     letter-spacing: 1px;
+                        //     padding: 0;
+                        //     cursor: pointer;
+                        //     transition: 0.5s;
+                        //     border-radius: 5px;
+                        // }
 
-                        input:hover {
-                            background-color: hsl(0, 0%, 40%);
-                            color: rgba(255, 255, 255, 0.764);
-                            transition: 0.5s;
+                        // input:hover {
+                        //     background-color: hsl(0, 0%, 40%);
+                        //     color: rgba(255, 255, 255, 0.764);
+                        //     transition: 0.5s;
 
-                        }
+                        // }
 
-                        input:active {
-                            background-color: black;
+                        // input:active {
+                        //     background-color: black;
 
-                        }
+                        // }
                     }
 
                     #co {
@@ -829,13 +796,11 @@ body {
         // display: block;
 
 
-        #Error {
+        #Finish {
             display: none;
         }
 
-        #Error2 {
-            display: none;
-        }
+   
 
 
 
