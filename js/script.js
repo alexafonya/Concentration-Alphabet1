@@ -969,36 +969,41 @@ fullSreen.addEventListener("click", function () {
             elem.msRequestFullscreen();
             document.getElementById("window").style.height = "100vh";
         } 
-        if(elementN = true){
-        addEventListener('mousemove', function () {               
-            dropDownMenu.style.display = 'grid'; 
-            document.getElementById("window").style.height = "83vh"  
-          });
-          timeout = setTimeout(() => {
-            dropDownMenu.style.display = 'none';
-            document.getElementById("window").style.height = "100vh"
-            }, 5000); 
-        } else{
-            timeout = setTimeout(() => {
-            dropDownMenu.style.display = 'none';
-            document.getElementById("window").style.height = "100vh"
-            }, 5000); 
-        }
+       
+        // addEventListener('mousemove', function () {               
+        //     dropDownMenu.style.display = 'grid'; 
+        //     document.getElementById("window").style.height = "83vh"  
+        //   });
+        //     timeout = setTimeout(() => {
+        //     dropDownMenu.style.display = 'none';
+        //     document.getElementById("window").style.height = "100vh"
+        //     }, 5000);    
+
+        dropDownMenu.addEventListener("mouseleave", function(){
+    timeout = setTimeout(() => {
+        dropDownMenu.style.display = 'none';
+        document.getElementById("window").style.height = "100vh"
+    }, 3000); 
+})
+
+
+addEventListener('mousemove', function () {               
+    dropDownMenu.style.display = 'grid'; 
+    document.getElementById("window").style.height = "83vh"  
+});
+        
 
 })
 
-elementN = dropDownMenu.style.display == 'none'
 
-// if(elementN = true){ 
-//     addEventListener('mousemove', function () {               
-//         dropDownMenu.style.display = 'grid'; 
-//         document.getElementById("window").style.height = "83vh"  
-//       });
-//       timeout = setTimeout(() => {
-//         dropDownMenu.style.display = 'none';
-//         document.getElementById("window").style.height = "100vh"
-//         }, 5000);     
-//     } 
+ 
+
+
+// timeout = setTimeout(() => {
+//     dropDownMenu.style.display = 'none';
+//     document.getElementById("window").style.height = "100vh"
+// }, 5000);          
+ 
    
 
  menuItem.addEventListener("click", function () {
