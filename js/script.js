@@ -986,12 +986,20 @@ fullSreen.addEventListener("click", function () {
     }, 3000); 
 })
 
-
-addEventListener('mousemove', function () {               
+if(document.getElementById("window").style.height = "100vh"){    
+addEventListener('mousemove', function () {   
+    clearTimeout(timeout);            
     dropDownMenu.style.display = 'grid'; 
     document.getElementById("window").style.height = "83vh"  
+    timeout = setTimeout(() => {
+        dropDownMenu.style.display = 'none';
+        document.getElementById("window").style.height = "100vh"
+    }, 3000)
 });
-        
+}  else {
+    clearTimeout(timeout);            
+    dropDownMenu.style.display = 'grid'; 
+}   
 
 })
 
