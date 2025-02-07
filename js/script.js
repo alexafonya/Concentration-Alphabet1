@@ -1151,7 +1151,6 @@ var elem = document.documentElement;
         HOLD = document.getElementById("speed").value;
         if (elem.requestFullscreen) {
             elem.requestFullscreen();
-            document.getElementById("window").style.height = "100vh"
         } else if (elem.mozRequestFullScreen) { /* Firefox */
             elem.mozRequestFullScreen(); 
         } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
@@ -1167,7 +1166,7 @@ var elem = document.documentElement;
             setFontEx = setFontEx1
             timeout = setTimeout(() => {
                 console.log("inFull1")
-                dropDownMenu.style.display = 'none';
+                // dropDownMenu.style.display = 'none';
                 setFont = setfontFullScr
                 setFontEx = setFontExFull1
                 }, 5000);
@@ -1177,7 +1176,7 @@ var elem = document.documentElement;
             clearTimeout(timeout);
             timeout = setTimeout(() => {
                 console.log("inFull2")
-                dropDownMenu.style.display = 'none';
+                // dropDownMenu.style.display = 'none';
                 }, 5000);
                 setFont = setfontFullScr
                 setFontEx = setFontExFull1
