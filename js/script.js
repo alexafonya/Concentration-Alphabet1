@@ -1166,7 +1166,7 @@ var elem = document.documentElement;
             setFontEx = setFontEx1
             timeout = setTimeout(() => {
                 console.log("inFull1")
-                // dropDownMenu.style.display = 'none';
+                dropDownMenu.style.display = 'none';
                 setFont = setfontFullScr
                 setFontEx = setFontExFull1
                 }, 5000);
@@ -1176,7 +1176,7 @@ var elem = document.documentElement;
             clearTimeout(timeout);
             timeout = setTimeout(() => {
                 console.log("inFull2")
-                // dropDownMenu.style.display = 'none';
+                dropDownMenu.style.display = 'none';
                 }, 5000);
                 setFont = setfontFullScr
                 setFontEx = setFontExFull1
