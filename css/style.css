@@ -21,7 +21,7 @@ body #window #top {
   opacity: 0;
   pointer-events: none;
   position: sticky;
-  z-index: 100;
+  z-index: 1000;
   display: grid;
   grid-template-columns: 1.1fr 1fr 1fr 0.8fr;
   align-items: center;
@@ -163,9 +163,6 @@ body #window #top #f1 #f2_2 #line #numb :nth-of-type(5) {
 }
 body #window #top #f1 #f2_2 #line #shpic {
   pointer-events: none;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   font-size: 16px;
@@ -190,9 +187,6 @@ body #window #top #f1 #f2_2 #line #shpic :nth-last-of-type(3) {
   position: relative;
   right: 5px;
   bottom: 2px;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
 }
 body #window #top #f1 #f2_2 #line #shpic :nth-last-of-type(4) {
   position: relative;
@@ -714,36 +708,6 @@ body #window #top #help #btnHelp #backHe {
   display: none;
   background-color: rgb(23, 194, 0);
 }
-body #window #FinRes {
-  display: none;
-  background-color: rgb(0, 199, 0);
-  padding: 15px;
-  border: none;
-  letter-spacing: 2px;
-  font-size: 28px;
-  z-index: 1;
-  border-radius: 15px;
-  color: white;
-  transition: 0.7s;
-}
-body #window #FinRes:hover {
-  background-color: white;
-  color: rgb(0, 199, 0);
-  transition: 0.7s;
-}
-body #window #FinRes:active {
-  background-color: rgb(0, 199, 0);
-  color: white;
-}
-body #window #Finish {
-  display: none;
-  position: relative;
-  font-size: 56px;
-  top: 25vh;
-  left: 26vw;
-  width: 70vw;
-  color: rgb(0, 195, 195);
-}
 body #window #block {
   display: none;
   position: absolute;
@@ -758,10 +722,39 @@ body #window #block p {
   font-weight: bold;
 }
 body #TitulList {
+  display: grid;
   height: 100vh;
+  align-items: center;
   width: 100vw;
-  padding-top: 100px;
   box-sizing: border-box;
+}
+body #TitulList #FinRes {
+  display: none;
+  background-color: rgb(0, 199, 0);
+  padding: 15px;
+  border: none;
+  letter-spacing: 2px;
+  font-size: 28px;
+  z-index: 1;
+  border-radius: 15px;
+  color: white;
+  transition: 0.7s;
+  justify-self: center;
+}
+body #TitulList #FinRes:hover {
+  background-color: white;
+  color: rgb(0, 199, 0);
+  transition: 0.7s;
+}
+body #TitulList #FinRes:active {
+  background-color: rgb(0, 199, 0);
+  color: white;
+}
+body #TitulList #Finish {
+  display: none;
+  font-size: 46px;
+  padding: 0 7vw;
+  color: rgb(0, 195, 195);
 }
 body #scrDownEn {
   background-color: rgb(181, 181, 181);
@@ -770,6 +763,7 @@ body #scrDownEn {
   color: rgb(45, 153, 21);
   display: grid;
   gap: 50px;
+  overflow: auto;
 }
 body #scrDownEn #lengw {
   display: grid;
@@ -1079,7 +1073,6 @@ body #scrDownRu #blockBtn #exersise #btnStart1:active {
 }
 body #scrDownHe {
   background-color: rgb(181, 181, 181);
-  margin: 0 auto;
   padding: 25px 100px;
   box-sizing: content-box;
   display: grid;
