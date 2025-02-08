@@ -490,17 +490,13 @@ setTimes.addEventListener("click", function() {
     TIME--;
     if (TIME < 0) {
         clear(); 
-        document.getElementById("top").style.display = "block";
+        document.getElementById("TitulList").style.display = "grid"
+        document.getElementById("TitulList").style.justifyItems = "center"
         document.getElementById("window").style.display = "none";  
-        document.getElementById("clean").style.display = "none";  
         document.getElementById("top").style.pointerEvents = "none";
         document.getElementById("top").style.opacity = "0.15"; 
         document.getElementById("FinRes").style.display = "block";
-        // document.getElementById("FinRes").value = "I WANT MORE";
-        document.getElementById("FinRes").style.display = "block";
         document.getElementById("FinRes").style.position = "relative";
-        document.getElementById("FinRes").style.top = "28vw";
-        document.getElementById("FinRes").style.left = "37vw";
         document.getElementById("FinRes").style.zIndex = "1";
         document.getElementById("block").style.display = "none"
         document.getElementById("block").style.transition = "2s."
@@ -1183,6 +1179,8 @@ var elem = document.documentElement;
             elem.msRequestFullscreen();
         } 
 
+
+
       menuItem.addEventListener("mousemove", function (){
             clearTimeout(timeout);
             dropDownMenu.style.display = "grid";
@@ -1208,11 +1206,12 @@ var elem = document.documentElement;
                     window.style.cursor = "default";
                     setFont = setFont1 
                     setFontEx = setFontEx1
-                if(dropDownMenu.style.display = "grid")
-                    menuItem.style.cursor = "default";
-                    setFont = setFont1
-                    setFontEx = setFontEx1   
+                // if(dropDownMenu.style.display = "grid")
+                //     menuItem.style.cursor = "default";
+                //     setFont = setFont1
+                //     setFontEx = setFontEx1   
         })  
+
 }
 
 let to = 5000, ts = 0; 
@@ -1220,15 +1219,17 @@ let to = 5000, ts = 0;
 let timeout;
 
 addEventListener('mousemove', () => {
-  ts = Date.now();
-  menuItem.style.cursor = "default";
-  dropDownMenu.style.display = "grid";
-});
+    ts = Date.now();
+    menuItem.style.cursor = "default";
+    dropDownMenu.style.display = "grid";
+  });
+  
+  setInterval(() => {
+    if (Date.now() - ts > to)
+      menuItem.style.cursor = "none";
+  }, 99)
 
-setInterval(() => {
-  if (Date.now() - ts > to)
-    menuItem.style.cursor = "none";
-}, 99)
+
 
 function resetColor() {
     document.getElementById("color").checked = false; 
