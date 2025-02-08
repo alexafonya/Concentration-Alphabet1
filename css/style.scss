@@ -1,10 +1,25 @@
+// @media all and (max-width: 1920px) {
+//     body { 
+//         margin: 0 auto;
+//         height: 100svh;
+//         background-color: gray;
+//         display: block;
+//         font-size: calc(12px + 16 * (100vw / 1280));
+//     }
+
+// }
+
 body {
     margin: 0 auto;
     height: 100vh;
     background-color: gray;
     display: block;
-
-
+//     $maxWidth: 1280;
+// @mixin adaptiv-font($pcSize, $mobSize) {
+// 	$addSize: $pcSize - $mobSize;
+// 	$maxWidth: $maxWidth - 320;
+// 	font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+// }
     :active,
     :hover,
     :focus {
@@ -15,8 +30,14 @@ body {
     // .no-cursor, .no-cursor * {
     //     cursor: none !important;
     //   }
+    #window {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: none;
 
     #top {
+        padding: 20px 0 20px 20px;
         opacity: 0;
         pointer-events: none;
         position: sticky;
@@ -24,13 +45,15 @@ body {
         display: grid;      
         grid-template-columns:   1.1fr 1fr 1fr 0.8fr;       
         align-items: center;
-        width: 70%;
+        // width: 70%;
+        max-width: 1000px;
         margin: 0 auto;
 
 
         .container{
             background-color: gray;
             height: 125px;
+            padding: 20px 0 20px 20px;
         }
 
         #timer {
@@ -39,16 +62,16 @@ body {
 
         #f1 {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 0.5fr 1fr;
             align-items: center;
-            // gap: 20px;
+            gap: 10px;
 
             #TimeOnOff {
                 display: grid;
                 justify-self: center;
                 grid-template-rows: 1fr 1fr;
-                height: 9vh;
-                width: 6vw;
+                height: 80px;
+                min-width: 60px;
                 justify-items: center;
                 // margin-left: 15px;
 
@@ -250,7 +273,9 @@ body {
         }
 
         #f3 {
-            padding-left: 4em;
+            gap: 1.5em;
+            padding-right: 0.5em;
+            padding-left: 1.5em;
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
@@ -387,7 +412,7 @@ body {
                 display: grid;
                 align-items: center;
                 gap: 10px;
-                justify-self: end;
+                justify-self: start;
 
                 #f3_2_1 {
                     display: grid;
@@ -477,7 +502,7 @@ body {
             #randomSize{
                 display: grid;
                 grid-template-rows: 1fr 1fr;
-                width: 5vw;
+                min-width: 80px;
                 padding-left: 1.5vw;
                 align-items: start;
 
@@ -521,6 +546,7 @@ body {
         }
 
         #f4 {
+            min-width: 215px;
             display: grid;
             grid-template-columns: 1fr 0.7fr;
             grid-template-rows: 3fr 1fr;
@@ -720,7 +746,7 @@ body {
                     left: 0;
                     top: 0;
                     width: 90vw;
-                    height: 85vh;
+                    height: 90vh;
                     overflow: auto;
                     background-color: rgba(0, 0, 0, 0.4);
 
@@ -859,362 +885,6 @@ body {
         }
     }
 
-
-    #scrDownEn {
-        width: 90vw;
-        height: 90vh;
-        background-color: rgb(181, 181, 181);
-        margin: 0 auto;
-        padding: 3vh 7vw;
-        position: relative;
-        bottom: 5vw;
-        box-sizing: border-box;
-        color: rgb(45, 153, 21);
-
-        h2 {
-            // width: 60%;
-            padding: 1vh 8vw;
-            border-radius: 10px;
-            margin: 0;
-            font-size: 56px;
-            margin-left: 10vw;
-            background-color: rgb(229, 229, 229);
-        }
-
-        h2:nth-of-type(2) {
-            margin-top: 0;
-            margin-bottom: 0;
-        }
-
-        #blockBtn {
-            margin: auto;
-            display: grid;
-            grid-template-rows: 1fr 1fr;
-            padding-top: 4vh;
-            align-items: center;
-
-
-            h3 {
-                // width: 65%;
-                background-color: rgb(229, 229, 229);
-                font-size: 32px;
-                margin: 0;
-                border-radius: 10px;
-                padding: 4vh 6vw;
-                color: black;
-                justify-self: start;
-            }
-
-            #instruction {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                align-items: center;
-                justify-items: center;
-
-                #btnInst {
-                    height: 50px;
-                    width: 200px;
-                    background-color: rgb(181, 181, 181);
-                    border-radius: 10px;
-                    font-size: 28px;
-                    font-weight: 600;
-                    letter-spacing: 2px;
-                    color: rgb(209, 57, 57);
-                    justify-self: center;
-                    border: none;
-                    transition: 0.5s;
-                    cursor: pointer;
-                }
-
-                #btnInst:hover {
-                    background-color: rgb(209, 57, 57);
-                    font-weight: 300;
-                    color: rgb(215, 214, 214);
-                    transition: 0.5s;
-
-                }
-
-                #btnInst:active {
-                    background-color: white;
-                    color: red;
-                }
-            }
-
-            #exersise {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                justify-items: center;
-
-                #btnStart {
-                    height: 50px;
-                    width: 200px;
-                    background-color: rgb(181, 181, 181);
-                    border-radius: 10px;
-                    font-size: 28px;
-                    font-weight: 600;
-                    letter-spacing: 2px;
-                    color: rgb(75, 163, 75);
-                    justify-self: center;
-                    border: none;
-                    transition: 0.7s;
-                    cursor: pointer;
-                    align-self: center;
-                }
-
-                #btnStart:hover {
-                    background-color: rgb(75, 163, 75);
-                    font-weight: 300;
-                    color: rgb(215, 214, 214);
-                    transition: 0.7s;
-
-                }
-
-                #btnStart:active {
-                    background-color: white;
-                    color: rgb(0, 229, 0);
-                }
-            }
-        }
-
-
-
-    }
-
-    #scrDownRu {
-        width: 90vw;
-        height: 90vh;
-        background-color: rgb(181, 181, 181);
-        margin: 0 auto;
-        padding: 3vh 7vw;
-        position: relative;
-        bottom: 5vw;
-        box-sizing: border-box;
-        color: rgb(45, 153, 21);
-        display: none;
-
-        h2 {
-            padding: 1vh 5vw;
-            border-radius: 10px;
-            margin: 0;
-            font-size: 56px;
-            margin-left: 150px;
-            background-color: rgb(229, 229, 229);
-        }
-
-        h2:nth-of-type(2) {
-            // margin-left: 250px;
-            margin-top: 0;
-            margin-bottom: 0;
-        }
-
-        #blockBtn {
-            margin: auto;
-            display: grid;
-            grid-template-rows: 1fr 1fr;
-            padding-top: 4vh;
-            align-items: center;
-
-
-            h3 {
-                background-color: rgb(229, 229, 229);
-                font-size: 32px;
-                margin: 0;
-                border-radius: 10px;
-                padding: 4vh 4vw;
-                color: black;
-                justify-self: start;
-            }
-
-            #instruction {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                align-items: center;
-                justify-items: center;
-
-                #btnInst2 {
-                    height: 50px;
-                    width: 200px;
-                    background-color: rgb(181, 181, 181);
-                    border-radius: 10px;
-                    font-size: 28px;
-                    font-weight: 600;
-                    letter-spacing: 2px;
-                    color: rgb(209, 57, 57);
-                    justify-self: center;
-                    border: none;
-                    transition: 0.5s;
-                    cursor: pointer;
-                }
-
-                #btnInst2:hover {
-                    background-color: rgb(209, 57, 57);
-                    font-weight: 300;
-                    color: rgb(215, 214, 214);
-                    transition: 0.5s;
-                }
-
-                #btnInst2:active {
-                    background-color: white;
-                    color: red;
-                }
-            }
-
-            #exersise {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                justify-items: center;
-
-                #btnStart2 {
-                    height: 50px;
-                    width: 200px;
-                    background-color: rgb(181, 181, 181);
-                    border-radius: 10px;
-                    font-size: 28px;
-                    font-weight: 600;
-                    letter-spacing: 2px;
-                    color: rgb(75, 163, 75);
-                    justify-self: center;
-                    border: none;
-                    transition: 0.7s;
-                    cursor: pointer;
-                    align-self: center;
-                }
-
-                #btnStart2:hover {
-                    background-color: rgb(75, 163, 75);
-                    font-weight: 300;
-                    color: rgb(215, 214, 214);
-                    transition: 0.7s;
-                }
-
-                #btnStart2:active {
-                    background-color: white;
-                    color: rgb(0, 229, 0);
-                }
-            }
-        }
-
-
-
-    }
-
-    #scrDownHe {
-        width: 90vw;
-        height: 90vh;
-        background-color: rgb(181, 181, 181);
-        margin: 0 auto;
-        padding: 3vh 7vw;
-        position: relative;
-        bottom: 5vw;
-        box-sizing: border-box;
-        color: rgb(45, 153, 21);
-        display: none;
-
-        h2 {
-            width: 50%;
-            padding: 4vh 10vw;
-            border-radius: 10px;
-            margin: 0;
-            font-size: 56px;
-            margin-left: 150px;
-            background-color: rgb(229, 229, 229);
-        }
-
-        h2:nth-of-type(2) {
-            // margin-left: 250px;
-            margin-top: 0;
-            margin-bottom: 0;
-        }
-
-        #blockBtn {
-            margin: auto;
-            display: grid;
-            grid-template-rows: 1fr 1fr;
-            padding-top: 7vh;
-            gap: 5vh;
-            align-items: center;
-
-
-            h3 {
-                background-color: rgb(229, 229, 229);
-                font-size: 32px;
-                margin: 0;
-                border-radius: 10px;
-                padding: 4vh 4vw;
-                color: black;
-                justify-self: start;
-            }
-
-            #instruction {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                align-items: center;
-                justify-items: center;
-
-                #btnInst1 {
-                    height: 50px;
-                    width: 200px;
-                    background-color: rgb(181, 181, 181);
-                    border-radius: 10px;
-                    font-size: 28px;
-                    font-weight: 600;
-                    letter-spacing: 2px;
-                    color: rgb(209, 57, 57);
-                    justify-self: center;
-                    border: none;
-                    transition: 0.5s;
-                    cursor: pointer;
-                }
-
-                #btnInst1:hover {
-                    background-color: rgb(209, 57, 57);
-                    font-weight: 300;
-                    color: rgb(215, 214, 214);
-                    transition: 0.5s;
-                }
-
-                #btnInst1:active {
-                    background-color: white;
-                    color: red;
-                }
-            }
-
-            #exersise {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                justify-items: center;
-
-                #btnStart1 {
-                    height: 50px;
-                    width: 200px;
-                    background-color: rgb(181, 181, 181);
-                    border-radius: 10px;
-                    font-size: 28px;
-                    font-weight: 600;
-                    letter-spacing: 2px;
-                    color: rgb(75, 163, 75);
-                    justify-self: center;
-                    border: none;
-                    transition: 0.7s;
-                    cursor: pointer;
-                    align-self: center;
-                }
-
-                #btnStart1:hover {
-                    background-color: rgb(75, 163, 75);
-                    font-weight: 300;
-                    color: rgb(215, 214, 214);
-                    transition: 0.7s;
-                }
-
-                #btnStart1:active {
-                    background-color: white;
-                    color: rgb(0, 229, 0);
-                }
-            }
-        }
-    }
-
     #FinRes {
         display: none;
         background-color: rgb(0, 199, 0);
@@ -1252,20 +922,7 @@ body {
         color: rgb(0, 195, 195);
     }
 
-    #background {
-        width: 100vw;
-        height: 100vh;
-        background-color: gray;
-        display: none;
-    }
-
     // Буквы
-
-    #window {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        
 
         #block {
             display: none;
@@ -1285,9 +942,591 @@ body {
         }
     }
 
-    #window::after {
-        content: "";
-        display: block;
-        clear: both;
+    #TitulList{
+        height: 100vh;
+        width: 100vw;
+        padding-top: 100px;
+        box-sizing: border-box;
     }
+
+    #scrDownEn {
+        background-color: rgb(181, 181, 181);
+        padding: 25px 100px;
+        box-sizing: content-box;
+        color: rgb(45, 153, 21);
+        display: grid;
+        gap: 50px;
+
+        #lengw{
+            display: grid;
+            gap: 10px;
+            grid-template-columns: 1fr 1fr 1fr;
+            width: 200px;
+        }
+
+       
+
+        #l1{
+           background-color: rgba(158, 158, 241, 0.704); 
+           border: none;
+           cursor: pointer;
+           transition: 0.5s;
+        }
+
+        #l1:hover {
+            background-color: rgba(0, 0, 255, 0.704);
+            font-weight: 300;
+            color: rgb(255, 255, 255);
+            transition: 0.5s;
+
+        }
+
+        #l1:active {
+            background-color:rgb(255, 255, 255);
+            color: rgba(0, 0, 255, 0.704);
+        }
+
+        #l2{
+            background-color: rgba(255, 158, 158, 0.704); 
+            border: none;
+            cursor: pointer;
+        }
+
+        #l2:hover {
+            background-color: rgba(255, 0, 0, 0.704);
+            font-weight: 300;
+            color: rgb(255, 255, 255);
+            transition: 0.5s;
+
+        }
+
+        #l2:active {
+            background-color:rgb(255, 255, 255);
+            color: rgba(255, 0, 0, 0.704);
+        }
+
+        #l3{
+            background-color: rgba(168, 255, 158, 0.704); 
+            border: none;
+            cursor: pointer;
+        }
+
+        #l3:hover {
+            background-color: rgba(26, 255, 0, 0.704);
+            font-weight: 300;
+            color: rgb(255, 255, 255);
+            transition: 0.5s;
+
+        }
+
+        #l3:active {
+            background-color:rgb(255, 255, 255);
+            color: rgba(26, 255, 0, 0.704);
+        }
+
+        #greetings{
+            display: grid;
+            background-color: rgb(229, 229, 229);
+            padding: 20px 40px;
+            border-radius: 10px;
+              h2 { 
+            line-height: 40px;          
+            margin: 0;
+            font-size: 36px;          
+           }
+        }
+
+        h2:nth-of-type(2) {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        #blockBtn {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            padding-top: 30px;
+            gap: 25px;
+
+            #instruction {
+                background-color: rgb(229, 229, 229);
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                border-radius: 10px;
+                padding: 10px 30px;
+
+                &>h3 {
+                    font-size: 24px;
+                    margin: 0;
+                    color: black;
+                }
+
+                #btnInst {
+                    height: 50px;
+                    width: 200px;
+                    background-color: rgb(181, 181, 181);
+                    border-radius: 10px;
+                    font-size: 28px;
+                    font-weight: 600;
+                    letter-spacing: 2px;
+                    color: rgb(209, 57, 57);
+                    align-self: center;
+                    justify-self: center;
+                    border: none;
+                    transition: 0.5s;
+                    cursor: pointer;
+                }
+
+                #btnInst:hover {
+                    background-color: rgb(209, 57, 57);
+                    font-weight: 300;
+                    color: rgb(215, 214, 214);
+                    transition: 0.5s;
+
+                }
+
+                #btnInst:active {
+                    background-color: white;
+                    color: red;
+                }
+            }
+
+            #exersise {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                background-color: rgb(229, 229, 229);
+                border-radius: 10px;
+                padding: 10px 30px;
+
+                &>h3 {
+                    font-size: 24px;
+                    margin: 0;
+                   align-self: center;
+                    color: black;
+                }
+
+                #btnStart {
+                    height: 50px;
+                    width: 200px;
+                    background-color: rgb(181, 181, 181);
+                    border-radius: 10px;
+                    font-size: 28px;
+                    font-weight: 600;
+                    letter-spacing: 2px;
+                    color: rgb(75, 163, 75);
+                    justify-self: center;
+                    align-self: center;
+                    border: none;
+                    transition: 0.7s;
+                    cursor: pointer;
+                    align-self: center;
+                }
+
+                #btnStart:hover {
+                    background-color: rgb(75, 163, 75);
+                    font-weight: 300;
+                    color: rgb(215, 214, 214);
+                    transition: 0.7s;
+
+                }
+
+                #btnStart:active {
+                    background-color: white;
+                    color: rgb(0, 229, 0);
+                }
+            }
+        }
+    }
+
+    #scrDownRu {
+        background-color: rgb(181, 181, 181);
+        padding: 25px 100px;
+        box-sizing: content-box;
+        color: rgb(45, 153, 21);
+        display: grid;
+        // gap: 50px;
+        display: none;
+
+        #lengw{
+            display: grid;
+            gap: 10px;
+            grid-template-columns: 1fr 1fr 1fr;
+            width: 200px;
+        }
+
+       
+
+        #l1{
+           background-color: rgba(158, 158, 241, 0.704); 
+           border: none;
+           cursor: pointer;
+           transition: 0.5s;
+        }
+
+        #l1:hover {
+            background-color: rgba(0, 0, 255, 0.704);
+            font-weight: 300;
+            color: rgb(255, 255, 255);
+            transition: 0.5s;
+
+        }
+
+        #l1:active {
+            background-color:rgb(255, 255, 255);
+            color: rgba(0, 0, 255, 0.704);
+        }
+
+        #l2{
+            background-color: rgba(255, 158, 158, 0.704); 
+            border: none;
+            cursor: pointer;
+        }
+
+        #l2:hover {
+            background-color: rgba(255, 0, 0, 0.704);
+            font-weight: 300;
+            color: rgb(255, 255, 255);
+            transition: 0.5s;
+
+        }
+
+        #l2:active {
+            background-color:rgb(255, 255, 255);
+            color: rgba(255, 0, 0, 0.704);
+        }
+
+        #l3{
+            background-color: rgba(168, 255, 158, 0.704); 
+            border: none;
+            cursor: pointer;
+        }
+
+        #l3:hover {
+            background-color: rgba(26, 255, 0, 0.704);
+            font-weight: 300;
+            color: rgb(255, 255, 255);
+            transition: 0.5s;
+
+        }
+
+        #l3:active {
+            background-color:rgb(255, 255, 255);
+            color: rgba(26, 255, 0, 0.704);
+        }
+       
+
+        #greetings{
+            // display: grid;
+            margin: 50px 0;
+            background-color: rgb(229, 229, 229);
+            padding: 20px 40px;
+            border-radius: 10px;
+              h2 {  
+            line-height: 50px;          
+            margin: 0;
+            font-size: 36px;          
+           }
+        }
+
+        h2:nth-of-type(2) {
+            // margin-left: 250px;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        #blockBtn {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            padding-top: 30px;
+            gap: 25px;
+
+            #instruction {
+                background-color: rgb(229, 229, 229);
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                border-radius: 10px;
+                padding: 10px 30px;
+
+                &>h3 {
+                    font-size: 24px;
+                    margin: 0;
+                    color: black;
+                }
+
+                #btnInst2 {
+                    height: 50px;
+                    width: 200px;
+                    background-color: rgb(181, 181, 181);
+                    border-radius: 10px;
+                    font-size: 28px;
+                    font-weight: 600;
+                    letter-spacing: 2px;
+                    color: rgb(209, 57, 57);
+                    justify-self: center;
+                    border: none;
+                    transition: 0.5s;
+                    align-self: center;
+                    cursor: pointer;
+                }
+
+                #btnInst2:hover {
+                    background-color: rgb(209, 57, 57);
+                    font-weight: 300;
+                    color: rgb(215, 214, 214);
+                    transition: 0.5s;
+
+                }
+
+                #btnInst2:active {
+                    background-color: white;
+                    color: red;
+                }
+            }
+
+            #exersise {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                background-color: rgb(229, 229, 229);
+                border-radius: 10px;
+                padding: 10px 30px;
+
+                &>h3 {
+                    font-size: 24px;
+                    margin: 0;
+                   align-self: center;
+                    color: black;
+                }
+
+                #btnStart2 {
+                    height: 50px;
+                    width: 200px;
+                    background-color: rgb(181, 181, 181);
+                    border-radius: 10px;
+                    font-size: 28px;
+                    font-weight: 600;
+                    letter-spacing: 2px;
+                    color: rgb(75, 163, 75);
+                    justify-self: center;
+                    align-self: center;
+                    border: none;
+                    transition: 0.7s;
+                    cursor: pointer;
+                    align-self: center;
+                }
+
+                #btnStart2:hover {
+                    background-color: rgb(75, 163, 75);
+                    font-weight: 300;
+                    color: rgb(215, 214, 214);
+                    transition: 0.7s;
+
+                }
+
+                #btnStart1:active {
+                    background-color: white;
+                    color: rgb(0, 229, 0);
+                }
+            }
+        }
+
+    }
+
+    #scrDownHe {
+        background-color: rgb(181, 181, 181);
+        margin: 0 auto;
+        padding: 25px 100px;
+        box-sizing: content-box;
+        display: grid;
+        color: rgb(45, 153, 21);
+        display: none;
+        gap: 50px;
+
+        #lengw{
+            display: grid;
+            gap: 10px;
+            grid-template-columns: 1fr 1fr 1fr;
+            width: 200px;
+        }
+
+       
+
+        #l1{
+           background-color: rgba(158, 158, 241, 0.704); 
+           border: none;
+           cursor: pointer;
+           transition: 0.5s;
+        }
+
+        #l1:hover {
+            background-color: rgba(0, 0, 255, 0.704);
+            font-weight: 300;
+            color: rgb(255, 255, 255);
+            transition: 0.5s;
+
+        }
+
+        #l1:active {
+            background-color:rgb(255, 255, 255);
+            color: rgba(0, 0, 255, 0.704);
+        }
+
+        #l2{
+            background-color: rgba(255, 158, 158, 0.704); 
+            border: none;
+            cursor: pointer;
+        }
+
+        #l2:hover {
+            background-color: rgba(255, 0, 0, 0.704);
+            font-weight: 300;
+            color: rgb(255, 255, 255);
+            transition: 0.5s;
+
+        }
+
+        #l2:active {
+            background-color:rgb(255, 255, 255);
+            color: rgba(255, 0, 0, 0.704);
+        }
+
+        #l3{
+            background-color: rgba(168, 255, 158, 0.704); 
+            border: none;
+            cursor: pointer;
+        }
+
+        #l3:hover {
+            background-color: rgba(26, 255, 0, 0.704);
+            font-weight: 300;
+            color: rgb(255, 255, 255);
+            transition: 0.5s;
+
+        }
+
+        #l3:active {
+            background-color:rgb(255, 255, 255);
+            color: rgba(26, 255, 0, 0.704);
+        }
+
+        #greetings{
+            display: grid;
+            background-color: rgb(229, 229, 229);
+            padding: 20px 40px;
+            border-radius: 10px;
+
+              h2 {
+            text-align: right;
+            margin: 0;
+            font-size: 40px;  
+            line-height: 60px;         
+           }
+        }
+
+        h2:nth-of-type(2) {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        #blockBtn {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            padding-top: 30px;
+            gap: 25px;
+
+            #instruction {
+                background-color: rgb(229, 229, 229);
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                border-radius: 10px;
+                padding: 10px 30px;
+
+                &>h3 {
+                    font-size: 24px;
+                    margin: 0;
+                    text-align: right;
+                    color: black;
+                }
+
+                #btnInst1 {
+                    height: 50px;
+                    width: 200px;
+                    background-color: rgb(181, 181, 181);
+                    border-radius: 10px;
+                    font-size: 28px;
+                    font-weight: 600;
+                    letter-spacing: 2px;
+                    color: rgb(209, 57, 57);
+                    justify-self: center;
+                    align-self: center;
+                    border: none;
+                    transition: 0.5s;
+                    cursor: pointer;
+                }
+
+                #btnInst1:hover {
+                    background-color: rgb(209, 57, 57);
+                    font-weight: 300;
+                    color: rgb(215, 214, 214);
+                    transition: 0.5s;
+
+                }
+
+                #btnInst1:active {
+                    background-color: white;
+                    color: red;
+                }
+            }
+
+            #exersise {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                background-color: rgb(229, 229, 229);
+                border-radius: 10px;
+                padding: 10px 30px;
+
+                &>h3 {
+                    font-size: 24px;
+                    margin: 0;
+                    text-align: right;
+                   align-self: center;
+                    color: black;
+                }
+
+                #btnStart1 {
+                    height: 50px;
+                    width: 200px;
+                    background-color: rgb(181, 181, 181);
+                    border-radius: 10px;
+                    font-size: 28px;
+                    font-weight: 600;
+                    letter-spacing: 2px;
+                    color: rgb(75, 163, 75);
+                    justify-self: center;
+                    align-self: center;
+                    border: none;
+                    transition: 0.7s;
+                    cursor: pointer;
+                    align-self: center;
+                }
+
+                #btnStart1:hover {
+                    background-color: rgb(75, 163, 75);
+                    font-weight: 300;
+                    color: rgb(215, 214, 214);
+                    transition: 0.7s;
+
+                }
+
+                #btnStart1:active {
+                    background-color: white;
+                    color: rgb(0, 229, 0);
+                }
+            }
+        }
+    }
+
+    // #window::after {
+    //     content: "";
+    //     display: block;
+    //     clear: both;
+    // }
 }
