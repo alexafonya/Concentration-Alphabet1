@@ -221,7 +221,9 @@ let btnCloseE=()=>{
     console.log("Back close")
     closeWinE.addEventListener("click", function(){
         modal.style.display = "none"
-        document.getElementById("scrDownEn").style.display = "block"
+        document.getElementById("TitulList").style.display = "block"
+        document.getElementById("window").style.display = "none"
+        document.getElementById("scrDownEn").style.display = "grid"
         document.getElementById("top").style.opacity = "0";
         document.getElementById("backEn").style.display = "none"
         document.getElementById("closeEn").style.display = "block"
@@ -233,8 +235,10 @@ let btnCloseR=()=>{
     closeWinR = document.getElementById("backRu")
     closeWinR.addEventListener("click", function(){
         modal.style.display = "none"
+        document.getElementById("TitulList").style.display = "block"
+        document.getElementById("window").style.display = "none"
         document.getElementById("top").style.opacity = "0";
-        document.getElementById("scrDownRu").style.display = "block"
+        document.getElementById("scrDownRu").style.display = "grid"
         document.getElementById("backRu").style.display = "none"
         document.getElementById("closeRu").style.display = "block"
     })
@@ -245,8 +249,10 @@ let btnCloseH=()=>{
     closeWinR = document.getElementById("backHe")
     closeWinR.addEventListener("click", function(){
     modal.style.display = "none"
+    document.getElementById("TitulList").style.display = "block"
+    document.getElementById("window").style.display = "none"
     document.getElementById("top").style.opacity = "0";
-    document.getElementById("scrDownHe").style.display = "block"
+    document.getElementById("scrDownHe").style.display = "grid"
     document.getElementById("backHe").style.display = "none"
     document.getElementById("closeHe").style.display = "block"
     })
@@ -255,16 +261,16 @@ let btnCloseH=()=>{
 let changeEng=()=>{
     document.getElementById("scrDownRu").style.display = "none"
     document.getElementById("scrDownHe").style.display = "none"
-    document.getElementById("scrDownEn").style.display = "block"
+    document.getElementById("scrDownEn").style.display = "grid"
 }
 let changeRus=()=>{
     document.getElementById("scrDownEn").style.display = "none"
     document.getElementById("scrDownHe").style.display = "none"
-    document.getElementById("scrDownRu").style.display = "block"
+    document.getElementById("scrDownRu").style.display = "grid"
 }
 let changeHeb=()=>{
     document.getElementById("scrDownRu").style.display = "none"
-    document.getElementById("scrDownHe").style.display = "block"
+    document.getElementById("scrDownHe").style.display = "grid"
     document.getElementById("scrDownEn").style.display = "none"
 }
 
@@ -284,8 +290,11 @@ let openLeng=()=>{
     clear();
      btnInst.addEventListener("click", function(){
         console.log("na meste")
-     document.getElementById("scrDownEn").style.display = "none"       
+        document.getElementById("TitulList").style.display = "none"
+        document.getElementById("window").style.display = "block"
+     document.getElementById("scrDownEn").style.display = "none"             
         modalWin();     
+        modal.style.backgroundColor = 'rgba(211, 210, 210, 0.46)';
         document.getElementById("top").style.opacity = "1";        
         modal.style.pointerEvents = "visible";
         btnCloseE();
@@ -293,43 +302,58 @@ let openLeng=()=>{
     btnStart.addEventListener("click",function (){
         document.querySelector("body").style.backgroundColor = "transparent"
         document.getElementById("top").style.pointerEvents = "visible";
+        document.getElementById("top").style.display = "grid" 
+        document.getElementById("window").style.display = "block"
         document.getElementById("top").style.opacity = "1";
         document.getElementById("scrDownEn").style.display = "none"
+        document.getElementById("TitulList").style.display = "none"
         document.getElementById("block").style.display = "block"
         fullSreenStart();
         Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters()},HOLD);
         
     })
      btnInst1.addEventListener("click", function(){
+        document.getElementById("TitulList").style.display = "none"
+        document.getElementById("window").style.display = "block"
      document.getElementById("scrDownHe").style.display = "none"    
         modalWin();
+        modal.style.backgroundColor = 'rgba(211, 210, 210, 0.46)';
         document.getElementById("top").style.opacity = "1";        
         modal.style.pointerEvents = "visible";
         btnCloseH();
         document.getElementById("scrDownHe").style.display = "none"
     })
     btnStart1.addEventListener("click",function (){
+        document.getElementById("top").style.display = "grid"
+        document.getElementById("window").style.display = "block"
         document.querySelector("body").style.backgroundColor = "transparent"
         document.getElementById("top").style.pointerEvents = "visible";
         document.getElementById("top").style.opacity = "1";
         document.getElementById("scrDownHe").style.display = "none"
+        document.getElementById("TitulList").style.display = "none"
         document.getElementById("block").style.display = "block"
         fullSreenStart();
         Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters()},HOLD);
     })
      btnInst2.addEventListener("click", function(){
+        document.getElementById("TitulList").style.display = "none"
+        document.getElementById("window").style.display = "block"
      document.getElementById("scrDownRu").style.display = "none"    
         modalWin();
+        modal.style.backgroundColor = 'rgba(211, 210, 210, 0.46)';
         document.getElementById("top").style.opacity = "1";        
         modal.style.pointerEvents = "visible";
         btnCloseR();
         document.querySelector(".lang")
     })
     btnStart2.addEventListener("click",function (){
+        document.getElementById("top").style.display = "grid"
+        document.getElementById("window").style.display = "block"
         document.querySelector("body").style.backgroundColor = "transparent"
         document.getElementById("top").style.pointerEvents = "visible";
         document.getElementById("top").style.opacity = "1";
         document.getElementById("scrDownRu").style.display = "none"
+        document.getElementById("TitulList").style.display = "none"
         document.getElementById("block").style.display = "block"
         fullSreenStart();
         Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters()},HOLD);
@@ -707,37 +731,37 @@ let setfontFullScr =()=>{
         document.getElementById("block").style.top = TOP + 'vh';
     }else if(SHRIFT <= 70){
         console.log("140-150")
-        LEFT = Math.floor(Math.random() * 95);
+        LEFT = Math.floor(Math.random() * 90);
         TOP = Math.floor(Math.random() * 81);
         document.getElementById("block").style.left = LEFT + 'vw';
         document.getElementById("block").style.top = TOP + 'vh';
     } else if(SHRIFT <= 80){
         console.log("140-150")
-        LEFT = Math.floor(Math.random() * 95);
+        LEFT = Math.floor(Math.random() * 90);
         TOP = Math.floor(Math.random() * 78);
         document.getElementById("block").style.left = LEFT + 'vw';
         document.getElementById("block").style.top = TOP + 'vh';
     } else if(SHRIFT <= 90){
         console.log("140-150")
-        LEFT = Math.floor(Math.random() * 95);
+        LEFT = Math.floor(Math.random() * 90);
         TOP = Math.floor(Math.random() * 76);
         document.getElementById("block").style.left = LEFT + 'vw';
         document.getElementById("block").style.top = TOP + 'vh';
     }else if (SHRIFT <= 100) {
         console.log("20-50")
-        LEFT = Math.floor(Math.random() * 95);
+        LEFT = Math.floor(Math.random() * 90);
         TOP = Math.floor(Math.random() * 73);
         document.getElementById("block").style.left = LEFT + 'vw';
         document.getElementById("block").style.top = TOP + 'vh';
     }else if(SHRIFT <= 110){
         console.log("50-70")
-        LEFT = Math.floor(Math.random() * 95);
+        LEFT = Math.floor(Math.random() * 90);
         TOP = Math.floor(Math.random() * 70);
         document.getElementById("block").style.left = LEFT + 'vw';
         document.getElementById("block").style.top = TOP + 'vh';
     } else if(SHRIFT <= 120){
         console.log("70-90")
-        LEFT = Math.floor(Math.random() * 95);
+        LEFT = Math.floor(Math.random() * 90);
         TOP = Math.floor(Math.random() * 68);
         document.getElementById("block").style.left = LEFT + 'vw';
         document.getElementById("block").style.top = TOP + 'vh';
@@ -787,37 +811,37 @@ let setFont1 =() =>{
         document.getElementById("block").style.top = TOP + 'vh';
     }else if(SHRIFT <= 70){
         console.log("140-150")
-        LEFT = Math.floor(Math.random() * 95);
+        LEFT = Math.floor(Math.random() * 90);
         TOP = Math.floor(Math.random() * 66);
         document.getElementById("block").style.left = LEFT + 'vw';
         document.getElementById("block").style.top = TOP + 'vh';
     } else if(SHRIFT <= 80){
         console.log("140-150")
-        LEFT = Math.floor(Math.random() * 95);
+        LEFT = Math.floor(Math.random() * 90);
         TOP = Math.floor(Math.random() * 63);
         document.getElementById("block").style.left = LEFT + 'vw';
         document.getElementById("block").style.top = TOP + 'vh';
     } else if(SHRIFT <= 90){
         console.log("140-150")
-        LEFT = Math.floor(Math.random() * 95);
+        LEFT = Math.floor(Math.random() * 90);
         TOP = Math.floor(Math.random() * 61);
         document.getElementById("block").style.left = LEFT + 'vw';
         document.getElementById("block").style.top = TOP + 'vh';
     }else if (SHRIFT <= 100) {
         console.log("20-50")
-        LEFT = Math.floor(Math.random() * 95);
+        LEFT = Math.floor(Math.random() * 90);
         TOP = Math.floor(Math.random() * 58);
         document.getElementById("block").style.left = LEFT + 'vw';
         document.getElementById("block").style.top = TOP + 'vh';
     }else if(SHRIFT <= 110){
         console.log("50-70")
-        LEFT = Math.floor(Math.random() * 95);
+        LEFT = Math.floor(Math.random() * 90);
         TOP = Math.floor(Math.random() * 55 );
         document.getElementById("block").style.left = LEFT + 'vw';
         document.getElementById("block").style.top = TOP + 'vh';
     } else if(SHRIFT <= 120){
         console.log("70-90")
-        LEFT = Math.floor(Math.random() * 95);
+        LEFT = Math.floor(Math.random() * 90);
         TOP = Math.floor(Math.random() * 53);
         document.getElementById("block").style.left = LEFT + 'vw';
         document.getElementById("block").style.top = TOP + 'vh';
@@ -1278,7 +1302,7 @@ Theme.addEventListener("click", function () {
 let modalWin = () =>{
     modal.style.display = 'block';
     modal.style.backgroundColor = 'rgba(211, 210, 210, 0.94)';
-    modal.style.top = '8%';
+    modal.style.top = '5%';
     modal.style.left = '6%';
 }
 
