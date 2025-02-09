@@ -41,6 +41,7 @@ body #window #top #f1 {
   grid-template-columns: 0.5fr 1fr;
   align-items: center;
   gap: 10px;
+  padding-right: 0.8em;
 }
 body #window #top #f1 #TimeOnOff {
   display: grid;
@@ -201,7 +202,7 @@ body #window #top #f1 #f2_2 #line #shpic :nth-last-of-type(5) {
 body #window #top #f3 {
   gap: 1.5em;
   padding-right: 0.5em;
-  padding-left: 1.5em;
+  padding-left: 1em;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -755,7 +756,7 @@ body #TitulList {
   height: 100vh;
   align-items: center;
   width: 100vw;
-  padding: 50px;
+  padding: 50px 0;
   box-sizing: border-box;
 }
 body #scrDownEn {
