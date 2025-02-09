@@ -721,15 +721,16 @@ body #window #block p {
   font-family: Times;
   font-weight: bold;
 }
-body #TitulList {
-  display: grid;
-  height: 100vh;
-  align-items: center;
-  width: 100vw;
-  box-sizing: border-box;
-}
-body #TitulList #FinRes {
+body #background {
   display: none;
+  align-items: center;
+  justify-items: center;
+}
+body #background #Finish {
+  font-size: 56px;
+  color: rgb(0, 195, 195);
+}
+body #background #Finish #FinRes {
   background-color: rgb(0, 199, 0);
   padding: 15px;
   border: none;
@@ -739,31 +740,32 @@ body #TitulList #FinRes {
   border-radius: 15px;
   color: white;
   transition: 0.7s;
-  justify-self: center;
 }
-body #TitulList #FinRes:hover {
+body #background #Finish #FinRes:hover {
   background-color: white;
   color: rgb(0, 199, 0);
   transition: 0.7s;
 }
-body #TitulList #FinRes:active {
+body #background #Finish #FinRes:active {
   background-color: rgb(0, 199, 0);
   color: white;
 }
-body #TitulList #Finish {
-  display: none;
-  font-size: 46px;
-  padding: 0 7vw;
-  color: rgb(0, 195, 195);
+body #TitulList {
+  display: grid;
+  height: 100vh;
+  align-items: center;
+  width: 100vw;
+  padding: 50px;
+  box-sizing: border-box;
 }
 body #scrDownEn {
+  align-self: center;
   background-color: rgb(181, 181, 181);
   padding: 25px 100px;
   box-sizing: content-box;
   color: rgb(45, 153, 21);
   display: grid;
   gap: 50px;
-  overflow: auto;
 }
 body #scrDownEn #lengw {
   display: grid;
@@ -915,6 +917,7 @@ body #scrDownEn #blockBtn #exersise #btnStart:active {
   color: rgb(0, 229, 0);
 }
 body #scrDownRu {
+  align-self: center;
   background-color: rgb(181, 181, 181);
   padding: 25px 100px;
   box-sizing: content-box;
@@ -1072,6 +1075,7 @@ body #scrDownRu #blockBtn #exersise #btnStart1:active {
   color: rgb(0, 229, 0);
 }
 body #scrDownHe {
+  align-self: center;
   background-color: rgb(181, 181, 181);
   padding: 25px 100px;
   box-sizing: content-box;
