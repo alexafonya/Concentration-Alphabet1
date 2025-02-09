@@ -105,10 +105,8 @@ const changeLengRus = () =>{
     document.getElementById("he").style.fontSize = "14px"
     document.getElementById("he").style.transition = "0.7s";
     modal.style.pointerEvents = "visible";
-    document.getElementById("FinRes").textContent = " ВЫХОД <=> EЩЁ ХОЧУ !!!";
-    document.getElementById("Finish").innerText = "Превосходно! Упражнение выполнено!"
-    document.getElementById("Finish").style.left = "20vw"
-    document.getElementById("Finish").style.width = "70vw"
+    // document.getElementById("Fin").textContent = " ВЫХОД <=> EЩЁ ХОЧУ !!!";
+    // document.getElementById("Finish").innerText = "Превосходно! Упражнение выполнено!"
     document.getElementById("min").textContent = " Размер -"
     document.getElementById("plu").textContent = " Размер +"
     document.getElementById("minus").textContent = " Скорость -"
@@ -147,9 +145,8 @@ const changeLengEng = () =>{
     document.getElementById("he").style.fontSize = "14px"
     document.getElementById("he").style.transition = "0.7s"; 
     modal.style.pointerEvents = "visible";
-    document.getElementById("FinRes").textContent = " EXIT <=> I WANT MORE !!!";
-     document.getElementById("Finish").innerText = "Perfect! The exercise is done!"
-     document.getElementById("Finish").style.left = "26vw";
+    // document.getElementById("Fin").textContent = " EXIT <=> I WANT MORE !!!";
+    //  document.getElementById("Finish").innerText = "Perfect! The exercise is done!"
      document.getElementById("min").textContent = " Size -"
     document.getElementById("plu").textContent = " Size +"
      document.getElementById("minus").textContent = " Speed +"
@@ -189,10 +186,8 @@ const changeLengHeb = () =>{
     document.getElementById("ru").style.fontSize = "14px"
     document.getElementById("ru").style.transition = "0.7s";
     modal.style.pointerEvents = "visible";  
-    document.getElementById("FinRes").textContent = " !!! יציאה <=> אני רוצה פעם ";
-     document.getElementById("Finish").innerText = "!מוּשׁלָם!  התרגיל נעשה"
-     document.getElementById("Finish").style.left = "34vw"
-     document.getElementById("Finish").style.width = "50vw"
+    // document.getElementById("Fin").textContent = " !!! יציאה <=> אני רוצה פעם ";
+    //  document.getElementById("Finish").innerText = "!מוּשׁלָם!  התרגיל נעשה"
     document.getElementById("min").textContent = "- גוֹדֶל "
     document.getElementById("plu").textContent = "+ גוֹדֶל "
     document.getElementById("minus").textContent = "+  מְהִירוּת "
@@ -490,29 +485,7 @@ setTimes.addEventListener("click", function() {
     TIME--;
     if (TIME < 0) {
         clear(); 
-        document.getElementById("TitulList").style.display = "grid"
-        document.getElementById("TitulList").style.justifyItems = "center"
-        document.getElementById("window").style.display = "none";  
-        document.getElementById("top").style.pointerEvents = "none";
-        document.getElementById("top").style.opacity = "0.15"; 
-        document.getElementById("FinRes").style.display = "block";
-        document.getElementById("FinRes").style.position = "relative";
-        document.getElementById("FinRes").style.zIndex = "1";
-        document.getElementById("block").style.display = "none"
-        document.getElementById("block").style.transition = "2s."
-        document.getElementById("Finish").style.display = "block"
-        menuItem.addEventListener("click", function () {
-            dropDownMenu.style.display = "grid";  
-             if (document.exitFullscreen) {
-                 document.exitFullscreen();
-             } else if (document.mozCancelFullScreen) {
-                 document.mozCancelFullScreen();
-             } else if (document.webkitExitFullscreen) {
-                 document.webkitExitFullscreen();
-             } else if (document.msExitFullscreen) {
-                 document.msExitFullscreen();
-             }
-     });
+        reset()
     }
     break
 }  
@@ -1206,10 +1179,10 @@ var elem = document.documentElement;
                     window.style.cursor = "default";
                     setFont = setFont1 
                     setFontEx = setFontEx1
-                // if(dropDownMenu.style.display = "grid")
-                //     menuItem.style.cursor = "default";
-                //     setFont = setFont1
-                //     setFontEx = setFontEx1   
+                if(dropDownMenu.style.display = "grid")
+                    menuItem.style.cursor = "default";
+                    setFont = setFont1
+                    setFontEx = setFontEx1   
         })  
 
 }
