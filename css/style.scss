@@ -1,25 +1,11 @@
-// @media all and (max-width: 1920px) {
-//     body { 
-//         margin: 0 auto;
-//         height: 100svh;
-//         background-color: gray;
-//         display: block;
-//         font-size: calc(12px + 16 * (100vw / 1280));
-//     }
 
-// }
 
 body {
     margin: 0 auto;
     height: 100vh;
     background-color: gray;
     display: block;
-//     $maxWidth: 1280;
-// @mixin adaptiv-font($pcSize, $mobSize) {
-// 	$addSize: $pcSize - $mobSize;
-// 	$maxWidth: $maxWidth - 320;
-// 	font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
-// }
+
     :active,
     :hover,
     :focus {
@@ -37,7 +23,7 @@ body {
         display: none;
 
     #top {
-        padding: 20px 0 20px 20px;
+        padding: 20px 0;
         opacity: 0;
         pointer-events: none;
         position: sticky;
