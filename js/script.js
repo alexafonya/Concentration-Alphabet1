@@ -665,15 +665,39 @@ let setFontExFull1 =() =>{
     SHRIFT = document.getElementById("fill").value;
     let TOP;
     let LEFT;
-    console.log("New + New-Ex")
-    LEFT = Math.floor(Math.random() * 90);
+    if(width < 600){
+        z = 64
+    } else if(width < 1000){
+        z = 77
+    } else if ( width < 1200){ 
+        z = 87
+    } else if (width > 1200){
+        z = 89
+    }
+    console.log("min-z = " + z)
+    LEFT = Math.floor(Math.random() * z);
     TOP = Math.floor(Math.random() * 60);
     document.getElementById("block").style.left = LEFT + 'vw';
-    document.getElementById("block").style.top = TOP + 'vh';  
+    document.getElementById("block").style.top = TOP + 'vh';
 }
+
 let setFontEx =() =>{
- 
+    if(width < 600){
+        z = 64
+    } else if(width < 1000){
+        z = 77
+    } else if ( width < 1200){ 
+        z = 87
+    } else if (width > 1200){
+        z = 89
+    }
+    console.log("min-z = " + z)
+    LEFT = Math.floor(Math.random() * z);
+    TOP = Math.floor(Math.random() * 60);
+    document.getElementById("block").style.left = LEFT + 'vw';
+    document.getElementById("block").style.top = TOP + 'vh';
 }
+
 
 let setFont1 =()=>{
     console.log("New + New")
@@ -755,182 +779,203 @@ let setFont1 =()=>{
     }
 
 }
+
+let z;
+let x;
+let width;
+
 let setfontFullScr =() =>{
     console.log("New")
     SHRIFT = document.getElementById("fill").value;
+    width = window.innerWidth
     let TOP;
     let LEFT;
     if(SHRIFT <= 40){
-        if(menuItem.style.width < "600px"){
-            console.log("140-150")
-            LEFT = Math.floor(Math.random() * 75);
-            TOP = Math.floor(Math.random() * 89);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
-        }else {
-            console.log("140-150")
-            LEFT = Math.floor(Math.random() * 95);
-            TOP = Math.floor(Math.random() * 89);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
+        if(width < 600){
+            z = 85
+        }else if(width < 1000){
+            z = 89
+        } else if (width < 1200){ 
+            z = 98
+        } else if (width > 1200){
+            z = 99
         }
+        console.log("min-z = " + z)
+        LEFT = Math.floor(Math.random() * z);
+        TOP = Math.floor(Math.random() * 89);
+        document.getElementById("block").style.left = LEFT + 'vw';
+        document.getElementById("block").style.top = TOP + 'vh';
     }else if(SHRIFT <= 50){
-        if(menuItem.style.width < "600px"){
-            console.log("140-150")
-            LEFT = Math.floor(Math.random() * 73);
-            TOP = Math.floor(Math.random() * 86);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
-        }else {
-            console.log("140-150")
-            LEFT = Math.floor(Math.random() * 95);
-            TOP = Math.floor(Math.random() * 86);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
+        if(width < 600){
+            z = 80
+        }else if(width < 1200){
+            z = 88
+        } else if (width < 1200){ 
+            z = 97
+        } else if (width > 1200){
+            z = 99
         }
+        console.log("min-z = " + z)
+        LEFT = Math.floor(Math.random() * z);
+        TOP = Math.floor(Math.random() * 86);
+        document.getElementById("block").style.left = LEFT + 'vw';
+        document.getElementById("block").style.top = TOP + 'vh';
     } else if(SHRIFT <= 60){
-        if(menuItem.style.width < "600px"){
-            console.log("140-150")
-            LEFT = Math.floor(Math.random() * 73);
-            TOP = Math.floor(Math.random() * 84);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
-        }else {
-            console.log("140-150")
-            LEFT = Math.floor(Math.random() * 95);
-            TOP = Math.floor(Math.random() * 84);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
+        if(width < 600){
+            z = 78
+        }else if(width < 1000){
+            z = 87
+        } else if (width < 1200){ 
+            z = 96
+        } else if (width > 1200){
+            z = 98
         }
+        console.log("min-z = " + z)
+        LEFT = Math.floor(Math.random() * z);
+        TOP = Math.floor(Math.random() * 84);
+        document.getElementById("block").style.left = LEFT + 'vw';
+        document.getElementById("block").style.top = TOP + 'vh';
     }else if(SHRIFT <= 70){
-        if(menuItem.style.width < "600px"){
-            console.log("140-150")
-            LEFT = Math.floor(Math.random() * 73);
-            TOP = Math.floor(Math.random() * 81);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
-        }else {
-            console.log("140-150")
-            LEFT = Math.floor(Math.random() * 95);
-            TOP = Math.floor(Math.random() * 81);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
+        if(width < 600){
+            z = 86
+        } else if (width < 1000){ 
+            z = 86
+        } else if (width < 1200){ 
+            z = 95
+        } else if (width > 1200){
+            z = 97
         }
+        console.log("min-z = " + z)
+        LEFT = Math.floor(Math.random() * z);
+        TOP = Math.floor(Math.random() * 81);
+        document.getElementById("block").style.left = LEFT + 'vw';
+        document.getElementById("block").style.top = TOP + 'vh';
+        
     } else if(SHRIFT <= 80){
-        if(menuItem.style.width < "600px"){
-            console.log("140-150")
-            LEFT = Math.floor(Math.random() * 73);
-            TOP = Math.floor(Math.random() * 78);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
-        }else {
-            console.log("140-150")
-            LEFT = Math.floor(Math.random() * 95);
-            TOP = Math.floor(Math.random() * 78);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
+        if(width < 600){
+            z = 76
+        }else if(width < 1000){
+            z = 85
+        } else if (width < 1200){ 
+            z = 94
+        } else if (width > 1200){
+            z = 96
         }
+        console.log("min-z = " + z)
+        LEFT = Math.floor(Math.random() * z);
+        TOP = Math.floor(Math.random() * 78);
+        document.getElementById("block").style.left = LEFT + 'vw';
+        document.getElementById("block").style.top = TOP + 'vh';
+        
     } else if(SHRIFT <= 90){
-        if(menuItem.style.width < "600px"){
-            console.log("140-150")
-            LEFT = Math.floor(Math.random() * 73);
-            TOP = Math.floor(Math.random() * 76);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
-        }else {
-            console.log("140-150")
-            LEFT = Math.floor(Math.random() * 95);
-            TOP = Math.floor(Math.random() * 76);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
+        if(width < 600){
+            z = 74
+        }else if(width < 1000){
+            z = 84
+        } else if (width < 1200){ 
+            z = 93
+        } else if (width > 1200){
+            z = 95
         }
+        console.log("min-z = " + z)
+        LEFT = Math.floor(Math.random() * z);
+        TOP = Math.floor(Math.random() * 76);
+        document.getElementById("block").style.left = LEFT + 'vw';
+        document.getElementById("block").style.top = TOP + 'vh';
     }else if (SHRIFT <= 100) {
-        if(menuItem.style.width < "600px"){
-            console.log("20-50")
-            LEFT = Math.floor(Math.random() * 73);
-            TOP = Math.floor(Math.random() * 73);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
-        }else {
-            console.log("20-50")
-            LEFT = Math.floor(Math.random() * 95);
-            TOP = Math.floor(Math.random() * 73);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
+        if(width < 600){
+            z = 74
+        }else if(width < 1200){
+            z = 83
+        } else if (width < 1200){ 
+            z = 92
+        } else if (width > 1200){
+            z = 94
         }
+        console.log("min-z = " + z)
+        LEFT = Math.floor(Math.random() * z);
+        TOP = Math.floor(Math.random() * 73);
+        document.getElementById("block").style.left = LEFT + 'vw';
+        document.getElementById("block").style.top = TOP + 'vh';
+        
     }else if(SHRIFT <= 110){
-        if(menuItem.style.width < "600px"){
-            LEFT = Math.floor(Math.random() * 70);
-            TOP = Math.floor(Math.random() * 70);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
-        }else {
-            console.log("50-70")
-            LEFT = Math.floor(Math.random() * 90);
-            TOP = Math.floor(Math.random() * 70);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
+        if(width < 600){
+            z = 73
+        }else if(width < 1000){
+            z = 82
+        } else if (width < 1200){ 
+            z = 91
+        } else if (width > 1200){
+            z = 93
         }
+        console.log("min-z = " + z)
+        LEFT = Math.floor(Math.random() * z);
+        TOP = Math.floor(Math.random() * 70);
+        document.getElementById("block").style.left = LEFT + 'vw';
+        document.getElementById("block").style.top = TOP + 'vh';
     } else if(SHRIFT <= 120){
-        if(menuItem.style.width < "600px"){
-            LEFT = Math.floor(Math.random() * 70);
-            TOP = Math.floor(Math.random() * 68);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
-        }else {
-            console.log("70-90")
-            LEFT = Math.floor(Math.random() * 90);
-            TOP = Math.floor(Math.random() * 68);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
+        if(width < 600){
+            z = 70
+        }else if(width < 1000){
+            z = 80
+        } else if (width < 1200){ 
+            z = 90
+        } else if (width > 1200){
+            z = 92
         }
+        console.log("min-z = " + z)
+        LEFT = Math.floor(Math.random() * z);
+        TOP = Math.floor(Math.random() * 68);
+        document.getElementById("block").style.left = LEFT + 'vw';
+        document.getElementById("block").style.top = TOP + 'vh';
     } else if(SHRIFT <= 130){
-        if(menuItem.style.width < "600px"){
-            LEFT = Math.floor(Math.random() * 70);
-            TOP = Math.floor(Math.random() * 65);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
-        }else {
-            console.log("120-130")
-            LEFT = Math.floor(Math.random() * 90);
-            TOP = Math.floor(Math.random() * 65);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
+        if(width < 600){
+            z = 68
+        }else if(width < 1000){
+            z = 79
+        } else if (width < 1200){ 
+            z = 89
+        } else if (width > 1200){
+            z = 91
         }
+        console.log("min-z = " + z)
+        LEFT = Math.floor(Math.random() * z);
+        TOP = Math.floor(Math.random() * 65);
+        document.getElementById("block").style.left = LEFT + 'vw';
+        document.getElementById("block").style.top = TOP + 'vh';
     } else if(SHRIFT <= 140){
-        if(menuItem.style.width < "600px"){
-            LEFT = Math.floor(Math.random() * 70);
-            TOP = Math.floor(Math.random() * 62);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
-        }else {
-        console.log("130-140")
-        LEFT = Math.floor(Math.random() * 90);
+        if(width < 600){
+            z = 66
+        }else if(width < 1000){
+            z = 78
+        } else if (width < 1200){ 
+            z = 88
+        } else if (width > 1200){
+            z = 90
+        }
+        console.log("min-z = " + z)
+        LEFT = Math.floor(Math.random() * z);
         TOP = Math.floor(Math.random() * 62);
         document.getElementById("block").style.left = LEFT + 'vw';
         document.getElementById("block").style.top = TOP + 'vh';
-        }
-
     } else if(SHRIFT <= 150){
-        console.log("140-150")
-        if(menuItem.style.width < "600px"){
-            LEFT = Math.floor(Math.random() * 70);
-            TOP = Math.floor(Math.random() * 60);
-            document.getElementById("block").style.left = LEFT + 'vw';
-            document.getElementById("block").style.top = TOP + 'vh';
-        }else {
-        LEFT = Math.floor(Math.random() * 90);
+        if(width < 600){
+            z = 64
+        } else if(width < 1000){
+            z = 77
+        } else if ( width < 1200){ 
+            z = 87
+        } else if (width > 1200){
+            z = 89
+        }
+        console.log("min-z = " + z)
+        LEFT = Math.floor(Math.random() * z);
         TOP = Math.floor(Math.random() * 60);
         document.getElementById("block").style.left = LEFT + 'vw';
         document.getElementById("block").style.top = TOP + 'vh';
-        }
- 
     }
-    
-
 }
-let setFont =() =>{
-   
+let setFont =() =>{   
 }
 
 //  Размер Шрифта
@@ -1037,8 +1082,8 @@ let setTime1 =()=>{
                 Times_3 = setInterval(function () {
                     setFontEx(), randomHands(), randomLetters(), superExtraLet(), superExtraHan()
             },interTime);
-            setTimeReal();
-            }   
+            setTimeReal();          
+            }  
         } else{
         if (colorSimle.checked) {
             clear();
@@ -1061,7 +1106,9 @@ let setTime1 =()=>{
             console.log("else in setTime1()")
             Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters()},interTime);
             setTimeReal();
-        }      
+            // clear() 
+        } 
+            
     } 
 }
      
@@ -1133,7 +1180,6 @@ let startSuperExtra = ()=>{
     document.getElementById("min").style.display = "none"
     document.getElementById("MixPsevdo1").style.display = "block"
     document.getElementById("MixPsevdo2").style.display = "block"
-    // document.getElementById("Mix").innerText = `${SISE2} - ${SISE3}`
     document.getElementById("On").checked = false;
     HOLD = document.getElementById("speed").value
     setTimeReal();
@@ -1189,6 +1235,7 @@ let startSuperExtra = ()=>{
             document.getElementById("MixPsevdo2").style.display = "none"
             clear()
             Times_3 = setInterval(function () { setFont(), randomHands(), randomLetters()},interTime);
+           
         }
     }
 
