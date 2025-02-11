@@ -105,8 +105,8 @@ const changeLengRus = () =>{
     document.getElementById("he").style.fontSize = "14px"
     document.getElementById("he").style.transition = "0.7s";
     modal.style.pointerEvents = "visible";
-    // document.getElementById("Fin").textContent = " ВЫХОД <=> EЩЁ ХОЧУ !!!";
-    // document.getElementById("Finish").innerText = "Превосходно! Упражнение выполнено!"
+    document.getElementById("FinRes").textContent = " ВЫХОД <=> EЩЁ ХОЧУ !!!";
+    document.querySelector("#Finish>h2").innerText = "Превосходно! Упражнение выполнено!"
     document.getElementById("min").textContent = " Размер -"
     document.getElementById("plu").textContent = " Размер +"
     document.getElementById("minus").textContent = " Скорость -"
@@ -145,8 +145,8 @@ const changeLengEng = () =>{
     document.getElementById("he").style.fontSize = "14px"
     document.getElementById("he").style.transition = "0.7s"; 
     modal.style.pointerEvents = "visible";
-    // document.getElementById("Fin").textContent = " EXIT <=> I WANT MORE !!!";
-    //  document.getElementById("Finish").innerText = "Perfect! The exercise is done!"
+    document.getElementById("FinRes").textContent = " EXIT <=> I WANT MORE !!!";
+     document.querySelector("#Finish>h2").innerText = "Perfect! The exercise is done!"
      document.getElementById("min").textContent = " Size -"
     document.getElementById("plu").textContent = " Size +"
      document.getElementById("minus").textContent = " Speed +"
@@ -186,8 +186,8 @@ const changeLengHeb = () =>{
     document.getElementById("ru").style.fontSize = "14px"
     document.getElementById("ru").style.transition = "0.7s";
     modal.style.pointerEvents = "visible";  
-    // document.getElementById("Fin").textContent = " !!! יציאה <=> אני רוצה פעם ";
-    //  document.getElementById("Finish").innerText = "!מוּשׁלָם!  התרגיל נעשה"
+    document.getElementById("FinRes").textContent = " !!! יציאה <=> אני רוצה פעם ";
+    document.querySelector("#Finish>h2").innerText = "!מוּשׁלָם!  התרגיל נעשה"
     document.getElementById("min").textContent = "- גוֹדֶל "
     document.getElementById("plu").textContent = "+ גוֹדֶל "
     document.getElementById("minus").textContent = "+  מְהִירוּת "
@@ -216,7 +216,7 @@ let btnCloseE=()=>{
     console.log("Back close")
     closeWinE.addEventListener("click", function(){
         modal.style.display = "none"
-        document.getElementById("TitulList").style.display = "block"
+        document.getElementById("TitulList").style.display = "grid"
         document.getElementById("window").style.display = "none"
         document.getElementById("scrDownEn").style.display = "grid"
         document.getElementById("top").style.opacity = "0";
@@ -230,7 +230,7 @@ let btnCloseR=()=>{
     closeWinR = document.getElementById("backRu")
     closeWinR.addEventListener("click", function(){
         modal.style.display = "none"
-        document.getElementById("TitulList").style.display = "block"
+        document.getElementById("TitulList").style.display = "grid"
         document.getElementById("window").style.display = "none"
         document.getElementById("top").style.opacity = "0";
         document.getElementById("scrDownRu").style.display = "grid"
@@ -244,7 +244,7 @@ let btnCloseH=()=>{
     closeWinR = document.getElementById("backHe")
     closeWinR.addEventListener("click", function(){
     modal.style.display = "none"
-    document.getElementById("TitulList").style.display = "block"
+    document.getElementById("TitulList").style.display = "grid"
     document.getElementById("window").style.display = "none"
     document.getElementById("top").style.opacity = "0";
     document.getElementById("scrDownHe").style.display = "grid"
@@ -289,7 +289,7 @@ let openLeng=()=>{
         document.getElementById("window").style.display = "block"
      document.getElementById("scrDownEn").style.display = "none"             
         modalWin();     
-        modal.style.backgroundColor = 'rgba(211, 210, 210, 0.46)';
+        modal.style.backgroundColor = 'rgba(211, 210, 210, 0.9)';
         document.getElementById("top").style.opacity = "1";        
         modal.style.pointerEvents = "visible";
         btnCloseE();
@@ -312,7 +312,7 @@ let openLeng=()=>{
         document.getElementById("window").style.display = "block"
      document.getElementById("scrDownHe").style.display = "none"    
         modalWin();
-        modal.style.backgroundColor = 'rgba(211, 210, 210, 0.46)';
+        modal.style.backgroundColor = 'rgba(211, 210, 210, 0.9)';
         document.getElementById("top").style.opacity = "1";        
         modal.style.pointerEvents = "visible";
         btnCloseH();
@@ -335,7 +335,7 @@ let openLeng=()=>{
         document.getElementById("window").style.display = "block"
      document.getElementById("scrDownRu").style.display = "none"    
         modalWin();
-        modal.style.backgroundColor = 'rgba(211, 210, 210, 0.46)';
+        modal.style.backgroundColor = 'rgba(211, 210, 210, 0.9)';
         document.getElementById("top").style.opacity = "1";        
         modal.style.pointerEvents = "visible";
         btnCloseR();
@@ -485,7 +485,21 @@ setTimes.addEventListener("change", function() {
     TIME--;
     if (TIME < 0) {
         clear(); 
-        reset()
+        // reset()
+        clearTimeout(timeout); 
+        document.getElementById("window").style.display = "none"
+        document.getElementById("block").style.display = "none"
+        // document.getElementById("top").style.position = "fixed";
+        // document.getElementById("top").style.opacity = "0"
+        // document.getElementById("top").style.display = "none";
+        // document.getElementById("top").style.pointerEvents = "none";
+        // document.getElementById("top").style.opacity = "0";       
+        document.getElementById("background").style.display = "grid"      
+        document.getElementById("top").style.position = "static"
+        document.getElementById("TitulList").style.display = "none"
+        document.getElementById("top").style.display = "none"
+
+       
     }
     break
 }  
@@ -697,7 +711,6 @@ let setFontEx =() =>{
     document.getElementById("block").style.left = LEFT + 'vw';
     document.getElementById("block").style.top = TOP + 'vh';
 }
-
 
 let setFont1 =()=>{
     console.log("New + New")
@@ -1341,8 +1354,6 @@ addEventListener('mousemove', () => {
     if (Date.now() - ts > to)
       menuItem.style.cursor = "none";
   }, 99)
-
-
 
 function resetColor() {
     document.getElementById("color").checked = false; 
