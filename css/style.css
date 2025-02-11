@@ -22,7 +22,7 @@ body #background #Finish {
   color: rgb(0, 195, 195);
 }
 body #background #Finish h2 {
-  font-size: calc(4rem + 1vw);
+  font-size: calc(2rem + 3vw);
   padding: 0;
   margin: 0;
   padding-bottom: 50px;
@@ -774,17 +774,17 @@ body #TitulList {
   height: 100vh;
   align-items: center;
   width: 100vw;
-  padding: 50px 0;
+  padding: 8vh 0;
   box-sizing: border-box;
 }
 body #scrDownEn {
   align-self: center;
   background-color: rgb(181, 181, 181);
-  padding: 25px 100px;
+  padding: 4vh 10vw;
   box-sizing: content-box;
   color: rgb(45, 153, 21);
   display: grid;
-  gap: 50px;
+  gap: 5vh;
 }
 body #scrDownEn #lengw {
   display: grid;
@@ -843,8 +843,8 @@ body #scrDownEn #greetings {
   font-size: calc(1.1rem + 1.2vw);
   display: grid;
   background-color: rgb(229, 229, 229);
-  padding: 20px 40px;
-  border-radius: 70px 70px 10px 10px;
+  padding: 3vh 6vw;
+  border-radius: 50px 50px 10px 10px;
 }
 body #scrDownEn #greetings h2 {
   line-height: 60px;
@@ -857,8 +857,7 @@ body #scrDownEn h2:nth-of-type(2) {
 body #scrDownEn #blockBtn {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  padding-top: 30px;
-  gap: 25px;
+  gap: 3vh;
   font-size: calc(1rem + 1vw);
 }
 body #scrDownEn #blockBtn #instruction {
@@ -867,7 +866,7 @@ body #scrDownEn #blockBtn #instruction {
   align-items: center;
   grid-template-columns: 1fr 1fr;
   border-radius: 10px;
-  padding: 10px 30px;
+  padding: 2vh 6vw;
 }
 body #scrDownEn #blockBtn #instruction > h3 {
   padding: 0 4vw;
@@ -882,7 +881,7 @@ body #scrDownEn #blockBtn #instruction #btnInst {
   border-radius: 10px;
   font-size: calc(1rem + 1.5vw);
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 0.2rem;
   color: rgb(209, 57, 57);
   align-self: center;
   justify-self: center;
@@ -906,7 +905,7 @@ body #scrDownEn #blockBtn #exersise {
   grid-template-columns: 1fr 1fr;
   background-color: rgb(229, 229, 229);
   border-radius: 10px;
-  padding: 10px 30px;
+  padding: 2vh 6vw;
 }
 body #scrDownEn #blockBtn #exersise > h3 {
   padding: 0 4vw;
@@ -921,7 +920,7 @@ body #scrDownEn #blockBtn #exersise #btnStart {
   border-radius: 10px;
   font-size: calc(1rem + 1.5vw);
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 0.2rem;
   color: rgb(75, 163, 75);
   justify-self: center;
   align-self: center;
@@ -943,10 +942,10 @@ body #scrDownEn #blockBtn #exersise #btnStart:active {
 body #scrDownRu {
   align-self: center;
   background-color: rgb(181, 181, 181);
-  padding: 25px 100px;
+  padding: 4vh 10vw;
   box-sizing: content-box;
   color: rgb(45, 153, 21);
-  display: grid;
+  gap: 5vh;
   display: none;
 }
 body #scrDownRu #lengw {
@@ -1004,10 +1003,10 @@ body #scrDownRu #l3:active {
 body #scrDownRu #greetings {
   text-align: center;
   font-size: calc(1.1rem + 1.2vw);
-  margin: 50px 0;
+  display: grid;
   background-color: rgb(229, 229, 229);
-  padding: 20px 40px;
-  border-radius: 10px;
+  padding: 3vh 6vw;
+  border-radius: 50px 50px 10px 10px;
 }
 body #scrDownRu #greetings h2 {
   line-height: 60px;
@@ -1020,8 +1019,7 @@ body #scrDownRu h2:nth-of-type(2) {
 body #scrDownRu #blockBtn {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  padding-top: 30px;
-  gap: 25px;
+  gap: 3vh;
   font-size: calc(1rem + 1vw);
 }
 body #scrDownRu #blockBtn #instruction {
@@ -1030,7 +1028,7 @@ body #scrDownRu #blockBtn #instruction {
   align-items: center;
   grid-template-columns: 1fr 1fr;
   border-radius: 10px;
-  padding: 10px 30px;
+  padding: 2vh 6vw;
 }
 body #scrDownRu #blockBtn #instruction > h3 {
   padding: 0 4vw;
@@ -1045,7 +1043,7 @@ body #scrDownRu #blockBtn #instruction #btnInst2 {
   border-radius: 10px;
   font-size: calc(1rem + 1.5vw);
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 0.2rem;
   color: rgb(209, 57, 57);
   justify-self: center;
   border: none;
@@ -1069,7 +1067,7 @@ body #scrDownRu #blockBtn #exersise {
   grid-template-columns: 1fr 1fr;
   background-color: rgb(229, 229, 229);
   border-radius: 10px;
-  padding: 10px 30px;
+  padding: 2vh 6vw;
 }
 body #scrDownRu #blockBtn #exersise > h3 {
   margin: 0;
@@ -1084,7 +1082,7 @@ body #scrDownRu #blockBtn #exersise #btnStart2 {
   border-radius: 10px;
   font-size: calc(1rem + 1.5vw);
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 0.2rem;
   color: rgb(75, 163, 75);
   justify-self: center;
   align-self: center;
@@ -1106,12 +1104,12 @@ body #scrDownRu #blockBtn #exersise #btnStart1:active {
 body #scrDownHe {
   align-self: center;
   background-color: rgb(181, 181, 181);
-  padding: 25px 100px;
+  padding: 4vh 10vw;
   box-sizing: content-box;
   display: grid;
   color: rgb(45, 153, 21);
   display: none;
-  gap: 50px;
+  gap: 5vh;
 }
 body #scrDownHe #lengw {
   display: grid;
@@ -1170,8 +1168,8 @@ body #scrDownHe #greetings {
   font-size: calc(1.1rem + 1.2vw);
   display: grid;
   background-color: rgb(229, 229, 229);
-  padding: 20px 40px;
-  border-radius: 10px;
+  padding: 3vh 6vw;
+  border-radius: 50px 50px 10px 10px;
 }
 body #scrDownHe #greetings h2 {
   margin: 0;
@@ -1184,8 +1182,7 @@ body #scrDownHe h2:nth-of-type(2) {
 body #scrDownHe #blockBtn {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  padding-top: 30px;
-  gap: 25px;
+  gap: 3vh;
   font-size: calc(1rem + 1vw);
 }
 body #scrDownHe #blockBtn #instruction {
@@ -1194,7 +1191,7 @@ body #scrDownHe #blockBtn #instruction {
   align-items: center;
   grid-template-columns: 1fr 1fr;
   border-radius: 10px;
-  padding: 10px 30px;
+  padding: 2vh 6vw;
 }
 body #scrDownHe #blockBtn #instruction > h3 {
   padding: 0 4vw;
@@ -1209,7 +1206,7 @@ body #scrDownHe #blockBtn #instruction #btnInst1 {
   border-radius: 10px;
   font-size: calc(1rem + 1.5vw);
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 0.2rem;
   color: rgb(209, 57, 57);
   justify-self: center;
   align-self: center;
@@ -1233,7 +1230,7 @@ body #scrDownHe #blockBtn #exersise {
   grid-template-columns: 1fr 1fr;
   background-color: rgb(229, 229, 229);
   border-radius: 10px;
-  padding: 10px 30px;
+  padding: 2vh 6vw;
 }
 body #scrDownHe #blockBtn #exersise > h3 {
   padding: 0 4vw;
@@ -1248,7 +1245,7 @@ body #scrDownHe #blockBtn #exersise #btnStart1 {
   border-radius: 10px;
   font-size: calc(1rem + 1.5vw);
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 0.2rem;
   color: rgb(75, 163, 75);
   justify-self: center;
   align-self: center;
