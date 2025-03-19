@@ -3,7 +3,6 @@
 body {
     margin: 0 auto;
     height: 100vh;
-    background-color: gray;
     display: block;
 
     :active,
@@ -72,20 +71,20 @@ body {
         width: 100%;
         height: 100%;
         position: absolute;
-        display: none;
+        // display: none;
 
 
         #top {
         padding: 20px 0;
-        opacity: 0;
-        pointer-events: none;
+        // opacity: 0;
+        // pointer-events: none;
         position: sticky;
         z-index: 1000;
         display: grid;      
         grid-template-columns:   1.1fr 1fr 1fr 0.8fr;       
         align-items: center;
         // width: 70%;
-        max-width: 1000px;
+        max-width: 1050px;
         margin: 0 auto;
 
 
@@ -104,7 +103,7 @@ body {
             grid-template-columns: 0.5fr 1fr;
             align-items: center;
             gap: 10px;
-            padding-right: 0.8em;
+            padding-right: 1.5em;
 
             #TimeOnOff {
                 display: grid;
@@ -314,11 +313,12 @@ body {
         #f3 {
             gap: 1.5em;
             padding-right: 0.5em;
-            padding-left: 1em;
+            padding-left: 1.5em;
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
             justify-items: center;
+            background-color: rgb(111, 110, 110);
 
             #f3_1 {
                 display: grid;
@@ -371,6 +371,34 @@ body {
                 #f3_2_2 {
                     justify-self: start;
                     width: 100%;
+                    display: grid;
+                    gap: 5px;
+
+                    #FullSc{
+                        align-self: center;
+                        width: 100%;
+                        height: 40px;
+                        border-radius: 10px;
+                        background-color: transparent;
+                        border: none;
+                        color: rgba(255, 255, 255, 0.764);
+                        letter-spacing: 0.3em;
+                        font-size: 14px;
+                        letter-spacing: 1px;
+                        padding: 0;
+                        cursor: pointer;
+                        transition: 0.5s;
+                    }
+
+                    #FullSc:hover {
+                        background-color: hsl(0, 2%, 75%);
+                        color: rgba(0, 0, 0, 0.671);
+                        transition: 0.5s;
+                    }
+
+                    #FullSc:active {
+                        background-color: white;
+                    }
 
                     #sise {
                         align-self: center;
@@ -440,7 +468,7 @@ body {
             text-align: center;
             font-size: 20px;
             margin: 10px 0;
-            pointer-events: none;
+            // pointer-events: none;
         }
 
         #f2{
@@ -490,6 +518,19 @@ body {
                     }
 
                     #MixPsevdo1 {
+                        background-color: white;
+                        height: 28px;
+                        width: 115px;
+                        text-align: center;
+                        font-size: 20px;
+                        margin: 10px 0;
+                        pointer-events: none;
+                        text-align: center;
+                        box-sizing: border-box;
+                        padding-top: 3px;
+                        display: none;
+                    }
+                    #MixPsevdo3 {
                         background-color: white;
                         height: 28px;
                         width: 115px;
@@ -587,14 +628,33 @@ body {
         #f4 {
             min-width: 215px;
             display: grid;
-            grid-template-columns: 1fr 0.7fr;
+            grid-template-columns: 1fr 1fr;
             grid-template-rows: 3fr 1fr;
+            background-color: rgb(111, 110, 110);
+
+            #f4_1_5 {
+                grid-column: 2;
+                grid-row: 1;
+                align-self: center;
+                display: grid;
+                height: 70px;
+
+                #hands{
+                    align-self: end;
+                }
+                #legs{
+                    align-self: end;
+                }
+            }
 
             #f4_1 {
-                justify-self: start;
+                justify-self: center;
                 display: grid;
                 grid-template-rows: 1fr 1fr;
-                align-items: center;
+                // align-items: center;
+                
+                width: 130px;
+            
 
 
                 #co {
@@ -606,7 +666,7 @@ body {
                     accent-color: rgb(105, 115, 255);
                     align-self: center;
                     // width: 100%;
-                    justify-self: center;
+                    // justify-self: center;
                 }
 
                 div>input {
@@ -615,103 +675,13 @@ body {
 
             }
 
-            #language {
-                justify-self: start;
-                display: grid;
-                grid-template-rows: 1fr 1fr 1fr;
-
-                span {
-                    font-size: 24px;
-                }
-
-                #H {
-                    height: 30px;
-                    width: 50px;
-
-                    #he {
-                        height: 100%;
-                        width: 100%;
-                        font-size: 14px;
-                        color: rgb(0, 234, 0);
-                        border: none;
-                        background-color: transparent;
-                    }
-
-                    #he:hover {
-                        cursor: pointer;
-                        text-decoration: underline solid rgb(0, 234, 0);
-                    }
-                }
-
-                #R {
-                    height: 30px;
-                    width: 50px;
-
-                    #ru {
-                        font-size: 14px;
-                        color: rgb(4, 0, 218);
-                        border: none;
-                        background-color: transparent;
-                        height: 100%;
-                        width: 100%;
-                    }
-
-                    #ru:hover {
-                        cursor: pointer;
-                        text-decoration: underline solid rgb(4, 0, 218);
-                    }
-                }
-
-
-
-                #E {
-
-                    height: 30px;
-                    width: 50px;
-
-
-                    #en {
-                        font-size: 20px;
-                        color: rgb(218, 3, 3);
-                        border: none;
-                        background-color: transparent;
-                        height: 100%;
-                        width: 100%;
-                    }
-
-                    #en:hover {
-                        cursor: pointer;
-                        text-decoration: underline solid rgb(218, 3, 3);
-                    }
-                }
-
-
-
-                #lang {
-                    -webkit-appearance: none;
-                    width: 15px;
-                    height: 20px;
-                    align-self: center;
-                    border-radius: 40%;
-                    height: 7px;
-                    background: rgb(206, 205, 205);
-                    transition: 5ms;
-                }
-
-                #lang::-webkit-slider-thumb {
-                    transition: 10ms;
-                    -webkit-appearance: none;
-                    height: 12px;
-                    width: 10px;
-                    border-radius: 50%;
-                    background-color: white;
-
-                }
-
-            }
+            
 
             #the {
+                grid-column: 1;
+                grid-row: 2;
                 align-self: end;
+                justify-self: start;
 
                 input {
                     background-color: black;
@@ -734,205 +704,6 @@ body {
                 }
             }
         }
-
-        #open {
-            justify-self: end;
-            align-self: end;
-            grid-column: 2;
-            grid-row: 2;
-
-            #openModal {
-                border: none;
-                background: none;
-                font-family: math;
-                font-size: 16px;
-                letter-spacing: 2px;
-                text-decoration: underline;
-                cursor: pointer;
-                color: rgb(251, 251, 251);
-                transition: 0.5s;
-                padding: 0;
-
-            }
-
-            #openModal:hover {
-                font-size: 16px;
-                background-color: gray;
-                text-decoration: none;
-                color: white;
-                transition: 0.2s;
-                position: relative;
-                box-shadow: 0 0 0 5px rgb(200, 200, 200);
-                letter-spacing: 3px;
-                transition: 0.5s;
-                padding: 3px 5px;
-            }
-        }
-
-
-        #help {
-
-          #btnHelp {
-                margin: 0;
-                position: relative;
-
-
-
-                .modal {
-                    display: none;
-                    position: fixed;
-                    z-index: 1;
-                    left: 0;
-                    top: 0;
-                    width: 90vw;
-                    height: 90vh;
-                    overflow: auto;
-                    background-color: 'rgba(211, 210, 210, 0.9)';
-
-                    #langueges1 {
-                        display: grid;
-                        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-                        justify-items: center;
-                    }
-
-                    #langueges2 {
-                        display: grid;
-                        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-                        justify-items: center;
-                    }
-
-                    #langueges3 {
-                        display: grid;
-                        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-                        justify-items: center;
-                    }
-
-                    #langE1 {
-                        display: none;
-                        height: 30px;
-                        width: 40px;
-                        background-color: rgb(224, 142, 142);
-                        grid-column: 7;
-                        justify-self: start;
-                    }
-
-                    #langR1 {
-                        display: none;
-                        height: 30px;
-                        width: 40px;
-                        background-color: rgb(126, 126, 246);
-                        grid-column: 6;
-                    }
-
-                    #langH1 {
-                        display: none;
-                        height: 30px;
-                        width: 40px;
-                        background-color: rgb(133, 206, 133);
-                        grid-column: 5;
-                        grid-row: 1;
-                        justify-self: end;
-                    }
-
-                    #langE2 {
-                        display: none;
-                        height: 30px;
-                        width: 40px;
-                        background-color: rgb(224, 142, 142);
-                        grid-column: 7;
-                        justify-self: start;
-                    }
-
-                    #langR2 {
-                        display: none;
-                        height: 30px;
-                        width: 40px;
-                        background-color: rgb(126, 126, 246);
-                        grid-column: 6;
-                    }
-
-                    #langH2 {
-                        display: none;
-                        height: 30px;
-                        width: 40px;
-                        background-color: rgb(133, 206, 133);
-                        grid-column: 5;
-                        grid-row: 1;
-                        justify-self: end;
-                    }
-
-                    #langE3 {
-                        display: none;
-                        height: 30px;
-                        width: 40px;
-                        background-color: rgb(224, 142, 142);
-                        grid-column: 7;
-                        justify-self: start;
-                    }
-
-                    #langR3 {
-                        display: none;
-                        height: 30px;
-                        width: 40px;
-                        background-color: rgb(126, 126, 246);
-                        grid-column: 6;
-                    }
-
-                    #langH3 {
-                        display: none;
-                        height: 30px;
-                        width: 40px;
-                        background-color: rgb(133, 206, 133);
-                        grid-column: 5;
-                        grid-row: 1;
-                        justify-self: end;
-                    }
-                }
-
-                @media all and (min-width: 450px){
-                    .modal-content {
-                        padding: 50px 70px;
-                    }
-                }
-                @media all and (max-width: 449px){
-                    .modal-content {
-                        padding: 50px 20px;
-                    }
-                }
-
-                .modal-content {
-                    color: rgb(0, 0, 0);
-                    font-size: calc(0.8rem + 1vw);
-                    // padding: 50px 20px;
-                    // pointer-events: none;
-                }
-
-                .close {
-                    height: 30px;
-                    width: 60px;
-                    margin: 20px;
-                    background-color: rgb(237, 251, 178);
-                }
-
-                #backEn {
-                    height: 40px;
-                    display: none;
-                    background-color: rgb(23, 194, 0);
-                }
-
-                #backRu {
-                    height: 40px;
-                    display: none;
-                    background-color: rgb(23, 194, 0);
-                }
-
-                #backHe {
-                    height: 40px;
-                    display: none;
-                    background-color: rgb(23, 194, 0);
-                }
-            }
-        }
     }
 
 
@@ -940,11 +711,12 @@ body {
        // Буквы
 
         #block {
-            display: none;
+            // display: none;
             position: absolute;
             text-align: center;
             pointer-events: none;
-            // display: block;
+            display: block;
+            // line-height: normal;
 
             p {
                 font-size: 60px;
@@ -952,7 +724,7 @@ body {
                 color: black;
                 font-family: Times;
                 font-weight: bold;
-
+                padding: 0;
             }
         }
    
@@ -960,613 +732,7 @@ body {
 
    
 
-    #TitulList{
-        display: grid;
-        height: 100vh;
-        align-items: center;
-        width: 100vw;
-        padding: 8vh 0;
-        box-sizing: border-box;
-        // font-size: calc(4rem + 1vw);
-    }
+   
 
-    #scrDownEn {
-        align-self: center;
-        background-color: rgb(181, 181, 181);
-        padding: 4vh 10vw;
-        box-sizing: content-box;
-        color: rgb(45, 153, 21);
-        display: grid;
-        gap: 5vh;
-        
-
-        #lengw{
-            display: grid;
-            gap: 10px;
-            grid-template-columns: 1fr 1fr 1fr;
-            width: 200px;
-        }
-
-       
-
-        #l1{
-           background-color: rgba(158, 158, 241, 0.704); 
-           border: none;
-           cursor: pointer;
-           transition: 0.5s;
-        }
-
-        #l1:hover {
-            background-color: rgba(0, 0, 255, 0.704);
-            font-weight: 300;
-            color: rgb(255, 255, 255);
-            transition: 0.5s;
-
-        }
-
-        #l1:active {
-            background-color:rgb(255, 255, 255);
-            color: rgba(0, 0, 255, 0.704);
-        }
-
-        #l2{
-            background-color: rgba(255, 158, 158, 0.704); 
-            border: none;
-            cursor: pointer;
-        }
-
-        #l2:hover {
-            background-color: rgba(255, 0, 0, 0.704);
-            font-weight: 300;
-            color: rgb(255, 255, 255);
-            transition: 0.5s;
-
-        }
-
-        #l2:active {
-            background-color:rgb(255, 255, 255);
-            color: rgba(255, 0, 0, 0.704);
-        }
-
-        #l3{
-            background-color: rgba(168, 255, 158, 0.704); 
-            border: none;
-            cursor: pointer;
-        }
-
-        #l3:hover {
-            background-color: rgba(26, 255, 0, 0.704);
-            font-weight: 300;
-            color: rgb(255, 255, 255);
-            transition: 0.5s;
-
-        }
-
-        #l3:active {
-            background-color:rgb(255, 255, 255);
-            color: rgba(26, 255, 0, 0.704);
-        }
-
-        #greetings{
-            text-align: center;
-            font-size: calc(1.1rem + 1.2vw);
-            display: grid;
-            background-color: rgb(229, 229, 229);
-            padding: 3vh 6vw;
-            border-radius: 50px 50px 10px 10px;
-              h2 { 
-            line-height: 60px;          
-            margin: 0;
-            // font-size: 36px;          
-           }
-        }
-
-        h2:nth-of-type(2) {
-            margin-top: 0;
-            margin-bottom: 0;
-        }
-
-        #blockBtn {
-            display: grid;
-            grid-template-rows: 1fr 1fr;
-            // padding-top: 30px;
-            gap: 3vh;
-            font-size: calc(1rem + 1vw);
-
-            #instruction {
-                background-color: rgb(229, 229, 229);
-                display: grid;
-                align-items: center;
-                grid-template-columns: 1fr 1fr;
-                border-radius: 10px;
-                padding: 2vh 6vw;
-
-                &>h3 {
-                    padding: 0 4vw;
-                    text-align: center;
-                    // font-size: 24px;
-                    margin: 0;
-                    color: black;
-                }
-
-                #btnInst {
-                    padding: 0 4vw;
-                    height: 50px;
-                    // width: 15vw;
-                    background-color: rgb(181, 181, 181);
-                    border-radius: 10px;
-                    font-size: calc(1rem + 1.5vw);
-                    font-weight: 600;
-                    letter-spacing: 0.2rem;
-                    color: rgb(209, 57, 57);
-                    align-self: center;
-                    justify-self: center;
-                    border: none;
-                    transition: 0.5s;
-                    cursor: pointer;
-                }
-
-                #btnInst:hover {
-                    background-color: rgb(209, 57, 57);
-                    font-weight: 300;
-                    color: rgb(215, 214, 214);
-                    transition: 0.5s;
-
-                }
-
-                #btnInst:active {
-                    background-color: white;
-                    color: red;
-                }
-            }
-
-            #exersise {
-                display: grid;
-                align-items: center;
-                grid-template-columns: 1fr 1fr;
-                background-color: rgb(229, 229, 229);
-                border-radius: 10px;
-                padding: 2vh 6vw;
-
-                &>h3 {
-                    padding: 0 4vw;
-                    text-align: center;
-                    // font-size: 24px;
-                    margin: 0;
-                    color: black;
-                }
-
-                #btnStart {
-                    height: 50px;
-                    padding: 0 4vw;
-                    background-color: rgb(181, 181, 181);
-                    border-radius: 10px;
-                    font-size: calc(1rem + 1.5vw);
-                    font-weight: 600;
-                    letter-spacing: 0.2rem;
-                    color: rgb(75, 163, 75);
-                    justify-self: center;
-                    align-self: center;
-                    border: none;
-                    transition: 0.7s;
-                    cursor: pointer;
-                    align-self: center;
-                }
-
-                #btnStart:hover {
-                    background-color: rgb(75, 163, 75);
-                    font-weight: 300;
-                    color: rgb(215, 214, 214);
-                    transition: 0.7s;
-
-                }
-
-                #btnStart:active {
-                    background-color: white;
-                    color: rgb(0, 229, 0);
-                }
-            }
-        }
-    }
-
-    #scrDownRu {
-        align-self: center;
-        background-color: rgb(181, 181, 181);
-        padding: 4vh 10vw;
-        box-sizing: content-box;
-        color: rgb(45, 153, 21);
-        gap: 5vh;
-        display: none;
-
-        #lengw{
-            display: grid;
-            gap: 10px;
-            grid-template-columns: 1fr 1fr 1fr;
-            width: 200px;
-        }
-
-        #l1{
-           background-color: rgba(158, 158, 241, 0.704); 
-           border: none;
-           cursor: pointer;
-           transition: 0.5s;
-        }
-
-        #l1:hover {
-            background-color: rgba(0, 0, 255, 0.704);
-            font-weight: 300;
-            color: rgb(255, 255, 255);
-            transition: 0.5s;
-
-        }
-
-        #l1:active {
-            background-color:rgb(255, 255, 255);
-            color: rgba(0, 0, 255, 0.704);
-        }
-
-        #l2{
-            background-color: rgba(255, 158, 158, 0.704); 
-            border: none;
-            cursor: pointer;
-        }
-
-        #l2:hover {
-            background-color: rgba(255, 0, 0, 0.704);
-            font-weight: 300;
-            color: rgb(255, 255, 255);
-            transition: 0.5s;
-
-        }
-
-        #l2:active {
-            background-color:rgb(255, 255, 255);
-            color: rgba(255, 0, 0, 0.704);
-        }
-
-        #l3{
-            background-color: rgba(168, 255, 158, 0.704); 
-            border: none;
-            cursor: pointer;
-        }
-
-        #l3:hover {
-            background-color: rgba(26, 255, 0, 0.704);
-            font-weight: 300;
-            color: rgb(255, 255, 255);
-            transition: 0.5s;
-
-        }
-
-        #l3:active {
-            background-color:rgb(255, 255, 255);
-            color: rgba(26, 255, 0, 0.704);
-        }
-       
-        #greetings{
-            text-align: center;
-            font-size: calc(1.1rem + 1.2vw);
-            display: grid;
-            // margin: 50px 0;
-            background-color: rgb(229, 229, 229);
-            padding: 3vh 6vw;
-            border-radius: 50px 50px 10px 10px;
-              h2 {  
-            line-height: 60px;          
-            margin: 0;
-            // font-size: 36px;          
-           }
-        }
-
-        h2:nth-of-type(2) {
-            // margin-left: 250px;
-            margin-top: 0;
-            margin-bottom: 0;
-        }
-
-        #blockBtn {
-            display: grid;         
-            grid-template-rows: 1fr 1fr;
-            // padding-top: 30px;
-            gap: 3vh;
-            font-size: calc(1rem + 1vw);
-
-            #instruction {
-                background-color: rgb(229, 229, 229);
-                display: grid;
-                align-items: center;
-                grid-template-columns: 1fr 1fr;
-                border-radius: 10px;
-                padding: 2vh 6vw;
-
-                &>h3 {
-                    // font-size: 24px;
-                    padding: 0 4vw;
-                    text-align: center;
-                    margin: 0;
-                    color: black;
-                }
-
-                #btnInst2 {
-                    height: 50px;
-                    padding: 0 4vw;
-                    background-color: rgb(181, 181, 181);
-                    border-radius: 10px;
-                    font-size: calc(1rem + 1.5vw);
-                    font-weight: 600;
-                    letter-spacing: 0.2rem;
-                    color: rgb(209, 57, 57);
-                    justify-self: center;
-                    border: none;
-                    transition: 0.5s;
-                    align-self: center;
-                    cursor: pointer;
-                }
-
-                #btnInst2:hover {
-                    background-color: rgb(209, 57, 57);
-                    font-weight: 300;
-                    color: rgb(215, 214, 214);
-                    transition: 0.5s;
-
-                }
-
-                #btnInst2:active {
-                    background-color: white;
-                    color: red;
-                }
-            }
-
-            #exersise {
-                display: grid;
-                align-items: center;
-                grid-template-columns: 1fr 1fr;
-                background-color: rgb(229, 229, 229);
-                border-radius: 10px;
-                padding: 2vh 6vw;
-
-                &>h3 {
-                    // font-size: 24px;
-                    margin: 0;
-                    padding: 0 4vw;
-                    text-align: center;
-                    color: black;
-                }
-
-                #btnStart2 {
-                    height: 50px;
-                    padding: 0 4vw;
-                    background-color: rgb(181, 181, 181);
-                    border-radius: 10px;
-                    font-size: calc(1rem + 1.5vw);
-                    font-weight: 600;
-                    letter-spacing: 0.2rem;
-                    color: rgb(75, 163, 75);
-                    justify-self: center;
-                    align-self: center;
-                    border: none;
-                    transition: 0.7s;
-                    cursor: pointer;
-                    align-self: center;
-                }
-
-                #btnStart2:hover {
-                    background-color: rgb(75, 163, 75);
-                    font-weight: 300;
-                    color: rgb(215, 214, 214);
-                    transition: 0.7s;
-
-                }
-
-                #btnStart1:active {
-                    background-color: white;
-                    color: rgb(0, 229, 0);
-                }
-            }
-        }
-
-    }
-
-    #scrDownHe {
-        align-self: center;
-        background-color: rgb(181, 181, 181);
-        padding: 4vh 10vw;
-        box-sizing: content-box;
-        display: grid;
-        color: rgb(45, 153, 21);
-        display: none;
-        gap: 5vh;
-
-
-        #lengw{
-            display: grid;
-            gap: 10px;
-            grid-template-columns: 1fr 1fr 1fr;
-            width: 200px;
-        }
-
-        #l1{
-           background-color: rgba(158, 158, 241, 0.704); 
-           border: none;
-           cursor: pointer;
-           transition: 0.5s;
-        }
-
-        #l1:hover {
-            background-color: rgba(0, 0, 255, 0.704);
-            font-weight: 300;
-            color: rgb(255, 255, 255);
-            transition: 0.5s;
-
-        }
-
-        #l1:active {
-            background-color:rgb(255, 255, 255);
-            color: rgba(0, 0, 255, 0.704);
-        }
-
-        #l2{
-            background-color: rgba(255, 158, 158, 0.704); 
-            border: none;
-            cursor: pointer;
-        }
-
-        #l2:hover {
-            background-color: rgba(255, 0, 0, 0.704);
-            font-weight: 300;
-            color: rgb(255, 255, 255);
-            transition: 0.5s;
-
-        }
-
-        #l2:active {
-            background-color:rgb(255, 255, 255);
-            color: rgba(255, 0, 0, 0.704);
-        }
-
-        #l3{
-            background-color: rgba(168, 255, 158, 0.704); 
-            border: none;
-            cursor: pointer;
-        }
-
-        #l3:hover {
-            background-color: rgba(26, 255, 0, 0.704);
-            font-weight: 300;
-            color: rgb(255, 255, 255);
-            transition: 0.5s;
-
-        }
-
-        #l3:active {
-            background-color:rgb(255, 255, 255);
-            color: rgba(26, 255, 0, 0.704);
-        }
-
-        #greetings{
-            text-align: center;
-            font-size: calc(1.1rem + 1.2vw);
-            display: grid;
-            background-color: rgb(229, 229, 229);
-            padding: 3vh 6vw;
-            border-radius: 50px 50px 10px 10px;
-
-              h2 {
-            margin: 0;
-            // font-size: 40px;  
-            line-height: 60px;         
-           }
-        }
-
-        h2:nth-of-type(2) {
-            margin-top: 0;
-            margin-bottom: 0;
-        }
-
-        #blockBtn {
-            display: grid;
-            grid-template-rows: 1fr 1fr;
-            // padding-top: 30px;
-            gap: 3vh;
-            font-size: calc(1rem + 1vw);
-
-            #instruction {
-                background-color: rgb(229, 229, 229);
-                display: grid;
-                align-items: center;
-                grid-template-columns: 1fr 1fr;
-                border-radius: 10px;
-                padding: 2vh 6vw;
-
-                &>h3 {
-                    // font-size: 24px;
-                    padding: 0 4vw;
-                    text-align: center;
-                    margin: 0;
-                    color: black;
-                }
-
-                #btnInst1 {
-                    height: 50px;
-                    padding: 0 4vw;
-                    background-color: rgb(181, 181, 181);
-                    border-radius: 10px;
-                    font-size: calc(1rem + 1.5vw);
-                    font-weight: 600;
-                    letter-spacing: 0.2rem;
-                    color: rgb(209, 57, 57);
-                    justify-self: center;
-                    align-self: center;
-                    border: none;
-                    transition: 0.5s;
-                    cursor: pointer;
-                }
-
-                #btnInst1:hover {
-                    background-color: rgb(209, 57, 57);
-                    font-weight: 300;
-                    color: rgb(215, 214, 214);
-                    transition: 0.5s;
-
-                }
-
-                #btnInst1:active {
-                    background-color: white;
-                    color: red;
-                }
-            }
-
-            #exersise {
-                display: grid;
-                align-items: center;
-                grid-template-columns: 1fr 1fr;
-                background-color: rgb(229, 229, 229);
-                border-radius: 10px;
-                padding: 2vh 6vw;
-
-                &>h3 {
-                    padding: 0 4vw;
-                    text-align: center;
-                    margin: 0;
-                    color: black;
-                }
-
-                #btnStart1 {
-                    height: 50px;
-                    padding: 0 4vw;
-                    background-color: rgb(181, 181, 181);
-                    border-radius: 10px;
-                    font-size: calc(1rem + 1.5vw);
-                    font-weight: 600;
-                    letter-spacing: 0.2rem;
-                    color: rgb(75, 163, 75);
-                    justify-self: center;
-                    align-self: center;
-                    border: none;
-                    transition: 0.7s;
-                    cursor: pointer;
-                    align-self: center;
-                }
-
-                #btnStart1:hover {
-                    background-color: rgb(75, 163, 75);
-                    font-weight: 300;
-                    color: rgb(215, 214, 214);
-                    transition: 0.7s;
-
-                }
-
-                #btnStart1:active {
-                    background-color: white;
-                    color: rgb(0, 229, 0);
-                }
-            }
-        }
-    }
-
-    // #window::after {
-    //     content: "";
-    //     display: block;
-    //     clear: both;
-    // }
+   
 }
