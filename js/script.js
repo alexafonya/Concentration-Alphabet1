@@ -1,5 +1,5 @@
 
-var ALFru = [
+var ALF = [
     'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И',
     'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т',
     'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Э', 'Ю', 'Я'
@@ -7,9 +7,9 @@ var ALFru = [
 
 var FIRST_TIME;
 
-var HANDru = ['Л', 'П', 'О'];
+var HAND = ['Л', 'П', 'О'];
+var LEG = ['П', 'О', 'Л'];
 let ERROR;
-var HAND;
 var ALF;
 let set = 1200;
 let currentIndex = 0;
@@ -18,6 +18,8 @@ let SETH = 0;
 let NEWHAND;
 var TimesColor;
 var TimesExtColor;
+var handIn = document.getElementById("putHand");
+var legIn = document.getElementById("putLeg");
 var colorSimle = document.getElementById("color");
 var colorExtra = document.getElementById("ColorExt");
 var Extra = document.getElementById("On");
@@ -33,8 +35,6 @@ let close = document.querySelector('.close');
 
 let set2 = (set * 3) + 100;
 let set3 = set * 27;
-let set4 = set * 26;
-let set5 = set * 22;
 
 let TIME = document.getElementById("start").value;
 let INTERVAL1;
@@ -42,7 +42,7 @@ let interTime;
 let HOLD = document.getElementById("speed").value;
 let SHRIFT;
 let SISE;
-let SISE_1;
+let SISE1;
 let SISE2;
 let SISE3;
 
@@ -61,312 +61,7 @@ var colorNow = document.getElementById("color").value;
 var menuItem = document.querySelector("#window");
 var dropDownMenu = document.querySelector("#top");
 var dropDownMenu2 = document.getElementById("scrDown");
-fullSreen = document.getElementById("fullScr");
 
-// Иврит
-
-var ALFheb = [
-   'א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ז', 'ח', 'ט', 'י', 'כ', 
-   'ל', 'מ', 'נ', 'ס', 'ע', 'פ', 'צ', 'ק', 'ר', 'ש', 'ת'
-]
-
-HANDheb = ['ים', 'שם', 'יח'];
-
-// inglish
-
-var ALFeng = [
-    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", 
-    "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
- ];
- 
- var LEFTeng = 'L';
- var BOTHeng = 'B';
- var RIGHTeng = 'R';
- 
- HANDeng = ['L', 'R', 'B'];
-
- let modal;
- let modal2 = document.querySelector('#modal');
-
- 
-const changeLengRus = () =>{
-    modal.style.display = "none"
-    modal = modal2
-    ALF = ALFru;
-    HAND = HANDru;            
-    newLetters();
-    newHands();
-    randomLetters();
-    randomHands();
-    document.getElementById("ru").style.fontSize = "20px"
-    document.getElementById("ru").style.transition = "0.7s";
-    document.getElementById("en").style.fontSize = "14px"
-    document.getElementById("en").style.transition = "0.7s";
-    document.getElementById("he").style.fontSize = "14px"
-    document.getElementById("he").style.transition = "0.7s";
-    modal.style.pointerEvents = "visible";
-    document.getElementById("FinRes").textContent = " ВЫХОД <=> EЩЁ ХОЧУ !!!";
-    document.querySelector("#Finish>h2").innerText = "Превосходно! Упражнение выполнено!"
-    document.getElementById("min").textContent = " Размер -"
-    document.getElementById("plu").textContent = " Размер +"
-    document.getElementById("minus").textContent = " Скорость -"
-    document.getElementById("plus").textContent = " Скорость +"
-    document.getElementById("sise").value = "    Сброс    "
-    document.querySelector("#O>label").textContent =  "Супер"
-    document.querySelector("#su>label").textContent = "С.Микс"
-    document.querySelector("#co>label").textContent = "Цвет"
-    document.querySelector("#CoEx>label").textContent = "Ц.Микс"
-    document.getElementById("ru").textContent = "Рус"
-    document.getElementById("en").textContent = "Анг"
-    document.getElementById("he").textContent = "Ивр"
-    document.querySelector("#the>label").textContent = "ЧерныйЭкран"
-    document.getElementById("1").innerText = "1мин"
-    document.getElementById("2").innerText = "5мин"
-    document.getElementById("3").innerText = "10мин"
-    document.getElementById("4").innerText = "15мин"
-    document.getElementById("5").innerText = "20мин"
-}
-const changeLengEng = () =>{
-    modal.style.display = "none"
-    modal = modal1;
-    if (alfIndex > 25){
-        alfIndex -= 1;
-    } 
-    ALF = ALFeng;
-    HAND = HANDeng;     
-    newLetters();
-    newHands();
-    randomLetters();
-    randomHands();
-    document.getElementById("en").style.fontSize = "20px"
-    document.getElementById("en").style.transition = "0.7s";
-    document.getElementById("ru").style.fontSize = "14px"
-    document.getElementById("ru").style.transition = "0.7s";
-    document.getElementById("he").style.fontSize = "14px"
-    document.getElementById("he").style.transition = "0.7s"; 
-    modal.style.pointerEvents = "visible";
-    document.getElementById("FinRes").textContent = " EXIT <=> I WANT MORE !!!";
-     document.querySelector("#Finish>h2").innerText = "Perfect! The exercise is done!"
-     document.getElementById("min").textContent = " Size -"
-    document.getElementById("plu").textContent = " Size +"
-     document.getElementById("minus").textContent = " Speed +"
-    document.getElementById("plus").textContent = " Speed -"
-    document.getElementById("sise").value = "   Reset   "
-    document.querySelector("#O>label").textContent =  "Extra"
-    document.querySelector("#su>label").textContent = "ExMix"
-    document.querySelector("#co>label").textContent = "Color"
-    document.querySelector("#CoEx>label").textContent = "CoMix"
-    document.getElementById("ru").textContent = "Ru"
-    document.getElementById("en").textContent = "En"
-    document.getElementById("he").textContent = "He"
-    document.querySelector("#the>label").textContent = "Dark screen"
-    document.getElementById("1").innerText = "1min"
-    document.getElementById("2").innerText = "5min"
-    document.getElementById("3").innerText = "10min"
-    document.getElementById("4").innerText = "15min"
-    document.getElementById("5").innerText = "20min"
- 
-}
-const changeLengHeb = () =>{
-    modal.style.display = "none"
-    modal = modal3;
-    if (alfIndex > 21){
-        alfIndex -= 5;
-    } 
-    ALF = ALFheb;
-    HAND = HANDheb;       
-    newLetters();
-    newHands();
-    randomLetters();
-    randomHands();
-    document.getElementById("he").style.fontSize = "20px"
-    document.getElementById("he").style.transition = "0.7s";
-    document.getElementById("en").style.fontSize = "14px"
-    document.getElementById("en").style.transition = "0.7s";
-    document.getElementById("ru").style.fontSize = "14px"
-    document.getElementById("ru").style.transition = "0.7s";
-    modal.style.pointerEvents = "visible";  
-    document.getElementById("FinRes").textContent = " !!! יציאה <=> אני רוצה פעם ";
-    document.querySelector("#Finish>h2").innerText = "!מוּשׁלָם!  התרגיל נעשה"
-    document.getElementById("min").textContent = "- גוֹדֶל "
-    document.getElementById("plu").textContent = "+ גוֹדֶל "
-    document.getElementById("minus").textContent = "+  מְהִירוּת "
-    document.getElementById("plus").textContent = "-  מְהִירוּת "
-    document.getElementById("sise").value = "   אִתחוּל   "
-    document.querySelector("#O>label").textContent =  "תוֹסֶפֶת"
-    document.querySelector("#su>label").textContent = "מיקס"
-    document.querySelector("#co>label").textContent = "צֶבַע"
-    document.querySelector("#CoEx>label").textContent = "צֶבַע מיקס"
-    document.getElementById("ru").textContent = "רוס"
-    document.getElementById("en").textContent = "אנג"
-    document.getElementById("he").textContent = "עִברִ"
-    document.querySelector("#the>label").textContent = "רקע כהה"
-    document.getElementById("1").innerText = "1 דק"
-    document.getElementById("2").innerText = "5 דק"
-    document.getElementById("3").innerText = "10 דק"
-    document.getElementById("4").innerText = "15 דק"
-    document.getElementById("5").innerText = "20 דק"
-
-}
-
-let btnCloseE=()=>{
-    document.getElementById("backEn").style.display = "block"
-    document.getElementById("closeEn").style.display = "none"
-    closeWinE = document.getElementById("backEn")
-    console.log("Back close")
-    closeWinE.addEventListener("click", function(){
-        modal.style.display = "none"
-        document.getElementById("TitulList").style.display = "grid"
-        document.getElementById("window").style.display = "none"
-        document.getElementById("scrDownEn").style.display = "grid"
-        document.getElementById("top").style.opacity = "0";
-        document.getElementById("backEn").style.display = "none"
-        document.getElementById("closeEn").style.display = "block"
-    })
-}
-let btnCloseR=()=>{
-    document.getElementById("backRu").style.display = "block"
-    document.getElementById("closeRu").style.display = "none"
-    closeWinR = document.getElementById("backRu")
-    closeWinR.addEventListener("click", function(){
-        modal.style.display = "none"
-        document.getElementById("TitulList").style.display = "grid"
-        document.getElementById("window").style.display = "none"
-        document.getElementById("top").style.opacity = "0";
-        document.getElementById("scrDownRu").style.display = "grid"
-        document.getElementById("backRu").style.display = "none"
-        document.getElementById("closeRu").style.display = "block"
-    })
-}
-let btnCloseH=()=>{
-    document.getElementById("backHe").style.display = "block"
-    document.getElementById("closeHe").style.display = "none"
-    closeWinR = document.getElementById("backHe")
-    closeWinR.addEventListener("click", function(){
-    modal.style.display = "none"
-    document.getElementById("TitulList").style.display = "grid"
-    document.getElementById("window").style.display = "none"
-    document.getElementById("top").style.opacity = "0";
-    document.getElementById("scrDownHe").style.display = "grid"
-    document.getElementById("backHe").style.display = "none"
-    document.getElementById("closeHe").style.display = "block"
-    })
-}
-
-let changeEng=()=>{
-    document.getElementById("scrDownRu").style.display = "none"
-    document.getElementById("scrDownHe").style.display = "none"
-    document.getElementById("scrDownEn").style.display = "grid"
-}
-let changeRus=()=>{
-    document.getElementById("scrDownEn").style.display = "none"
-    document.getElementById("scrDownHe").style.display = "none"
-    document.getElementById("scrDownRu").style.display = "grid"
-}
-let changeHeb=()=>{
-    document.getElementById("scrDownRu").style.display = "none"
-    document.getElementById("scrDownHe").style.display = "grid"
-    document.getElementById("scrDownEn").style.display = "none"
-}
-
-let openLeng=()=>{
-    document.getElementById("langR1").style.display = "block"
-    document.getElementById("langR2").style.display = "block"
-    document.getElementById("langR3").style.display = "block"
-    document.getElementById("langE1").style.display = "block"
-    document.getElementById("langE2").style.display = "block"
-    document.getElementById("langE3").style.display = "block"
-    document.getElementById("langH1").style.display = "block"
-    document.getElementById("langH2").style.display = "block"
-    document.getElementById("langH3").style.display = "block"
-}
-
- addEventListener("DOMContentLoaded", function() {
-    clear();
-     btnInst.addEventListener("click", function(){
-        console.log("na meste")
-        document.getElementById("TitulList").style.display = "none"
-        document.getElementById("window").style.display = "block"
-     document.getElementById("scrDownEn").style.display = "none"             
-        modalWin();     
-        modal.style.backgroundColor = 'rgba(211, 210, 210, 0.9)';
-        document.getElementById("top").style.opacity = "1";        
-        modal.style.pointerEvents = "visible";
-        btnCloseE();
-    })
-    btnStart.addEventListener("click",function (){
-        document.querySelector("body").style.backgroundColor = "transparent"
-        document.getElementById("top").style.pointerEvents = "visible";
-        document.getElementById("top").style.display = "grid" 
-        document.getElementById("window").style.display = "block"
-        document.getElementById("top").style.opacity = "1";
-        document.getElementById("scrDownEn").style.display = "none"
-        document.getElementById("TitulList").style.display = "none"
-        document.getElementById("block").style.display = "block"
-        fullSreenStart();
-        Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters()},HOLD);
-        
-    })
-     btnInst1.addEventListener("click", function(){
-        document.getElementById("TitulList").style.display = "none"
-        document.getElementById("window").style.display = "block"
-     document.getElementById("scrDownHe").style.display = "none"    
-        modalWin();
-        modal.style.backgroundColor = 'rgba(211, 210, 210, 0.9)';
-        document.getElementById("top").style.opacity = "1";        
-        modal.style.pointerEvents = "visible";
-        btnCloseH();
-        document.getElementById("scrDownHe").style.display = "none"
-    })
-    btnStart1.addEventListener("click",function (){
-        document.getElementById("top").style.display = "grid"
-        document.getElementById("window").style.display = "block"
-        document.querySelector("body").style.backgroundColor = "transparent"
-        document.getElementById("top").style.pointerEvents = "visible";
-        document.getElementById("top").style.opacity = "1";
-        document.getElementById("scrDownHe").style.display = "none"
-        document.getElementById("TitulList").style.display = "none"
-        document.getElementById("block").style.display = "block"
-        fullSreenStart();
-        Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters()},HOLD);
-    })
-     btnInst2.addEventListener("click", function(){
-        document.getElementById("TitulList").style.display = "none"
-        document.getElementById("window").style.display = "block"
-     document.getElementById("scrDownRu").style.display = "none"    
-        modalWin();
-        modal.style.backgroundColor = 'rgba(211, 210, 210, 0.9)';
-        document.getElementById("top").style.opacity = "1";        
-        modal.style.pointerEvents = "visible";
-        btnCloseR();
-        document.querySelector(".lang")
-    })
-    btnStart2.addEventListener("click",function (){
-        document.getElementById("top").style.display = "grid"
-        document.getElementById("window").style.display = "block"
-        document.querySelector("body").style.backgroundColor = "transparent"
-        document.getElementById("top").style.pointerEvents = "visible";
-        document.getElementById("top").style.opacity = "1";
-        document.getElementById("scrDownRu").style.display = "none"
-        document.getElementById("TitulList").style.display = "none"
-        document.getElementById("block").style.display = "block"
-        fullSreenStart();
-        Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters()},HOLD);
-    })
-    modal = modal1;
-    ALF = ALFeng;
-    HAND = HANDeng;
-    he.addEventListener("click", function () {
-        changeLengHeb();   
-     })
-    en.addEventListener("click", function () {      
-        changeLengEng();
-     })
-    ru.addEventListener("click", function () {
-        changeLengRus();
-     })
-     
- })
 
  var Play = document.getElementById("playTime");
  var Stop = document.getElementById("stopTime");
@@ -485,21 +180,12 @@ setTimes.addEventListener("change", function() {
     TIME--;
     if (TIME < 0) {
         clear(); 
-        // reset()
         clearTimeout(timeout); 
         document.getElementById("window").style.display = "none"
-        document.getElementById("block").style.display = "none"
-        // document.getElementById("top").style.position = "fixed";
-        // document.getElementById("top").style.opacity = "0"
-        // document.getElementById("top").style.display = "none";
-        // document.getElementById("top").style.pointerEvents = "none";
-        // document.getElementById("top").style.opacity = "0";       
+        document.getElementById("block").style.display = "none"      
         document.getElementById("background").style.display = "grid"      
         document.getElementById("top").style.position = "static"
-        document.getElementById("TitulList").style.display = "none"
         document.getElementById("top").style.display = "none"
-
-       
     }
     break
 }  
@@ -513,11 +199,300 @@ function setTimer() {
 
 // Интервалы 
 
-var Times_Alf = setInterval(function () { newLetters() }, set4)
+var Times_Alf = setInterval(function () { newLetters() }, set2)
 
 var Times_1 = setInterval(function () { newHands() }, set2)
 
-var Times_3 // = setInterval(function () { randomHands(), setFont(), randomLetters()},HOLD);
+var Times_3  = setInterval(function () { randomLegs(), randomHands(), setFont(), randomLetters()},HOLD);
+
+legIn.addEventListener("click", function (){
+    clear();
+    if (legIn.checked) {       
+        document.getElementById("leg").style.display = "block";
+        if(handIn.checked){
+            document.getElementById("hand").style.display = "block";
+            if (colorSimle.checked) {
+                if (Extra.checked) {      
+                    clear()
+                    Times_3 = setInterval(function () {
+                        setFontEx(), randomLegs(), randomHands(), randomLetters(), extra(), setColor()
+                    },interTime);
+                } else if (SuperExtra.checked) {
+                        clear();
+                        document.getElementById("MixPsevdo3").style.display = "block"
+                        TimesColor = setInterval(function () {
+                            setFontEx(), randomHands(), randomLegs(), superExtraLet(), superExtraHan(), superExtraLeg(),
+                            setColor(), randomLetters()
+                        }, interTime); 
+                    } else {
+                        TimesColor = setInterval(function () {
+                            randomHands(), randomLegs(), setFont(), setColor(),
+                                randomLetters()
+                        }, interTime);
+                    }    
+            } else if (colorExtra.checked) {
+                        if (Extra.checked) {      
+                            clear()
+                            Times_3 = setInterval(function () {
+                                setFontEx(), randomHands(), randomLegs(), randomLetters(), extra(), 
+                                setColorAlf(), setColorHand(), setColorLeg()
+                            },interTime);
+                            }else if (SuperExtra.checked) {
+                                document.getElementById("MixPsevdo3").style.display = "block"
+                                clear();
+                                TimesColor = setInterval(function () {
+                                    setFontEx(), randomHands(), randomLegs(), superExtraLet(), superExtraHan(), superExtraLeg(),
+                                    setColorAlf(), setColorLeg(), setColorHand(), randomLetters()
+                                }, interTime);      
+                             } else{
+                                 TimesExtColor = setInterval(function () {
+                                randomHands(), randomLegs(), setFont(),
+                                randomLetters(), setColorAlf(), setColorLeg(), setColorHand()
+                                }, interTime);
+                            }      
+                    } else {
+                        if (Extra.checked) {      
+                            clear()
+                            Times_3 = setInterval(function () {
+                                setFontEx(), randomHands(), randomLegs(), randomLetters(), extra()
+                            },HOLD);
+                        } else if (SuperExtra.checked) {
+                                clear();
+                                document.getElementById("MixPsevdo3").style.display = "block"
+                                Times_3 = setInterval(function () {
+                                    setFontEx(), randomHands(), randomLegs(), superExtraLet(), superExtraLeg(), superExtraHan(),
+                                     randomLetters()
+                                }, HOLD);     
+                            } else{
+                            Times_3  = setInterval(function () { randomLegs(), randomHands(), setFont(), randomLetters()},HOLD);
+                        }                        
+                    }     
+        } else{
+            document.getElementById("MixPsevdo2").style.display = "none"
+            if (Extra.checked) {      
+                clear()
+                Times_3 = setInterval(function () {
+                    setFontEx(), randomLegs(), randomLetters(), extra()
+                },HOLD);
+            } else if (SuperExtra.checked) {
+                    clear();
+                    Times_3 = setInterval(function () {
+                        setFontEx(), randomLegs(), superExtraLet(), superExtraLeg(),
+                         randomLetters()
+                    }, HOLD);     
+                } else{
+                    Times_3  = setInterval(function () { randomLegs(), setFont(), randomLetters()},HOLD);
+            } 
+            Times_3  = setInterval(function () { randomLegs(), setFont(), randomLetters()},HOLD);
+        }
+    } else {
+        document.getElementById("MixPsevdo3").style.display = "none"
+
+        document.getElementById("leg").style.display = "none";
+        handIn.checked = true;
+        document.getElementById("hand").style.display = "block";
+        if (colorSimle.checked) {
+            if (Extra.checked) {      
+                clear()
+                Times_3 = setInterval(function () {
+                    setFontEx(), randomHands(), randomLetters(), extra(), setColor()
+                },interTime);
+            } else if (SuperExtra.checked) {
+                    clear();
+                    document.getElementById("MixPsevdo2").style.display = "block"
+                    TimesColor = setInterval(function () {
+                        setFontEx(), randomHands(), superExtraLet(), superExtraHan(),
+                        setColor(), randomLetters()
+                    }, interTime); 
+                } else {
+                    TimesColor = setInterval(function () {
+                        randomHands(), setFont(), setColor(),
+                            randomLetters()
+                    }, interTime);
+                }    
+        } else if (colorExtra.checked) {
+                    if (Extra.checked) {      
+                        clear()
+                        Times_3 = setInterval(function () {
+                            setFontEx(), randomHands(), randomLetters(), extra(), 
+                            setColorAlf(), setColorHand()
+                        },interTime);
+                        }else if (SuperExtra.checked) {
+                            clear();
+                            document.getElementById("MixPsevdo2").style.display = "block"
+                            TimesColor = setInterval(function () {
+                                setFontEx(), randomHands(), superExtraLet(), superExtraHan(),
+                                setColorAlf(),  setColorHand(), randomLetters()
+                            }, interTime);      
+                         } else{
+                             TimesExtColor = setInterval(function () {
+                            randomHands(), setFont(),
+                            randomLetters(), setColorAlf(), setColorHand()
+                            }, interTime);
+                        }      
+                } else {
+                    if (Extra.checked) {      
+                        clear()
+                        Times_3 = setInterval(function () {
+                            setFontEx(), randomHands(), randomLetters(), extra()
+                        },HOLD);
+                    } else if (SuperExtra.checked) {
+                            clear();
+                            document.getElementById("MixPsevdo2").style.display = "block"
+                            Times_3 = setInterval(function () {
+                                setFontEx(), randomHands(), superExtraLet(), superExtraLeg(), superExtraHan(),
+                                 randomLetters()
+                            }, HOLD);     
+                        } else{
+                        Times_3  = setInterval(function () { randomHands(), setFont(), randomLetters()},HOLD);
+                    }  
+            } 
+    }
+    
+})
+handIn.addEventListener("click", function (){
+    clear();
+    if (handIn.checked) {
+        document.getElementById("hand").style.display = "block";
+        if(legIn.checked){
+            document.getElementById("leg").style.display = "block";
+            if (colorSimle.checked) {
+                if (Extra.checked) {      
+                    clear()
+                    Times_3 = setInterval(function () {
+                        setFontEx(), randomLegs(), randomHands(), randomLetters(), extra(), setColor()
+                    },interTime);
+                } else if (SuperExtra.checked) {
+                        clear();
+                        document.getElementById("MixPsevdo3").style.display = "block"
+                        TimesColor = setInterval(function () {
+                            setFontEx(), randomHands(), randomLegs(), superExtraLet(), superExtraHan(), superExtraLeg(),
+                            setColor(), randomLetters()
+                        }, interTime); 
+                    } else {
+                        TimesColor = setInterval(function () {
+                            randomHands(), randomLegs(), setFont(), setColor(),
+                                randomLetters()
+                        }, interTime);
+                    }    
+            } else if (colorExtra.checked) {
+                        if (Extra.checked) {      
+                            clear()
+                            Times_3 = setInterval(function () {
+                                setFontEx(), randomHands(), randomLegs(), randomLetters(), extra(), 
+                                setColorAlf(), setColorHand(), setColorLeg()
+                            },interTime);
+                            }else if (SuperExtra.checked) {
+                                clear();
+                                TimesColor = setInterval(function () {
+                                    setFontEx(), randomHands(), randomLegs(), superExtraLet(), superExtraHan(), superExtraLeg(),
+                                    setColorAlf(), setColorLeg(), setColorHand(), randomLetters()
+                                }, interTime);      
+                             } else{
+                                 TimesExtColor = setInterval(function () {
+                                randomHands(), randomLegs(), setFont(),
+                                randomLetters(), setColorAlf(), setColorLeg(), setColorHand()
+                                }, interTime);
+                            }      
+                    } else {
+                        if (Extra.checked) {      
+                            clear()
+                            Times_3 = setInterval(function () {
+                                setFontEx(), randomHands(), randomLegs(), randomLetters(), extra()
+                            },HOLD);
+                        } else if (SuperExtra.checked) {
+                                clear();
+                                document.getElementById("MixPsevdo2").style.display = "block"
+                                Times_3 = setInterval(function () {
+                                    setFontEx(), randomHands(), randomLegs(), superExtraLet(), superExtraLeg(), superExtraHan(),
+                                     randomLetters()
+                                }, HOLD);     
+                            } else{
+                            Times_3  = setInterval(function () { randomLegs(), randomHands(), setFont(), randomLetters()},HOLD);
+                        }
+            } 
+        } else{
+            document.getElementById("MixPsevdo3").style.display = "none"
+            document.getElementById("MixPsevdo2").style.display = "block"
+            if (Extra.checked) {      
+                clear()
+                Times_3 = setInterval(function () {
+                    setFontEx(), randomHands(), randomLetters(), extra()
+                },HOLD);
+            } else if (SuperExtra.checked) {
+                    clear();
+                    Times_3 = setInterval(function () {
+                        setFontEx(), randomHands(), superExtraLet(), superExtraHan(),
+                         randomLetters()
+                    }, HOLD);     
+                } else{
+                    Times_3  = setInterval(function () { randomLegs(), setFont(), randomLetters()},HOLD);
+            } 
+        }
+    } else {
+        document.getElementById("MixPsevdo2").style.display = "none"                
+        document.getElementById("hand").style.display = "none";
+        legIn.checked = true;
+        document.getElementById("leg").style.display = "block";
+        if (colorSimle.checked) {
+            if (Extra.checked) {      
+                clear()
+                Times_3 = setInterval(function () {
+                    setFontEx(), randomLegs(), randomLetters(), extra(), setColor()
+                },interTime);
+            } else if (SuperExtra.checked) {
+                    clear();
+                    document.getElementById("MixPsevdo3").style.display = "block"
+                    TimesColor = setInterval(function () {
+                        setFontEx(), randomLegs(), superExtraLet(), superExtraHan(),
+                        setColor(), randomLetters()
+                    }, interTime); 
+                } else {
+                    TimesColor = setInterval(function () {
+                        randomLegs(), setFont(), setColor(),
+                            randomLetters()
+                    }, interTime);
+                }    
+        } else if (colorExtra.checked) {
+                    if (Extra.checked) {      
+                        clear()
+                        Times_3 = setInterval(function () {
+                            setFontEx(), randomLegs(), randomLetters(), extra(), 
+                            setColorAlf(), setColorLeg()
+                        },interTime);
+                        }else if (SuperExtra.checked) {
+                            clear();
+                            document.getElementById("MixPsevdo3").style.display = "block"
+                            TimesColor = setInterval(function () {
+                                setFontEx(), randomLegs(), superExtraLet(), superExtraLeg(),
+                                setColorAlf(),  setColorLeg(), randomLetters()
+                            }, interTime);      
+                         } else{
+                             TimesExtColor = setInterval(function () {
+                            randomLegs(), setFont(),
+                            randomLetters(), setColorAlf(), setColorLeg()
+                            }, interTime);
+                        }      
+                } else {
+                    if (Extra.checked) {      
+                        clear()
+                        Times_3 = setInterval(function () {
+                            setFontEx(), randomLegs(), randomLetters(), extra()
+                        },HOLD);
+                    } else if (SuperExtra.checked) {
+                            clear();
+                            document.getElementById("MixPsevdo3").style.display = "block"
+                            Times_3 = setInterval(function () {
+                                setFontEx(), randomLegs(), superExtraLet(), superExtraLeg(),
+                                 randomLetters()
+                            }, HOLD);     
+                        } else{
+                        Times_3  = setInterval(function () { randomLegs(), setFont(), randomLetters()},HOLD);
+                    }
+        } 
+    }
+    
+})
 
 
 ExMix = document.getElementById("super");
@@ -536,18 +511,18 @@ colorSimle.addEventListener("click", function () {
         if (Extra.checked) {      
             clear()
             Times_3 = setInterval(function () {
-                setFontEx(), randomHands(), randomLetters(), extra(), setColor()
+                setFontEx(), randomLegs(), randomHands(), randomLetters(), extra(), setColor()
             },interTime);
         } else if (SuperExtra.checked) {
                 clear();
                 TimesColor = setInterval(function () {
-                    setFontEx(), randomHands(), superExtraLet(), superExtraHan(), 
+                    setFontEx(), randomHands(), randomLegs(), superExtraLet(), superExtraHan(), superExtraLeg(),
                     setColor(), randomLetters()
                 }, interTime);     
             } else{
                 
             TimesColor = setInterval(function () {
-                randomHands(), setFont(), setColor(),
+                randomHands(), randomLegs(), setFont(), setColor(),
                     randomLetters()
             }, interTime);
         } 
@@ -555,19 +530,17 @@ colorSimle.addEventListener("click", function () {
         if (Extra.checked) {      
             clear()
             Times_3 = setInterval(function () {
-                setFontEx(), randomHands(), randomLetters(), extra()
+                setFontEx(), randomHands(), randomLegs(), randomLetters(), extra()
             },interTime);       
         } else if (SuperExtra.checked) {
             clear();
             TimesColor = setInterval(function () {
-                setFontEx(), randomHands(), superExtraLet(),  
+                setFontEx(), randomHands(), randomLegs(), superExtraLet(),  
                 superExtraHan(), randomLetters()
             }, interTime);
         }  else{
             clear()
-        // document.getElementById("fill").value = 100;
-        // setSise();
-        Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters()},interTime);
+        Times_3 = setInterval(function () { randomHands(), randomLegs(), setFont(), randomLetters()},interTime);
         }
     }
 })
@@ -584,35 +557,35 @@ colorExtra.addEventListener("click", function () {
         if (Extra.checked) {      
             clear()
             Times_3 = setInterval(function () {
-                setFontEx(), randomHands(), randomLetters(), extra(), 
-                setColorAlf(), setColorHand()
+                setFontEx(), randomHands(), randomLegs(), randomLetters(), extra(), 
+                setColorAlf(), setColorHand(), setColorLeg()
             },interTime);
             }else if (SuperExtra.checked) {
                 clear();
                 TimesColor = setInterval(function () {
-                    setFontEx(), randomHands(), superExtraLet(), superExtraHan(), 
-                    setColorAlf(), setColorHand(), randomLetters()
+                    setFontEx(), randomHands(), randomLegs(), superExtraLet(), superExtraHan(), superExtraLeg(),
+                    setColorAlf(), setColorLeg(), setColorHand(), randomLetters()
                 }, interTime);      
              } else{
                  TimesExtColor = setInterval(function () {
-                randomHands(), setFont(),
-                randomLetters(), setColorAlf(), setColorHand()
+                randomHands(), randomLegs(), setFont(),
+                randomLetters(), setColorAlf(), setColorLeg(), setColorHand()
                 }, interTime);
             }      
     } else {
         if (Extra.checked) {      
             clear()
             Times_3 = setInterval(function () {
-                setFontEx(), randomHands(), randomLetters(), extra() 
+                setFontEx(), randomHands(), randomLegs(), randomLetters(), extra() 
             },interTime);
         } else if (SuperExtra.checked) {
             clear();
             TimesColor = setInterval(function () {
-                setFontEx(), randomHands(), superExtraLet(),  
+                setFontEx(), randomHands(), randomLegs(), superExtraLet(),  superExtraLeg(),
                 superExtraHan(), randomLetters()
             }, interTime);      
          } else{
-            Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters()},interTime);
+            Times_3 = setInterval(function () { randomHands(), randomLegs(), setFont(), randomLetters()},interTime);
         }    
         
     }
@@ -620,7 +593,7 @@ colorExtra.addEventListener("click", function () {
 
 // Перемешивание
 
-window.addEventListener("load", () => { newLetters(),setSise() });
+window.addEventListener("load", () => { newLetters(),setSise(), setLine() });
 
 function newLetters() {
     for (let i = ALF.length - 1; i > 0; i--) {
@@ -639,6 +612,14 @@ function newHands() {
     }
 }
 
+function newLegs() {
+    for (let i = LEG.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [LEG[i], LEG[j]] = [LEG[j], LEG[i]];
+        console.log(`NEWLEG = ${LEG}`)
+    }
+}
+
 function randomLetters() {
     document.getElementById("alfavit").innerText = ALF[alfIndex];
     alfIndex = (alfIndex + 1) % ALF.length;
@@ -650,6 +631,13 @@ const randomHands = () => {
     currentIndex = (currentIndex + 1) % HAND.length;
     console.log(currentIndex)
     console.log(`HAND = ${HAND} + ${HAND}`)
+}
+
+const randomLegs = () => {
+    document.getElementById("leg").innerText = LEG[currentIndex];
+    currentIndex = (currentIndex + 1) % LEG.length;
+    console.log(currentIndex)
+    console.log(`LEG = ${LEG} + ${LEG}`)
 }
 
 colorExtra.addEventListener("click", function () {
@@ -664,132 +652,24 @@ colorExtra.addEventListener("click", function () {
 // Расположение Букв
 
 
-
-let setFontEx1 =() =>{
-    SHRIFT = document.getElementById("fill").value;
-    let TOP;
-    let LEFT;
-        console.log("New - Ex")
-        LEFT = Math.floor(Math.random() * 90);
-        TOP = Math.floor(Math.random() * 45);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';  
-}
-let setFontExFull1 =() =>{
-    SHRIFT = document.getElementById("fill").value;
-    let TOP;
-    let LEFT;
-    if(width < 600){
-        z = 64
-    } else if(width < 1000){
-        z = 77
-    } else if ( width < 1200){ 
-        z = 87
-    } else if (width > 1200){
-        z = 89
-    }
-    console.log("min-z = " + z)
-    LEFT = Math.floor(Math.random() * z);
-    TOP = Math.floor(Math.random() * 60);
-    document.getElementById("block").style.left = LEFT + 'vw';
-    document.getElementById("block").style.top = TOP + 'vh';
-}
-
 let setFontEx =() =>{
-    if(width < 600){
-        z = 64
-    } else if(width < 1000){
-        z = 77
-    } else if ( width < 1200){ 
-        z = 87
-    } else if (width > 1200){
-        z = 89
-    }
-    console.log("min-z = " + z)
-    LEFT = Math.floor(Math.random() * z);
-    TOP = Math.floor(Math.random() * 60);
-    document.getElementById("block").style.left = LEFT + 'vw';
-    document.getElementById("block").style.top = TOP + 'vh';
+    let TOP = 60;
+    let LEFT = 45;
+    console.log("Ex font")
+    document.getElementById("block").style.margin = "auto";
+    // document.getElementById("block").style.top = TOP + 'hv';
 }
 
-let setFont1 =()=>{
-    console.log("New + New")
+
+
+let setFont =()=>{
+    console.log("Just font")
     SHRIFT = document.getElementById("fill").value;
-    let TOP;
-    let LEFT;
-     if(SHRIFT <= 40){
-        console.log("140-150")
-        LEFT = Math.floor(Math.random() * 90);
-        TOP = Math.floor(Math.random() * 89);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    }else if(SHRIFT <= 50){
-        console.log("140-150")
-        LEFT = Math.floor(Math.random() * 90);
-        TOP = Math.floor(Math.random() * 86);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    } else if(SHRIFT <= 60){
-        console.log("140-150")
-        LEFT = Math.floor(Math.random() * 89);
-        TOP = Math.floor(Math.random() * 84);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    }else if(SHRIFT <= 70){
-        console.log("140-150")
-        LEFT = Math.floor(Math.random() * 90);
-        TOP = Math.floor(Math.random() * 81);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    } else if(SHRIFT <= 80){
-        console.log("140-150")
-        LEFT = Math.floor(Math.random() * 89);
-        TOP = Math.floor(Math.random() * 78);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    } else if(SHRIFT <= 90){
-        console.log("140-150")
-        LEFT = Math.floor(Math.random() * 88);
-        TOP = Math.floor(Math.random() * 76);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    }else if (SHRIFT <= 100) {
-        console.log("20-50")
-        LEFT = Math.floor(Math.random() * 88);
-        TOP = Math.floor(Math.random() * 73);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    }else if(SHRIFT <= 110){
-        console.log("50-70")
-        LEFT = Math.floor(Math.random() *88);
-        TOP = Math.floor(Math.random() * 70);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    } else if(SHRIFT <= 120){
-        console.log("70-90")
-        LEFT = Math.floor(Math.random() * 87);
-        TOP = Math.floor(Math.random() * 68);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    } else if(SHRIFT <= 130){
-        console.log("120-130")
-        LEFT = Math.floor(Math.random() * 87);
-        TOP = Math.floor(Math.random() * 65);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    } else if(SHRIFT <= 140){
-        console.log("130-140")
-        LEFT = Math.floor(Math.random() * 70);
-        TOP = Math.floor(Math.random() * 62);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    } else if(SHRIFT <= 150){
-        console.log("140-150")
-        LEFT = Math.floor(Math.random() * 65);
-        TOP = Math.floor(Math.random() * 60);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    }
+    let TOP = 30;
+    document.getElementById("block").style.position = "static";
+    document.getElementById("block").style.top = TOP + 'vh';
+    document.getElementById("block").style.margin = " auto";
+   
 
 }
 
@@ -798,216 +678,75 @@ let x;
 let width;
 
 let setfontFullScr =() =>{
-    console.log("New")
+    
+    if(legIn.checked){
+        set2Place()
+        if(SuperExtra.checked){
+            Height.style.lineHeight = "normal";
+            set2PlaceSuEx()
+           }  else if(Extra.checked){
+            Height.style.lineHeight = "normal";
+            set2PlaceSuEx()
+           }
+        if(handIn.checked){
+           set3Place()
+           if(SuperExtra.checked){
+            Height.style.lineHeight = "normal";
+            set3PlaceSuEx()
+           } else if(Extra.checked){
+            Height.style.lineHeight = "normal";
+            set3PlaceSuEx()
+           }
+
+        }
+    }
+    if(handIn.checked){
+        set2Place()
+        if(SuperExtra.checked){
+            Height.style.lineHeight = "normal";
+            set2PlaceSuEx()
+           }  else if(Extra.checked){
+            Height.style.lineHeight = "normal";
+            set2PlaceSuEx()
+           }
+        if(legIn.checked){
+           set3Place() 
+           if(SuperExtra.checked){
+            Height.style.lineHeight = "normal";
+            set3PlaceSuEx()
+           } else if(Extra.checked){
+            Height.style.lineHeight = "normal";
+            set3PlaceSuEx()
+           }
+        }
+    }
+    
+    console.log("New + New")
     SHRIFT = document.getElementById("fill").value;
-    width = window.innerWidth
+    document.getElementById("block").style.position = "absolute";
     let TOP;
     let LEFT;
-    if(SHRIFT <= 40){
-        if(width < 600){
-            z = 85
-        }else if(width < 1000){
-            z = 89
-        } else if (width < 1200){ 
-            z = 98
-        } else if (width > 1200){
-            z = 99
-        }
-        console.log("min-z = " + z)
-        LEFT = Math.floor(Math.random() * z);
-        TOP = Math.floor(Math.random() * 89);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    }else if(SHRIFT <= 50){
-        if(width < 600){
-            z = 80
-        }else if(width < 1200){
-            z = 88
-        } else if (width < 1200){ 
-            z = 97
-        } else if (width > 1200){
-            z = 99
-        }
-        console.log("min-z = " + z)
-        LEFT = Math.floor(Math.random() * z);
-        TOP = Math.floor(Math.random() * 86);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    } else if(SHRIFT <= 60){
-        if(width < 600){
-            z = 78
-        }else if(width < 1000){
-            z = 87
-        } else if (width < 1200){ 
-            z = 96
-        } else if (width > 1200){
-            z = 98
-        }
-        console.log("min-z = " + z)
-        LEFT = Math.floor(Math.random() * z);
-        TOP = Math.floor(Math.random() * 84);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    }else if(SHRIFT <= 70){
-        if(width < 600){
-            z = 86
-        } else if (width < 1000){ 
-            z = 86
-        } else if (width < 1200){ 
-            z = 95
-        } else if (width > 1200){
-            z = 97
-        }
-        console.log("min-z = " + z)
-        LEFT = Math.floor(Math.random() * z);
-        TOP = Math.floor(Math.random() * 81);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-        
-    } else if(SHRIFT <= 80){
-        if(width < 600){
-            z = 76
-        }else if(width < 1000){
-            z = 85
-        } else if (width < 1200){ 
-            z = 94
-        } else if (width > 1200){
-            z = 96
-        }
-        console.log("min-z = " + z)
-        LEFT = Math.floor(Math.random() * z);
-        TOP = Math.floor(Math.random() * 78);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-        
-    } else if(SHRIFT <= 90){
-        if(width < 600){
-            z = 74
-        }else if(width < 1000){
-            z = 84
-        } else if (width < 1200){ 
-            z = 93
-        } else if (width > 1200){
-            z = 95
-        }
-        console.log("min-z = " + z)
-        LEFT = Math.floor(Math.random() * z);
-        TOP = Math.floor(Math.random() * 76);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    }else if (SHRIFT <= 100) {
-        if(width < 600){
-            z = 74
-        }else if(width < 1200){
-            z = 83
-        } else if (width < 1200){ 
-            z = 92
-        } else if (width > 1200){
-            z = 94
-        }
-        console.log("min-z = " + z)
-        LEFT = Math.floor(Math.random() * z);
-        TOP = Math.floor(Math.random() * 73);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-        
-    }else if(SHRIFT <= 110){
-        if(width < 600){
-            z = 73
-        }else if(width < 1000){
-            z = 82
-        } else if (width < 1200){ 
-            z = 91
-        } else if (width > 1200){
-            z = 93
-        }
-        console.log("min-z = " + z)
-        LEFT = Math.floor(Math.random() * z);
-        TOP = Math.floor(Math.random() * 70);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    } else if(SHRIFT <= 120){
-        if(width < 600){
-            z = 70
-        }else if(width < 1000){
-            z = 80
-        } else if (width < 1200){ 
-            z = 90
-        } else if (width > 1200){
-            z = 92
-        }
-        console.log("min-z = " + z)
-        LEFT = Math.floor(Math.random() * z);
-        TOP = Math.floor(Math.random() * 68);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    } else if(SHRIFT <= 130){
-        if(width < 600){
-            z = 68
-        }else if(width < 1000){
-            z = 79
-        } else if (width < 1200){ 
-            z = 89
-        } else if (width > 1200){
-            z = 91
-        }
-        console.log("min-z = " + z)
-        LEFT = Math.floor(Math.random() * z);
-        TOP = Math.floor(Math.random() * 65);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    } else if(SHRIFT <= 140){
-        if(width < 600){
-            z = 66
-        }else if(width < 1000){
-            z = 78
-        } else if (width < 1200){ 
-            z = 88
-        } else if (width > 1200){
-            z = 90
-        }
-        console.log("min-z = " + z)
-        LEFT = Math.floor(Math.random() * z);
-        TOP = Math.floor(Math.random() * 62);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    } else if(SHRIFT <= 150){
-        if(width < 600){
-            z = 64
-        } else if(width < 1000){
-            z = 77
-        } else if ( width < 1200){ 
-            z = 87
-        } else if (width > 1200){
-            z = 89
-        }
-        console.log("min-z = " + z)
-        LEFT = Math.floor(Math.random() * z);
-        TOP = Math.floor(Math.random() * 60);
-        document.getElementById("block").style.left = LEFT + 'vw';
-        document.getElementById("block").style.top = TOP + 'vh';
-    }
 }
-let setFont =() =>{   
-}
+
+
 
 //  Размер Шрифта
 
 $('#min').click(function(){
       $(this).siblings('input')[0].stepDown();
-      setSise()
+      setSise();setLine()
   })
   $('#plu').click(function(){  
       $(this).siblings('input')[0].stepUp(); 
-      setSise()
+      setSise();setLine()
     })
 $('#minus').click(function(){
       $(this).siblings('input')[0].stepDown();
-      setSise()
+      setSise();setLine()
   })
   $('#plus').click(function(){  
       $(this).siblings('input')[0].stepUp(); 
-      setSise()
+      setSise();setLine()
     })
 
 function setSise() {
@@ -1015,7 +754,273 @@ function setSise() {
     console.log(SHRIFT)
     document.getElementById('alfavit').style.fontSize = SHRIFT + 'px';
     document.getElementById('hand').style.fontSize = SHRIFT + 'px';
+    document.getElementById('leg').style.fontSize = SHRIFT + 'px';
+    
 }
+var Height1 = document.getElementById('alfavit');
+var Height2 = document.getElementById('hand');
+var Height3 = document.getElementById('leg');
+var SHRIFT1 = document.getElementById('MixPsevdo3');
+var SHRIFT2 = document.getElementById('MixPsevdo1');
+var SHRIFT3 = document.getElementById('MixPsevdo2');
+var SHRFill = document.getElementById("fill");
+var Height = document.getElementById('block');
+
+function set3Place() {
+    let TOP;
+    let LEFT;
+    if(SHRIFT <= 35){
+        z = 89
+    }else if(SHRIFT <= 40){
+        z = 87
+    } else if(SHRIFT <= 45){
+        z = 85
+    }else if(SHRIFT <= 50){
+        z = 83
+    } else if(SHRIFT <= 55){
+        z = 82
+    } else if(SHRIFT <= 60){
+        z = 80
+    }else if (SHRIFT <= 65){
+        z = 78
+    }else if(SHRIFT <= 70){
+        z = 76
+    } else if(SHRIFT <= 75){
+        z = 75
+    } else if(SHRIFT <= 80){
+        z = 73
+    } else if(SHRIFT <= 85){
+        z = 71
+    } else if(SHRIFT <= 90){
+        z = 69
+    }else if(SHRIFT <= 95){
+        z = 67
+    } else if(SHRIFT <= 100){
+        z = 66
+    }else if(SHRIFT <= 105){
+        z = 64
+    } else if(SHRIFT <= 110){
+        z = 62
+    } else if(SHRIFT <= 115){
+        z = 60
+    }else if (SHRIFT <= 120){
+        z = 59
+    }else if(SHRIFT <= 125){
+        z = 57
+    } else if(SHRIFT <= 130){
+        z = 55
+    } else if(SHRIFT <= 135){
+        z = 53
+    } else if(SHRIFT <= 140){
+        z = 52
+    } else if(SHRIFT <= 145){
+        z = 50
+    } else if(SHRIFT <= 150){
+        z = 48
+    }
+    LEFT = Math.floor(Math.random() * 90);
+    TOP = Math.floor(Math.random() * z);
+    document.getElementById("block").style.left = LEFT + 'vw';
+    document.getElementById("block").style.top = TOP + 'vh';
+
+}
+function set2Place() {
+    let TOP;
+    let LEFT;
+    if(SHRIFT <= 35){
+        z = 90
+    }else if(SHRIFT <= 40){
+        z = 89
+    } else if(SHRIFT <= 45){
+        z = 85
+    }else if(SHRIFT <= 50){
+        z = 88
+    } else if(SHRIFT <= 55){
+        z = 87
+    } else if(SHRIFT <= 60){
+        z = 86
+    }else if (SHRIFT <= 65){
+        z = 84
+    }else if(SHRIFT <= 70){
+        z = 83
+    } else if(SHRIFT <= 75){
+        z = 82
+    } else if(SHRIFT <= 80){
+        z = 81
+    } else if(SHRIFT <= 85){
+        z = 79
+    } else if(SHRIFT <= 90){
+        z = 78
+    }else if(SHRIFT <= 95){
+        z = 77
+    } else if(SHRIFT <= 100){
+        z = 76
+    }else if(SHRIFT <= 105){
+        z = 75
+    } else if(SHRIFT <= 110){
+        z = 74
+    } else if(SHRIFT <= 115){
+        z = 73
+    }else if (SHRIFT <= 120){
+        z = 72
+    }else if(SHRIFT <= 125){
+        z = 71
+    } else if(SHRIFT <= 130){
+        z = 70
+    } else if(SHRIFT <= 135){
+        z = 68
+    } else if(SHRIFT <= 140){
+        z = 67
+    } else if(SHRIFT <= 145){
+        z = 66
+    } else if(SHRIFT <= 150){
+        z = 65
+    }
+    LEFT = Math.floor(Math.random() * 90);
+    TOP = Math.floor(Math.random() * z);
+    document.getElementById("block").style.left = LEFT + 'vw';
+    document.getElementById("block").style.top = TOP + 'vh';
+
+}
+function set3PlaceSuEx() {
+    z = 40
+    LEFT = Math.floor(Math.random() * 90);
+    TOP = Math.floor(Math.random() * z);
+    document.getElementById("block").style.left = LEFT + 'vw';
+    document.getElementById("block").style.top = TOP + 'vh';
+
+}
+function set2PlaceSuEx() {
+    z = 59
+    LEFT = Math.floor(Math.random() * 90);
+    TOP = Math.floor(Math.random() * z);
+    document.getElementById("block").style.left = LEFT + 'vw';
+    document.getElementById("block").style.top = TOP + 'vh';
+}
+function set3PlaceEx() {
+    let TOP;
+    let LEFT;
+    if(SHRIFT <= 35){
+        z = 85
+    }else if(SHRIFT <= 40){
+        z = 83
+    } else if(SHRIFT <= 45){
+        z = 81
+    }else if(SHRIFT <= 50){
+        z = 79
+    } else if(SHRIFT <= 55){
+        z = 77
+    } else if(SHRIFT <= 60){
+        z = 75
+    }else if (SHRIFT <= 65){
+        z = 73
+    }else if(SHRIFT <= 70){
+        z = 71
+    } else if(SHRIFT <= 75){
+        z = 69
+    } else if(SHRIFT <= 80){
+        z = 67
+    } else if(SHRIFT <= 85){
+        z = 65
+    } else if(SHRIFT <= 90){
+        z = 63
+    }else if(SHRIFT <= 95){
+        z = 61
+    } else if(SHRIFT <= 100){
+        z = 60
+    }else if(SHRIFT <= 105){
+        z = 57
+    } else if(SHRIFT <= 110){
+        z = 55
+    } else if(SHRIFT <= 115){
+        z = 54
+    }else if (SHRIFT <= 120){
+        z = 52
+    }else if(SHRIFT <= 125){
+        z = 50
+    } else if(SHRIFT <= 130){
+        z = 48
+    } else if(SHRIFT <= 135){
+        z = 46
+    } else if(SHRIFT <= 140){
+        z = 44
+    } else if(SHRIFT <= 145){
+        z = 41
+    } else if(SHRIFT <= 150){
+        z = 40
+    }
+    LEFT = Math.floor(Math.random() * 90);
+    TOP = Math.floor(Math.random() * z);
+    document.getElementById("block").style.left = LEFT + 'vw';
+    document.getElementById("block").style.top = TOP + 'vh';
+
+}
+function set2PlaceEx() {
+    let TOP;
+    let LEFT;
+    if(SHRIFT <= 35){
+        z = 90
+    }else if(SHRIFT <= 40){
+        z = 89
+    } else if(SHRIFT <= 45){
+        z = 85
+    }else if(SHRIFT <= 50){
+        z = 88
+    } else if(SHRIFT <= 55){
+        z = 87
+    } else if(SHRIFT <= 60){
+        z = 86
+    }else if (SHRIFT <= 65){
+        z = 84
+    }else if(SHRIFT <= 70){
+        z = 83
+    } else if(SHRIFT <= 75){
+        z = 82
+    } else if(SHRIFT <= 80){
+        z = 81
+    } else if(SHRIFT <= 85){
+        z = 79
+    } else if(SHRIFT <= 90){
+        z = 78
+    }else if(SHRIFT <= 95){
+        z = 77
+    } else if(SHRIFT <= 100){
+        z = 76
+    }else if(SHRIFT <= 105){
+        z = 75
+    } else if(SHRIFT <= 110){
+        z = 74
+    } else if(SHRIFT <= 115){
+        z = 73
+    }else if (SHRIFT <= 120){
+        z = 72
+    }else if(SHRIFT <= 125){
+        z = 71
+    } else if(SHRIFT <= 130){
+        z = 70
+    } else if(SHRIFT <= 135){
+        z = 68
+    } else if(SHRIFT <= 140){
+        z = 67
+    } else if(SHRIFT <= 145){
+        z = 66
+    } else if(SHRIFT <= 150){
+        z = 65
+    }
+    LEFT = Math.floor(Math.random() * 90);
+    TOP = Math.floor(Math.random() * z);
+    document.getElementById("block").style.left = LEFT + 'vw';
+    document.getElementById("block").style.top = TOP + 'vh';
+
+}
+
+function setLine() {
+    SHRIFT = parseInt(SHRIFT)
+    Height.style.lineHeight = (SHRIFT - 5) + "px";
+    console.log(SHRIFT);
+    
+}
+      
 
 function reset() {
     location.reload()
@@ -1030,20 +1035,11 @@ function clear() {
 let setTimeReal = ()=>{  
         clearInterval(Times_1)
         NewHOLD = HOLD * 3;
-        Times_1 = setInterval(function () { newHands() }, NewHOLD);
-        if(ALF == ALFheb) {
-            clearInterval(Times_Alf);
-            NewAlfHOLD = HOLD * 22;
-            Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-        } if (ALF == ALFeng) {
-            clearInterval(Times_Alf);
-            NewAlfHOLD = HOLD * 26;
-            Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-        } else {
+        Times_1 = setInterval(function () { newHands(),newLegs() }, NewHOLD);
             clearInterval(Times_Alf)
             NewAlfHOLD = HOLD * 27;
             Times_Alf = setInterval(function () { newLetters() }, NewAlfHOLD)
-        }return Times_Alf     
+        return Times_Alf     
 }
 
 let setTime1 =()=>{
@@ -1054,46 +1050,48 @@ let setTime1 =()=>{
         interTime = HOLD;
     } 
     if (Extra.checked) {
+        Height.style.lineHeight = "normal";
         if (colorSimle.checked) {
             clear();
             TimesColor = setInterval(function () {
-                    setFontEx(), randomHands(), extra(), setColor(),
+                    setFontEx(), randomHands(), randomLegs(), extra(), setColor(),
                     randomLetters()
             }, interTime);  
             setTimeReal();
         } else if (colorExtra.checked) {
             clear();
             TimesExtColor = setInterval(function () {
-                    setFontEx(), randomHands(), extra(),
+                    setFontEx(), randomHands(),  randomLegs(), extra(),
                     randomLetters(), setColorAlf(), setColorHand()
             }, interTime);
             setTimeReal();
         } else {
             clear()
         Times_3 = setInterval(function () {
-            setFontEx(), randomHands(), randomLetters(), extra()
+            setFontEx(), randomHands(),  randomLegs(), randomLetters(), extra()
         },interTime);
         setTimeReal();
         }   
     } else if (SuperExtra.checked) {
+        Height.style.lineHeight = "normal";
             if (colorSimle.checked) {
                 clear();
                 TimesColor = setInterval(function () {
-                    setFontEx(), randomHands(), superExtraLet(), superExtraHan(), 
+                    setFontEx(), randomHands(),  randomLegs(), superExtraLet(), superExtraLeg(), superExtraHan(), 
                     setColor(), randomLetters()
                 }, interTime);
                 setTimeReal();  
             } else if (colorExtra.checked) {
                 clear();
                 TimesExtColor = setInterval(function () {
-                        setFontEx(), randomHands(), superExtraLet(), superExtraHan(),
+                        setFontEx(), randomHands(),  randomLegs(), superExtraLet(), superExtraLeg(), superExtraHan(),
                         randomLetters(), setColorAlf(), setColorHand()
                 }, interTime);
                 setTimeReal();
             } else {
                 clear()
                 Times_3 = setInterval(function () {
-                    setFontEx(), randomHands(), randomLetters(), superExtraLet(), superExtraHan()
+                    setFontEx(), randomHands(),  randomLegs(), randomLetters(), superExtraLet(), superExtraLeg(), superExtraHan()
             },interTime);
             setTimeReal();          
             }  
@@ -1102,7 +1100,7 @@ let setTime1 =()=>{
             clear();
             console.log("Simple in setTime1()")
             TimesColor = setInterval(function () {
-                randomHands(), setFont(), setColor(),
+                randomHands(),  randomLegs(), setFont(), setColor(), 
                     randomLetters()
             }, interTime); 
             setTimeReal();
@@ -1110,27 +1108,29 @@ let setTime1 =()=>{
         } else if (colorExtra.checked) {
             clear();
             TimesExtColor = setInterval(function () {
-                randomHands(), setFont(),
+                randomHands(),  randomLegs(), setFont(),
                     randomLetters(), setColorAlf(), setColorHand()
             }, interTime);
             setTimeReal();     
         } else {
             clear()
             console.log("else in setTime1()")
-            Times_3 = setInterval(function () { randomHands(), setFont(), randomLetters()},interTime);
+            Times_3 = setInterval(function () { randomHands(), randomLegs(), setFont(), randomLetters()},interTime);
             setTimeReal();
-            // clear() 
+            //  clear() 
         } 
             
     } 
 }
      
 startExtra = ()=>{
+    setLine()
     clear()
     document.getElementById("plu").style.display = "none"
     document.getElementById("min").style.display = "none"
     document.getElementById("MixPsevdo1").style.display = "none"
     document.getElementById("MixPsevdo2").style.display = "none"
+    document.getElementById("MixPsevdo3").style.display = "none"
     document.getElementById("fill").style.display = "block"
     document.getElementById("super").checked = false;
     HOLD = document.getElementById("speed").value
@@ -1141,23 +1141,24 @@ startExtra = ()=>{
         interTime = HOLD;
     }
     if (Extra.checked) {
+        Height.style.lineHeight = "normal";
         if (colorSimle.checked) {
             clear();
             TimesColor = setInterval(function () {
-                    setFontEx(),  randomHands(),  extra(), setColor(),
+                    setFontEx(),  randomHands(), randomLegs(),  extra(), setColor(),
                     randomLetters()
             }, interTime);  
         } else if (colorExtra.checked) {
             clear();
             TimesExtColor = setInterval(function () {
-                    setFontEx(),  randomHands(),  extra(),
-                    randomLetters(), setColorAlf(), setColorHand()
+                    setFontEx(),  randomHands(), randomLegs(),  extra(),
+                    randomLetters(), setColorAlf(), setColorHand(), setColorLeg()
             }, interTime);
 
         } else {
             clear()
             Times_3 = setInterval(function () {
-                setFontEx(), randomHands(),  randomLetters(), extra()
+                setFontEx(), randomHands(), randomLegs(),  randomLetters(), extra()
         },interTime);
         }   
     }else{ 
@@ -1168,31 +1169,35 @@ startExtra = ()=>{
         if (colorSimle.checked) {
             clear();
             TimesColor = setInterval(function () {
-                    setFont(), randomHands(), setColor(),
+                    setFont(), randomHands(), randomLegs(), setColor(),
                     randomLetters()
             }, interTime);  
         } else if (colorExtra.checked) {
             clear();
             TimesExtColor = setInterval(function () {
-                    setFont(), randomHands(), 
-                    randomLetters(), setColorAlf(), setColorHand()
+                    setFont(), randomHands(), randomLegs(), 
+                    randomLetters(), setColorAlf(), setColorHand(), setColorLeg()
             }, interTime);
         } else{
             document.getElementById("plu").style.display = "block"
             document.getElementById("min").style.display = "block"
             clear()
-            Times_3 = setInterval(function () { setFont(), randomHands(),  randomLetters()},interTime);
+            Times_3 = setInterval(function () { setFont(), randomHands(), randomLegs(),  randomLetters()},interTime);
         }
     }
 }
 
 let startSuperExtra = ()=>{
+    setLine()
     clear();
     document.getElementById("fill").style.display = "none"
     document.getElementById("plu").style.display = "none"
     document.getElementById("min").style.display = "none"
     document.getElementById("MixPsevdo1").style.display = "block"
     document.getElementById("MixPsevdo2").style.display = "block"
+    document.getElementById("MixPsevdo3").style.display = "block"
+
+    Height.style.lineHeight = "normal";
     document.getElementById("On").checked = false;
     HOLD = document.getElementById("speed").value
     setTimeReal();
@@ -1202,22 +1207,53 @@ let startSuperExtra = ()=>{
         interTime = HOLD;
     }
     if (SuperExtra.checked) {
+        Height.style.lineHeight = "normal";
         if (colorSimle.checked) {
             clear();
+            if(legIn.checked) {
+                document.getElementById("MixPsevdo3").style.display = "block"
+            } else {
+                document.getElementById("MixPsevdo3").style.display = "none"
+            }
+            if(handIn.checked) {
+                document.getElementById("MixPsevdo2").style.display = "block"
+            } else {
+                document.getElementById("MixPsevdo2").style.display = "none"
+            }
             TimesColor = setInterval(function () {
-                setFontEx(), randomHands(), superExtraLet(), superExtraHan(), 
+                setFontEx(), randomHands(), randomLegs(), superExtraLet(), superExtraLeg(), superExtraHan(), 
                 setColor(), randomLetters()
             }, interTime);  
         } else if (colorExtra.checked) {
             clear();
+            if(legIn.checked) {
+                document.getElementById("MixPsevdo3").style.display = "block"
+            } else {
+                document.getElementById("MixPsevdo3").style.display = "none"
+            }
+            if(handIn.checked) {
+                document.getElementById("MixPsevdo2").style.display = "block"
+            } else {
+                document.getElementById("MixPsevdo2").style.display = "none"
+            }
             TimesExtColor = setInterval(function () {
-                    setFontEx(), randomHands(), superExtraLet(), superExtraHan(),
-                    randomLetters(), setColorAlf(), setColorHand()
+                    setFontEx(), randomHands(), randomLegs(), superExtraLet(), superExtraLeg(), superExtraHan(),
+                    randomLetters(), setColorAlf(), setColorHand(), setColorLeg()
             }, interTime);
         } else {
             clear()
+            if(legIn.checked) {
+                document.getElementById("MixPsevdo3").style.display = "block"
+            } else {
+                document.getElementById("MixPsevdo3").style.display = "none"
+            }
+            if(handIn.checked) {
+                document.getElementById("MixPsevdo2").style.display = "block"
+            } else {
+                document.getElementById("MixPsevdo2").style.display = "none"
+            }
             Times_3 = setInterval(function () {
-                setFontEx(), randomHands(), randomLetters(), superExtraLet(), superExtraHan()
+                setFontEx(), randomHands(), randomLegs(), randomLetters(), superExtraLeg(), superExtraLet(), superExtraHan()
         },interTime);
         }   
     }else{  
@@ -1226,43 +1262,77 @@ let startSuperExtra = ()=>{
             document.getElementById("min").style.display = "block"
             document.getElementById("MixPsevdo1").style.display = "none"
             document.getElementById("MixPsevdo2").style.display = "none" 
+            document.getElementById("MixPsevdo3").style.display = "none" 
+            
         document.getElementById("fill").value = 100;
         setSise();
+        setLine()
         if (colorSimle.checked) {
             clear();
             TimesColor = setInterval(function () {
-                    setFont(), randomHands(), setColor(),
+                    setFont(), randomLegs(), randomHands(), setColor(),
                     randomLetters()
             }, interTime);  
         } else if (colorExtra.checked) {
             clear();
             TimesExtColor = setInterval(function () {
-                    setFont(), randomHands(), 
-                    randomLetters(), setColorAlf(), setColorHand()
+                    setFont(), randomHands(), randomLegs(),
+                    randomLetters(), setColorAlf(), setColorHand(), setColorLeg()
             }, interTime);
         } else{
+            setLine()
             document.getElementById("fill").style.display = "block"
             document.getElementById("plu").style.display = "block"
             document.getElementById("min").style.display = "block"
             document.getElementById("MixPsevdo1").style.display = "none"
             document.getElementById("MixPsevdo2").style.display = "none"
+            document.getElementById("MixPsevdo3").style.display = "none" 
             clear()
-            Times_3 = setInterval(function () { setFont(), randomHands(), randomLetters()},interTime);
+            Times_3 = setInterval(function () { setFont(), randomLegs(), randomHands(), randomLetters()},interTime);
            
         }
     }
 
 }
 
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      document.getElementById('FullSc').click();
+    }
+  });
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowUp') {
+      document.getElementById('plus').click();
+    }
+  });
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowDown') {
+      document.getElementById('minus').click();
+    }
+  });
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft') {
+      document.getElementById('plu').click();
+    }
+  });
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight') {
+      document.getElementById('min').click();
+    }
+  });
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.getElementById('sise').click();
+    }
+  });
+
+
+
 function superExtraLet() {
     SISE3 = Math.floor((Math.random() * 100) + 30);
     document.getElementById("alfavit").style.fontSize = SISE3 + 'px';
-    LEFT = Math.floor(Math.random() * 90);
-    TOP = Math.floor(Math.random() * 60);
-    document.getElementById("block").style.left = LEFT + '%';
-    document.getElementById("block").style.top = TOP + '%';
     document.getElementById("MixPsevdo1").innerText = SISE3
-  
+    Height.style.lineHeight = "normal";
   
 }
 
@@ -1270,19 +1340,25 @@ function superExtraHan() {
     SISE2 = Math.floor((Math.random() * 100) + 30);
     asd = document.getElementById("hand").style.fontSize = SISE2 + 'px';
     console.log(asd)
-    LEFT = Math.floor(Math.random() * 90);
-    TOP = Math.floor(Math.random() * 60);
-    document.getElementById("block").style.left = LEFT + '%';
-    document.getElementById("block").style.top = TOP + '%';
     document.getElementById("MixPsevdo2").innerText = SISE2
+    Height.style.lineHeight = "normal";
+}
+function superExtraLeg() {
+    Height.style.lineHeight = "normal";
+    SISE1 = Math.floor((Math.random() * 100) + 30);
+    asdd = document.getElementById("leg").style.fontSize = SISE1 + 'px';
+    console.log(asdd)
+    document.getElementById("MixPsevdo3").innerText = SISE1
 }
 
 function extra() {
+    Height.style.lineHeight = "normal";
     document.getElementById("fill").setAttribute('type', 'number');
     SISE = Math.floor((Math.random() * 100) + 30);
     document.getElementById("fill").value = SISE;
     document.getElementById("alfavit").style.fontSize = SISE + 'px';
     document.getElementById("hand").style.fontSize = SISE + 'px';
+    document.getElementById("leg").style.fontSize = SISE + 'px';
     // document.getElementsByClassName("sise").innerText = "Extra"
 
     console.log(SISE);
@@ -1297,12 +1373,20 @@ var elem = document.documentElement;
         HOLD = document.getElementById("speed").value;
         if (elem.requestFullscreen) {
             elem.requestFullscreen();
+            setFont = setfontFullScr;
+            setFontEx = setfontFullScr;
         } else if (elem.mozRequestFullScreen) { /* Firefox */
             elem.mozRequestFullScreen(); 
+            setFont = setfontFullScr;
+            setFontEx = setfontFullScr;
         } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-            elem.webkitRequestFullscreen();      
+            elem.webkitRequestFullscreen(); 
+            setFont = setfontFullScr;   
+            setFontEx = setfontFullScr;  
         } else if (elem.msRequestFullscreen) { /* IE/Edge */
             elem.msRequestFullscreen();
+            setFont = setfontFullScr;   
+            setFontEx = setfontFullScr;  
         } 
 
 
@@ -1310,13 +1394,9 @@ var elem = document.documentElement;
       menuItem.addEventListener("mousemove", function (){
             clearTimeout(timeout);
             dropDownMenu.style.display = "grid";
-            setFont = setfontFullScr
-            setFontEx = setFontExFull1
             timeout = setTimeout(() => {
                 console.log("inFull1")
                 dropDownMenu.style.display = 'none';
-                setFont = setfontFullScr
-                setFontEx = setFontExFull1
                 }, 5000);
                 
         })
@@ -1326,16 +1406,8 @@ var elem = document.documentElement;
                 console.log("inFull2")
                 dropDownMenu.style.display = 'none';
                 }, 5000);
-                setFont = setfontFullScr
-                setFontEx = setFontExFull1
-                if(modal.style.display == 'block')
-                    window.style.cursor = "default";
-                    setFont = setfontFullScr 
-                    setFontEx = setFontExFull1
                 if(dropDownMenu.style.display = "grid")
-                    menuItem.style.cursor = "default";
-                    setFont = setfontFullScr
-                    setFontEx = setFontExFull1   
+                    menuItem.style.cursor = "default"; 
         })  
 
 }
@@ -1363,9 +1435,11 @@ function resetColor() {
     if (black == "black" ){
             document.getElementById("alfavit").style.color = "white";
             document.getElementById("hand").style.color = "white";
+            document.getElementById("leg").style.color = "white";
     } else {
         document.getElementById("alfavit").style.color = "black";
         document.getElementById("hand").style.color = "black";
+        document.getElementById("leg").style.color = "black";
     }   
 }
 
@@ -1374,6 +1448,7 @@ function setColor() {
     var color = Math.floor(Math.random() * 8);
     newColor1 = document.getElementById("alfavit").style.color = COLORS[color];
     newColor2 = document.getElementById("hand").style.color = COLORS[color];
+    newColor3 = document.getElementById("leg").style.color = COLORS[color];
     console.log("SetColor - Проверка")
 }
 
@@ -1388,6 +1463,11 @@ function setColorHand() {
     var color = Math.floor(Math.random() * 8);
     newColor2 = document.getElementById("hand").style.color = COLORS[color];
 }
+function setColorLeg() {
+    const COLORS = ['RED', 'ORANGE', 'YELLOW', 'GREEN', 'BLUE', 'INDIGO', 'VIOLET', 'GRAY'];
+    var color = Math.floor(Math.random() * 8);
+    newColor2 = document.getElementById("leg").style.color = COLORS[color];
+}
 
 function resetExtColor() {
     document.getElementById("ColorExt").checked = false;
@@ -1395,9 +1475,11 @@ function resetExtColor() {
     if (black == "black" ){
             document.getElementById("alfavit").style.color = "white";
             document.getElementById("hand").style.color = "white";
+            document.getElementById("leg").style.color = "white";
     } else {
         document.getElementById("alfavit").style.color = "black";
         document.getElementById("hand").style.color = "black";
+        document.getElementById("leg").style.color = "black";
     }  
 }
 
@@ -1406,12 +1488,14 @@ function closeTheme() {
     document.querySelector("body").style.backgroundColor = "white";
     document.getElementById("alfavit").style.color = "black"
     document.getElementById("hand").style.color = "black"
+    document.getElementById("leg").style.color = "black"
 }
 
 function setTheme() {
     document.querySelector("body").style.backgroundColor = "black";
     document.getElementById("alfavit").style.color = "white"
     document.getElementById("hand").style.color = "white"
+    document.getElementById("leg").style.color = "white"
 }
 
 Theme.addEventListener("click", function () {
@@ -1423,28 +1507,6 @@ Theme.addEventListener("click", function () {
 })
 
 // Инструкция
-
-let modalWin = () =>{
-    modal.style.display = 'block';
-    modal.style.backgroundColor = 'rgba(211, 210, 210, 0.94)';
-    modal.style.top = '5%';
-    modal.style.left = '6%';
-}
-
-
-btn.addEventListener("click",function () {
-   modalWin();
-   openLeng();
-   clearTimeout(timeout);
-   document.getElementById("top").style.pointerEvents = "none";
-   modal.style.pointerEvents = "visible";
-})
-
-stopModal=() => {
-    console.log("just close")
-  modal.style.display = 'none';
-  document.getElementById("top").style.pointerEvents = "visible";
-};
 
 // window.onclick = function () {
 //     modal.style.display = 'none';
