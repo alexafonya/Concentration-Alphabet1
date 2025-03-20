@@ -1325,6 +1325,41 @@ document.addEventListener('keydown', function(e) {
       document.getElementById('sise').click();
     }
   });
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'c') {
+      document.getElementById('color').click();
+    }
+  });
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'v') {
+      document.getElementById('ColorExt').click();
+    }
+  });
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'z') {
+      document.getElementById('On').click();
+    }
+  });
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'x') {
+      document.getElementById('super').click();
+    }
+  });
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'b') {
+      document.getElementById('putLeg').click();
+    }
+  });
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'n') {
+      document.getElementById('putHand').click();
+    }
+  });
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'SpaceBar') {
+      document.getElementById('theme').click();
+    }
+  });
 
 
 
